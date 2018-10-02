@@ -24,6 +24,6 @@
         esPolindramo(frase);
     }
 
-    window.onload = init;
+    window.addEventListener("load",init);
 
 }
