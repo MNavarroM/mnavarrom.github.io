@@ -9,8 +9,6 @@
 
  {
 
-    let enlaces = document.getElementsByTagName("a");
-
     function numEnlaces() {
         document.getElementById("numenlaces").textContent = "La web tiene " + enlaces.length + " enlaces";
     }
@@ -36,6 +34,7 @@
     }
 
     function init() {
+        let enlaces = document.getElementsByTagName("a");
         numEnlaces();
         penultimoEnlace();
         numEnlacesPrueba();
@@ -43,6 +42,5 @@
     }
 
     window.addEventListener("load",init);
-
 
  }
