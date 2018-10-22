@@ -10,7 +10,6 @@
  */
 
 {
-window.addEventListener("load", init)
 
 function openWindow() {
     let ventana = window.open("","","width=300,height=200,top=0,left=0");
@@ -27,11 +26,15 @@ function openWindow() {
         + "</ul>"
         + "</body>"
         + "</html>");
+        ventana.document.close();
 }
 
 function init (){
     let button = document.getElementById("openWindow");
     button.addEventListener('click', openWindow);
 }
+
+document.addEventListener("DOMContentLoaded", init)
+
 
 }

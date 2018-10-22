@@ -10,7 +10,6 @@
      */
 
     {
-        document.addEventListener("DOMContentLoaded", init)
 
         function openWindow() {
             let top = 0;
@@ -38,4 +37,6 @@
             let button = document.getElementById("openWindow");
             button.addEventListener('click', openWindow);
         }
+        document.addEventListener("DOMContentLoaded", init)
+
     }
