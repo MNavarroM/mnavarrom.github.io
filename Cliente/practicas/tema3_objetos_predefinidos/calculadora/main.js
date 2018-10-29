@@ -55,6 +55,8 @@
                 switch (element.value) {
                     case "DEL":
                         input.value = input.value.substr(0,input.value.length-1);
+                        if(input.value=="-" || input.value.length==0)
+                            input.value = 0;
                     break;
                     case "CE":
                         input.value = 0;
@@ -124,8 +126,8 @@
                             input.value = Math.abs(input.value);
                         break;
                     case ",":
-                        if(!input.value.includes(","))
-                            input.value += ",";
+                        if(!input.value.includes("."))
+                            input.value += ".";
                         break;
                 }
             });
