@@ -12,18 +12,19 @@
     function createCalculadora() {
         let nombre = document.createElement("h1");
         nombre.textContent = "Calculadora - Mario Navarro Madrid";
-        main = document.createElement("main");
+        let main = document.createElement("main");
         document.body.appendChild(main);
         main.appendChild(nombre);
         main.style.textAlign = "center";
-        cuerpoCalculadora = document.createElement("div");
+        let cuerpoCalculadora = document.createElement("div");
         cuerpoCalculadora.style.backgroundColor  = "grey";
         cuerpoCalculadora.style.width ="240px";
         cuerpoCalculadora.style.margin ="0px auto";
-        input = document.createElement("input");
+        let input = document.createElement("input");
         input.value=0;
         input.type = "text";
         input.id ="display";
+        input.style.textAlign = "right";
         //input.readOnly = true;
         input.style.width = "236px";
         input.style.height = "30px";
@@ -48,8 +49,8 @@
     }
 
     function display() {
-        input = document.getElementById("display");
-        btns = document.getElementsByClassName("botones");
+        let input = document.getElementById("display");
+        let btns = document.getElementsByClassName("botones");
         Array.prototype.forEach.call(btns, element => {
             element.addEventListener("click",function () {
                 switch (element.value) {
@@ -66,58 +67,18 @@
                             input.value += 0;
                         break;
                     case "1":
-                        if(input.value==0)
-                            input.value = 1;
-                        else
-                            input.value += 1;
-                        break;
                     case "2":
-                        if(input.value==0)
-                            input.value = 2;
-                        else
-                            input.value += 2;
-                        break;
                     case "3":
-                        if(input.value==0)
-                            input.value = 3;
-                        else
-                            input.value += 3;
-                        break;
                     case "4":
-                        if(input.value==0)
-                            input.value = 4;
-                        else
-                            input.value += 4;
-                        break;
                     case "5":
-                        if(input.value==0)
-                            input.value = 5;
-                        else
-                            input.value += 5;
-                        break;
                     case "6":
-                        if(input.value==0)
-                            input.value = 6;
-                        else
-                            input.value += 6;
-                        break;
                     case "7":
-                        if(input.value==0)
-                            input.value = 7;
-                        else
-                            input.value += 7;
-                        break;
                     case "8":
-                        if(input.value==0)
-                            input.value = 8;
-                        else
-                            input.value += 8;
-                        break;
                     case "9":
-                        if(input.value==0)
-                            input.value = 9;
+                        if(input.value==0 && !input.value.includes("."))
+                            input.value = element.value;
                         else
-                            input.value += 9;
+                            input.value += element.value;
                         break;
                     case "+/-":
                         if(input.value>0)
