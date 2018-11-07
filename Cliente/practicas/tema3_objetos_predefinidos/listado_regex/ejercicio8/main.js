@@ -3,7 +3,7 @@
  * @author Mario Navarro Madrid
  */
 {
-    
+
     function init() {
         expresion();
     }

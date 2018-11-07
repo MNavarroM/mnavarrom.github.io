@@ -1,4 +1,4 @@
-/**>Busca en el objeto String funciones que simulen la funcionalidad de test()
+/**>Busca en el objeto String funciones que simulen la funcionalidad de exec()
  * @author Mario Navarro Madrid
  */
 {
