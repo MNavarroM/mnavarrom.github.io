@@ -1,0 +1,74 @@
+.border{
+    width: 220px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+#borderRadius{
+
+    border-radius: 15px 10px 15px 10px ;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+#borderRadiusTopRight{
+
+    border-style: solid;
+    border-top-right-radius: 15px;
+    border-width: 2px;
+    border-color: black;
+}
+
+#borderRadiusTopLeft{
+
+    border-style: solid;
+    border-top-left-radius: 15px;
+    border-width: 2px;
+    border-color: black;
+}
+
+#borderRadiusBottomRight{
+
+    border-style: solid;
+    border-bottom-right-radius: 15px;
+    border-width: 2px;
+    border-color: black;
+}
+#borderRadiusBottomLeft{
+
+    border-style: solid;
+    border-bottom-left-radius: 15px;
+    border-width: 2px;
+    border-color: black;
+}
+
+#borderImage{
+
+    border-style: solid;
+    border-image-source: url('hormigas.jpg');
+    border-image-slice: 70;
+    border-image-repeat:repeat;
+    border-image-width: 30px;
+    border-width: 20px;
+    border-color: black;
+    border-image-outset: 10px;
+
+}
+
+#borderImageSource{
+    border-image-source: url('hormigas.jpg');
+    border-image-repeat: stretch;
+    border-style: solid;
+    border-width: 50px;
+    margin: 0 auto;
+}
+
+#borderBox{
+    width: 220px;
+    height: 100px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0 auto;
+    box-shadow: 3px 3px 3px 3px green;
+}

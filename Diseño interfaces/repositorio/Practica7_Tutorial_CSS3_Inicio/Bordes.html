@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Plantilla para el tutorial de CSS3</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/cssBordes.css">
+</head>
+
+<body>
+    <h1>TUTORIAL CSS3 - 2018/2019 - BORDES</h1>
+    <h2><img src="icon/language-css3.svg"></h2>
+    <nav>
+        <ul>
+            <li><a href="Bordes.html">Bordes</a></li>
+            <li><a href="Fondos.html">Fondos</a></li>
+            <li><a href="Efectos_texto.html">Fuentes y Ef Texto</a></li>
+            <li><a href="Transformaciones.html">Transformac.</a></li>
+            <li><a href="Transiciones.html">Transiciones</a></li>
+            <li><a href="Animaciones.html">Animaciones</a></li>
+            <li><a href="Col_svg_filter.html">Col Mult, Filter y SVG</a></li>
+            <li><a href="Color.html">Color y Degradado</a></li>
+            <li><a href="Pseudos_Css3.html">Pseudos CSS3</a></li>
+
+        </ul>
+    </nav>
+    <main>
+        <h2>TUTORIAL CSS3</h2>
+        <h3>Resultado de la combinación de todos los ejercicios de la práctica 7 de los alumnos de 2ºDAW 2018-2019</h3>
+
+        <section>
+            <article>
+                <h3>border-radius</h3>
+                <p>Indica que el borde sea redondeado.</p>
+                <p> importante definir un border-style para que el borde se vea redondeado.</p>
+                <p>Puede aceptar de uno a cuatro valores. Su sintaxis es: </p>
+                <p>Un valor: <i>border-radius: 15px 10px 15 px 10px (mismo valor para los cuatro lados).</i></p>
+                <p>Dos valores: <i>border-radius: 15px 10px (primer valor para esquina superior izquierda y segundo
+                        valor para esquina inferior derecha y esquina superior derecha y esquina inferior izquierda).</i></p>
+                <p>Tres valores: <i>border-radius: 15px 10px 15 px 10px (esquina superior izquierda, esquina superior
+                        derecha, esquina inferior derecha y esquina inferior izquierda).</i></p>
+                <p>Cuatro valores: <i>border-radius: 15px 10px 15 px 10px (esquina superior izquierda, esquina superior
+                        derecha, esquina inferior derecha y esquina inferior izquierda).</i></p>
+                <div id="borderRadius" class="border">
+                    border-radius: 15px 10px 15px 10px;</br>
+                    border-style: solid;</br>
+                    border-width: 2px;</br>
+                    border-color: black;</br>
+                </div>
+            </article>
+
+            <article>
+                <h3>border-top-right-radius</h3>
+                <p>Indica que el borde superior sea redondeado.</br>
+                    Es importante definir un border-style para que el borde se vea redondeado.
+                    Su sintaxis es <i>border-radius: 15px.</i><br>
+                </p>
+                <div id="borderRadiusTopRight" class="border">
+                </div>
+            </article>
+
+            <article>
+                <h3>border-top-left-radius</h3>
+                <p>Indica que el borde superior izquierdo sea redondeado.</br>
+                    Es importante definir un border-style para que el borde se vea redondeado.
+                    Su sintaxis es <i>border-radius: 15px.</i><br>
+
+                </p>
+                <div id="borderRadiusTopLeft" class="border">
+
+                </div>
+            </article>
+
+            <article>
+                <h3>border-bottom-right-radius</h3>
+                <p>Indica que el borde inferior derecho sea redondeado.</br>
+                    Es importante definir un border-style para que el borde se vea redondeado.
+                    Su sintaxis es <i>border-radius: 15px.</i><br>
+
+                </p>
+                <div id="borderRadiusBottomRight" class="border">
+
+                </div>
+            </article>
+
+            <article>
+                <h3>border-bottom-left-radius</h3>
+                <p>Indica que el borde inferior izquierdo sea redondeado.</br>
+                    Es importante definir un border-style para que el borde se vea redondeado.
+                    Su sintaxis es <i>border-radius: 15px.</i><br>
+                </p>
+                <div id="borderRadiusBottomLeft" class="border">
+
+                </div>
+            </article>
+
+            <article>
+                <h3>border-image-source</h3>
+                <p>Establece una imagen como borde. El elemento debe tener definido un borde y un ancho para poder
+                    mostrarse. Si no encuentra la imagen, mostrará el borde indicado.</p>
+                <p>Si solo se utiliza esta propiedad, la imagen se mostrará repetida en las cuatro esquinas.</p>
+                <p>Su sintaxis es border-image-source: url('imagen.jpg);</p>
+                <div id="borderImageSource" class="border">
+
+                </div>
+            </article>
+
+            <article>
+                <h3>border-slice</h3>
+                <p>Permite trocear la imagen que vamos a utilizar como borde.</p>
+                <p>Admite de uno a cuatro valores, que pueden ser porcentajes o numéricos, en este caso. se
+                    interpretarán como píxeles en imágenes de mapa de bits o como coordenadas en imágenes vectoriales.
+                    Estos valores indican el trozo de imagen que se recortará.</p>
+                <p>Si sólo escribimos un valor, se aplica a los cuatros lados.</p>
+                <p>Si escribimos dos valores, se aplica el primero a arriba y abajo y el segundo a derecha e
+                    izquierda.</p>
+                <p>Si escribimos tres valores, se aplica el primero a arriba,el segundo a derecha e izquierda y el
+                    tercero a abajo.</p>
+                <p>Si escribimos cuatro valores, se aplica el primero a arriba</p>
+                <div id="borderImageSlice" class="border">
+
+                </div>
+            </article>
+
+            <article>
+                <h3>border-image-repeat</h3>
+                <p>Establece la forma en la que la imagen se repite a lo largo del borde.</p>
+                <p>Puede tener cuatro valores:</p>
+
+                <p>stretch: la imagen se estire o encoge para ocupar el espacio necesario del borde</p>
+                <p>repeat: la imagen se repite para ocupar todo el espacio del borde</p>
+                <p>round: la imagen se repite hasta cubrir el espacio del borde, si no se ajusta tras repetirse un
+                    número íntegro de veces, la imagen se escala para ajustarse</p>
+                <p>space: </p>
+                <div id="" class="border">
+
+                </div>
+            </article>
+
+            <article>
+                <h3>border-image</h3>
+                <p>Indica que el borde será una imagen.</p>
+                <p>Esta propiedad se utiliza para agrupar las propiedades border-image-source, border-image-repeat y
+                    border-image-slice en una sola propiedad, por lo que su sintaxis es:</p>
+                <p>border-image: url('miborde.jpg') 70 repeat</p>
+                <div id="borderImage" class="border">
+
+                </div>
+            </article>
+
+            <article>
+                <h3>box-shadow</h3>
+                <p>Proyecto una sombra difuminada en la estructura de casi cualquier elemento. Si se hace sobre un
+                    border-radius, esta sombra se aplica a las esquinas redondeadas</p>
+                <p>Sus valores son:</p>
+                <p>offset-x: Distancia desde eje x indicada en píxeles.</p>
+                <p>offset-y: Distancia desde eje y indicada en píxeles.</p>
+                <p>blur-radius: Difuminado de la sombra.</p>
+                <p>spread-radius: Expasión de la sombra.</p>
+                <div id="borderBox" class="border">
+                </div>
+            </article>
+        </section>
+
+    </main>
+    <footer>
+        <div>Jaime Rabasco Ronda</div>
+        <a href="https://twitter.com/jaimerr" class="social"><img src="icon/twitter.svg" alt="Twitter"></a>
+        <a href="https://github.com/jaimerabasco" class="social"><img src="icon/github.svg" alt="GitHub"></a>
+        <p>La imagen de borde y de propiedad slice son recursos Creative Commons cuyo autor es Bartolomé Sintes Marco, del sitio web <a href="http://www.mclibre.org">http://www.mclibre.org</a></p>
+    </footer>
+</body>
+
+</html>
