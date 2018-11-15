@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 10 Listado Collections</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Autor: Mario Navarro Madrid</h1>
+    <p>Crea mediante iterables estos dos objetos collections. Indica el número de elementos de cada uno. Justifica el comportamiento: </p>
+    <ul>
+        <li>b = new WeakSet([{}, {}]);</li>
+        <li>o = {};  a = new WeakSet([o, o]);</li>
+    </ul>
+    <p>Este ejercicio debe comprobarse mediante la consola.</p>
+    <p>Como observamos en esta, el WeakSet b contiene dos elementos, porque aunque son iguales, la referencia no es la misma. Por el contrario, el WeakSet a solo contiene uno, porque hemos introducido la misma referencia</p>
+</body>
+</html>
