@@ -17,7 +17,7 @@
 
     function validarNombre() {
         //let regex = /^([a-zA-ZÁÉÍÓÚáéíúó]+\s?)([a-zA-ZÁÉÍÓÚáéíúó]+\s?)?,(\s?[a-zA-ZÁÉÍÓÚáéíúó]{1,})$/;
-        let regex = /^([a-zA-ZÁÉÍÓÚáéíúó]+\s?[a-zA-ZÁÉÍÓÚáéíúó]*\s?),(\s?[a-zA-ZÁÉÍÓÚáéíúó]{1,})$/;
+        let regex = /^([a-zA-ZÁÉÍÓÚáéíúó]+\s*[a-zA-ZÁÉÍÓÚáéíúó]*\s*),(\s*[a-zA-ZÁÉÍÓÚáéíúó]{1,})$/;
         let name = document.getElementById("name").value.trim();
         if(regex.test(name)){
             let arrayRegex = regex.exec(name);
