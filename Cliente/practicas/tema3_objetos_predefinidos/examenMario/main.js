@@ -20,6 +20,10 @@
             event.preventDefault();
             window.open("ejercicio4.html","_self");
         });
+        document.getElementById("a5").addEventListener("click",function (event) {
+            event.preventDefault();
+            window.open("ejercicio5.html","_self");
+        });
     }
 
 
