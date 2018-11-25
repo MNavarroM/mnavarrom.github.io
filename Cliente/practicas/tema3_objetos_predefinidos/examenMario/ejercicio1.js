@@ -1,7 +1,6 @@
 {
-
+    let frutas = new Set(["Manzana","Plátano"]);
     function init() {
-        frutas = new Set(["Manzana","Plátano"]);
         msgError = document.getElementById("error");
         document.getElementById("atras").addEventListener("click",function(event) {
             event.preventDefault();
