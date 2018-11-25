@@ -1,3 +1,6 @@
+/**
+ * @author Mario Navarro Madrid
+ */
 {
     let frutas = new Set(["Manzana","Plátano"]);
     function init() {
