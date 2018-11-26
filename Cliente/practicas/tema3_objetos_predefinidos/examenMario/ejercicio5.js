@@ -12,8 +12,9 @@
     }
 
     function exponer() {
-        let numero = document.getElementById("numero").value;
+        let numero = new Number(document.getElementById("numero").value);
         let info = document.getElementById("info");
+        info.innerHTML = "";
         for (let i = 1; i <= 10; i++) {
             info.innerHTML += numero + " * " + i + " = " + Math.pow(numero, i) + "</br>";
         }
