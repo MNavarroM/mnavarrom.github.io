@@ -1,7 +1,9 @@
 {
 
     function init() {
-        document.getElementById("button").addEventListener("click",crearGato);
+        let error = document.getElementById("error");
+        let button = document.getElementById("button");
+        button.addEventListener("click",crearGato);
     }
 
     function crearGato() {
@@ -11,11 +13,9 @@
         let fechanacimiento = document.getElementById("fechanacimiento").value;
         try {
             creaVentanaGato(new Gato(nombre,peso,raza,fechanacimiento))
-        } catch (error) {
-            document.getElementById("error").innerHTML = error.message;
+        } catch (e) {
+            error.innerHTML = e.message;
         }
-
-
     }
 
     function creaVentanaGato(gato) {
@@ -46,7 +46,7 @@
             </body>
             </html>`
         );
-        ventanaGato.document.close();        
+        ventanaGato.document.close();
     }
 
 

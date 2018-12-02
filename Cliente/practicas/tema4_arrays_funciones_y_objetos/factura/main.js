@@ -4,15 +4,8 @@
 {
 
     function init() {
-        let elementos = [new Elemento("Patatas campesinas", 0.90, "Irresistibles patatas sabor campesinas", 3),
-        new Elemento("Pan", 0.60, "Pan de horno de piedra", 3),
-        new Elemento("Jamón Serrano", 70.95, "Jamón de pata negra, del güeno güeno", 2)];
-        let factura = new Factura("Peter Parker", "C/ de la Araña, 20","689547444","89658745S",elementos);
-        factura.imprimirFactura();
-        console.log(factura.informacion);
-
     }
-
+    
     function Factura(nombre, direccion, telefono, cif, elementos) {
         this.cliente = new Cliente(nombre, direccion, telefono, cif);
         this.elementos = elementos;

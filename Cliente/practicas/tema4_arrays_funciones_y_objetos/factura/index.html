@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,43 @@
     <script src="main.js"></script>
     <title>Factura</title>
 </head>
+
 <body>
-    <p id="info"></p>
+    <p><span>Nº Factura: </span><input type="number" name="" id="numFactura"> <span>Fecha: </span><input type="date" name="" id="fechaFactura"></p>
+    <div id="datos" style="display:inline-block;">
+        <h3>Tus datos.</h3>
+        <p><span>Nombre: </span><input type="text" name="" id="nombre"> <span>CIF: </span><input type="text" name="" id="cif"></p>
+        <p><span>Dirección: </span><input type="text" name="" id="direccion"> <span>Teléfono: </span><input type="tel" name=""
+                id="telefono"></p>
+    </div>
+    <div id="datosCliente" style="display:inline-block;">
+        <h3>Datos cliente.</h3>
+        <p><span>Nombre: </span><input type="text" name="" id="nombreCliente"> <span>CIF: </span><input type="text" name="" id="cifCLiente"></p>
+        <p><span>Dirección: </span><input type="text" name="" id="direccionCliente"> <span>Teléfono: </span><input type="tel" name=""
+                id="telefonoCliente"></p>
+    </div>
+    <div id="refs">
+        <table>
+            <tr>
+                <th>Descripción</th>
+                <th>Unidades</th>
+                <th>Precio</th>
+                <th>Iva</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id="descripcion"></td>
+                <td><input type="number" name="" id="unidades"></td>
+                <td><input type="text" name="" id="precioProducto"></td>
+                <td><input type="number" name="" id="ivaProducto"></td>
+            </tr>
+        </table>
+    </div>
+    <button>Añadir nueva línea</button>
+    <p id="info" style="text-align:right;">
+        <p id="precioBase">Precio base: </p>
+        <p id="ivas">IVA</p>
+        <p id="precioBase">Total </p>
+    </p>
 </body>
+
 </html>
