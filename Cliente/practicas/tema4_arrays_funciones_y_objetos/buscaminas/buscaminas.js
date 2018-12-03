@@ -4,15 +4,18 @@
 
 
 buscaminas = {
-  columnas: 10,
-  filas: 10,
-  minas: 20,
+  columnas: 0,
+  filas: 0,
+  minas: 0,
   casillasRestantes: 0,
   tablero: [],
   mapeoCasillas: [],
   finalPartida: false,
   contadorBanderas: 10,
-  iniciarJuego() {
+  iniciarJuego(columnas,filas,minas) {
+    this.columnas = columnas;
+    this.filas = filas;
+    this.minas = minas;
     buscaminas.crearTablero();
     buscaminas.generarMinas();
     buscaminas.mostrarTableroConsola();

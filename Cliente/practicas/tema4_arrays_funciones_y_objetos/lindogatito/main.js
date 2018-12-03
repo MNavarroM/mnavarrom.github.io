@@ -40,7 +40,7 @@
                     <p>Fecha de nacimiento: ${gato.fechanacimiento}</p>
                     <p>Edad: ${gato.calcularEdad()}</p> 
                     <p><button id="jugar">Jugar</button><button id="comer">Comer</button><button id="dormir">Dormir</button><button id="garrotillo">Darle garrotillo</button></p>
-                    <img src="" alt="" id="imagen"></br>
+                    <img src="" alt="" id="imagen" height="250px" width="250px"></br>
                     <p id="estado"></p>
                 </div>
             </body>

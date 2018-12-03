@@ -4,8 +4,16 @@
     function init() {
         document.getElementById("facil").addEventListener("click",function () {
             borrarTablero();
-            buscaminas.iniciarJuego();
-        })
+            buscaminas.iniciarJuego(8,8,10);
+        });
+        document.getElementById("medio").addEventListener("click",function () {
+            borrarTablero();
+            buscaminas.iniciarJuego(16,16,40);
+        });
+        document.getElementById("dificil").addEventListener("click",function () {
+            borrarTablero();
+            buscaminas.iniciarJuego(16,30,99);
+        });
     }
 
     function borrarTablero() {
