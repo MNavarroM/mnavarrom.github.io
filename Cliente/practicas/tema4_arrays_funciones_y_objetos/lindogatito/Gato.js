@@ -35,14 +35,12 @@
     }
 
     Gato.prototype.setNombre = function (nombre) {
-        nombre.trim();
         if(nombre === "" || nombre === " ")
             throw new Error("Debes introducir un nombre");
         this.nombre = nombre;
     }
 
     Gato.prototype.setRaza = function (raza) {
-        raza.trim();
         if(raza === "" || raza === " ")
             throw new Error("Debes introducir una raza");
         this.raza = raza;
