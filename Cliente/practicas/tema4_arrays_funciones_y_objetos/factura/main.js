@@ -11,13 +11,7 @@
     function init() {
         tabla = document.getElementById("tabla");
         document.getElementById("addLinea").addEventListener("click", nuevaLinea);
-        /*document.getElementById("crearFactura").addEventListener("click", function () {
-            crearEmpresa();
-            crearCliente();
-            console.log(empresa);
-            console.log(cliente);
-        });*/
-        document.getElementById("crearFactura").addEventListener("click",isEmpty);
+        document.getElementById("crearFactura").addEventListener("click",crearFactura);
     }
 
     function nuevaLinea() {
@@ -107,16 +101,6 @@
     }
 
     function addElementos() {
-        /*let descripcion = tabla.rows[contadorLineas].cells[0].childNodes[0].value;
-        let precio = tabla.rows[contadorLineas].cells[1].childNodes[0].value;
-        let cantidad = tabla.rows[contadorLineas].cells[2].childNodes[0].value;
-        if(descripcion == undefined || precio == undefined || cantidad == undefined){
-            throw new Error("Rellena la línea antes de añadir otra");
-        }
-        let optionSelected = tabla.rows[contadorLineas].cells[3].childNodes[0];
-        let iva = optionSelected.options[optionSelected.selectedIndex].value;
-        console.log(new Elemento(descripcion,precio,cantidad,iva));
-        elementos.push(new Elemento(descripcion,precio,cantidad,iva));*/
         for (let i = 1; i < tabla.rows.length; i++) {
             console.log("pasando por " + i);
             let optionSelected = tabla.rows[i].cells[3].childNodes[0];
@@ -134,10 +118,65 @@
         factura = new Factura(crearEmpresa(),crearCliente(),elementos);
         factura.calcularTotal();
         console.log(factura);
-        /*let ventanaFactura = window.open("","Factura");
+        let ventanaFactura = window.open("","Factura");
         ventanaFactura.factura;
         ventanaFactura.factura = factura;
-        ventanaFactura.document.write();*/
+        ventanaFactura.document.write(`
+        <!DOCTYPE html>
+        <html lang="es">
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <script src="Factura.js"></script>
+            <script src="Cliente.js"></script>
+            <script src="Empresa.js"></script>
+            <script src="Elemento.js"></script>
+            <script src="main.js"></script>
+            <title>Factura</title>
+        </head>
+        <body>
+            <div>
+                <h3>Tus datos.</h3>
+                <p><span>Nombre: </span>${factura.empresa.nombre}  <span>CIF: </span>${factura.empresa.cif}</p>
+                <p><span>Dirección: ${factura.empresa.direccion}  </span><span>Teléfono: ${factura.empresa.telefono}</span></p>
+            </div>
+            <div id="datosCliente" style="display:inline-block;">
+            <p><span>Nombre: </span>${factura.cliente.nombre}  <span>CIF: </span>${factura.cliente.cif}</p>
+            <p><span>Dirección: ${factura.cliente.direccion}  </span><span>Teléfono: ${factura.cliente.telefono}</span></p>
+            </div>
+            <div id="refs">
+                <table id="tabla">
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Unidades</th>
+                        <th>Precio</th>
+                        <th>Iva</th>
+                    </tr>`);
+        let tabla = ``;
+        elementos.forEach(element => {
+            tabla += `<tr>
+            <td>${element.descripcion}</td>
+            <td>${element.cantidad}</td>
+            <td>${element.precio}</td>
+            <td>${element.iva}</td>
+            </tr>
+            `;
+        });
+        ventanaFactura.document.writeln(tabla);
+        ventanaFactura.document.writeln(`
+        </table>
+            </div>
+            <p id="error"></p>
+                <p style="text-align:right;">
+                <p >Precio base: ${factura.base}</p>
+                <p >IVA</p>
+                <p >Total: ${factura.total} </p>
+            </p>
+        </body>
+        </html>`);        
+        ventanaFactura.document.close();
     }
 
     function mostrarFactura() {
