@@ -148,11 +148,13 @@ buscaminas = {
       }
     }
   },
-  ponerBandera(id) {
+  ponerBandera(id) {    
     let casilla = document.getElementById(id);
     let [fila, columna] = id.split("_");
     if (!casilla.bandera) {
       if (this.contadorBanderas == 0)
+        return;
+      if(this.mapeoCasillas[fila][columna]==-1)
         return;
       casilla.style.backgroundColor = "red";
       casilla.bandera = true;
@@ -170,6 +172,7 @@ buscaminas = {
     }
   }
 };
+
 
 function init() {
 

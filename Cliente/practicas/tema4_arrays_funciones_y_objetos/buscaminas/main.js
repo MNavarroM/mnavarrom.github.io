@@ -1,6 +1,5 @@
 {
 
-
     function init() {
         document.getElementById("facil").addEventListener("click",function () {
             borrarTablero();

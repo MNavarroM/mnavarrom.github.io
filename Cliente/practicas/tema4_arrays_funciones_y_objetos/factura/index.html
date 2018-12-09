@@ -5,26 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="Factura.js"></script>
+    <script src="Cliente.js"></script>
+    <script src="Empresa.js"></script>
+    <script src="Elemento.js"></script>
     <script src="main.js"></script>
     <title>Factura</title>
 </head>
 
 <body>
-    <p><span>Nº Factura: </span><input type="number" name="" id="numFactura"> <span>Fecha: </span><input type="date" name="" id="fechaFactura"></p>
+    <p><span>Fecha: </span><input type="date" name="" id="fechaFactura"></p>
     <div id="datos" style="display:inline-block;">
         <h3>Tus datos.</h3>
-        <p><span>Nombre: </span><input type="text" name="" id="nombre"> <span>CIF: </span><input type="text" name="" id="cif"></p>
-        <p><span>Dirección: </span><input type="text" name="" id="direccion"> <span>Teléfono: </span><input type="tel" name=""
-                id="telefono"></p>
+        <p><span>Nombre: </span><input type="text" name="" id="nombreEmpresa"> <span>CIF: </span><input type="text" name="" id="cifEmpresa"></p>
+        <p><span>Dirección: </span><input type="text" name="" id="direccionEmpresa"> <span>Teléfono: </span><input type="tel" name="" id="tlfEmpresa"></p>
     </div>
     <div id="datosCliente" style="display:inline-block;">
         <h3>Datos cliente.</h3>
-        <p><span>Nombre: </span><input type="text" name="" id="nombreCliente"> <span>CIF: </span><input type="text" name="" id="cifCLiente"></p>
-        <p><span>Dirección: </span><input type="text" name="" id="direccionCliente"> <span>Teléfono: </span><input type="tel" name=""
-                id="telefonoCliente"></p>
+        <p><span>Nombre: </span><input type="text" name="" id="nombreCliente"> <span>CIF: </span><input type="text" name="" id="cifCliente"></p>
+        <p><span>Dirección: </span><input type="text" name="" id="direccionCliente"> <span>Teléfono: </span><input type="tel" name="" id="tlfCliente"></p>
     </div>
     <div id="refs">
-        <table>
+        <table id="tabla">
             <tr>
                 <th>Descripción</th>
                 <th>Unidades</th>
@@ -35,16 +37,22 @@
                 <td><input type="text" name="" id="descripcion"></td>
                 <td><input type="number" name="" id="unidades"></td>
                 <td><input type="text" name="" id="precioProducto"></td>
-                <td><input type="number" name="" id="ivaProducto"></td>
+                <td><select name="" id="iva">
+                    <option value="0.04">Superreducido - 4%</option>
+                    <option value="0.1">Reducido - 10%</option>
+                    <option value="0.21">General - 21%</option>
+                </select></td>
             </tr>
         </table>
     </div>
-    <button>Añadir nueva línea</button>
-    <p id="info" style="text-align:right;">
+    <button id="addLinea">Añadir nueva línea</button>
+    <p><button id="crearFactura">Crear Factura</button></p>
+    <p id="error"></p>
+    <!--<p id="info" style="text-align:right;">
         <p id="precioBase">Precio base: </p>
         <p id="ivas">IVA</p>
         <p id="precioBase">Total </p>
-    </p>
+    </p>-->
 </body>
 
 </html>
