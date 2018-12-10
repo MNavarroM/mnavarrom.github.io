@@ -1,7 +1,7 @@
 {
 
-    let nombres = ["Rodolfo", "Eusebio", "Romueldo", "Alarico", "Misifu", "Garfield"];
-    let razas = ["Persa", "Siamés", "Maine Coon", "Scottish Fold"];
+    let nombres = ["Rodolfo", "Eusebio","Federico", "Romualdo", "Alarico", "Misifu", "Garfield"];
+    let razas = ["Persa", "Siamés", "Maine Coon", "Scottish Fold","Gato Pardo","Gato gooordo"];
     let fechas = ["2015-05-21", "2010-01-21", "2012-03-11", "2012-02-22", "2007-07-17", "2016-04-12"];
 
     function init() {
