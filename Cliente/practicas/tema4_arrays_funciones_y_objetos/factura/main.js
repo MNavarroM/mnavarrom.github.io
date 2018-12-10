@@ -86,7 +86,6 @@
         if(nombre == "" || nombre == "" || nombre == "" || nombre == "")
             throw new Error("Debes rellenar todos los campos del cliente");
         return new Empresa(nombre, direccion, tlf, cif);
-        //console.log(empresa);
     }
 
     function crearCliente() {
@@ -97,12 +96,11 @@
         if(nombre == "" || nombre == "" || nombre == "" || nombre == "")
             throw new Error("Debes rellenar todos los campos del cliente");
         return new Cliente(nombre, direccion, tlf, cif);
-        //console.log(cliente);
     }
 
     function addElementos() {
         for (let i = 1; i < tabla.rows.length; i++) {
-            console.log("pasando por " + i);
+            //console.log("pasando por " + i);
             let optionSelected = tabla.rows[i].cells[3].childNodes[0];
             elementos.push(new Elemento(tabla.rows[i].cells[0].childNodes[0].value,
                 tabla.rows[i].cells[1].childNodes[0].value,
@@ -110,7 +108,6 @@
                 optionSelected.options[optionSelected.selectedIndex].value
                 ));
         }
-        //console.log(elementos);
     }
 
     function crearFactura() {
@@ -124,7 +121,6 @@
         ventanaFactura.document.write(`
         <!DOCTYPE html>
         <html lang="es">
-        
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -171,11 +167,11 @@
             <p id="error"></p>
                 <p style="text-align:right;">
                 <p >Precio base: ${factura.base}</p>
-                <p >IVA</p>
+                <p >IVA ${(factura.ivasAcumulados.general + factura.ivasAcumulados.reducido + factura.ivasAcumulados.superreducido).toFixed()}</p>
                 <p >Total: ${factura.total} </p>
             </p>
         </body>
-        </html>`);        
+        </html>`);
         ventanaFactura.document.close();
     }
 

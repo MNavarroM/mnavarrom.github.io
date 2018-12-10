@@ -12,7 +12,7 @@
         };
     }
 
-    Factura.prototype.numero = 0;
+    Factura.prototype.numeracion = 0;
 
     Factura.prototype.calcularBase = function () {
         this.elementos.forEach(element => {
