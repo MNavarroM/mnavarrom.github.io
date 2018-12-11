@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="main.js"></script>
+    <title>Formulario completito</title>
+</head>
+
+<style>
+
+span{
+    color:red;
+}
+
+#valido{
+    color:greenyellow;
+}
+
+</style>
+
+<body>
+    <h2>Autor: Mario Navarro Madrid</h2>
+    <form action="">
+
+        <p>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="" id="nombre">
+            <span id="errNombre">  </span>
+        </p>
+        <p>
+            <label for="dni">DNI: </label>
+            <input type="text" name="" id="dni">
+            <span id="errDni">  </span>
+        </p>
+        <p>
+            <label for="fecha">Fecha de nacimiento: </label>
+            <input type="text" name="" id="fechaNac">
+            <span id="errFechaNac">  </span>
+        </p>
+        <p>
+            <label for="tlf">Teléfono: </label>
+            <input type="text" name="" id="tlf">
+            <span id="errTlf">  </span>
+        </p>
+        <p>
+                <label for="tlf">Email: </label>
+                <input type="text" name="" id="email">
+                <span id="errEmail">  </span>
+            </p>        
+        <p>
+            <label for="web">Web: </label>
+            <input type="text" name="" id="web">
+            <span id="errWeb">  </span>
+        </p>
+        <p>
+            <label for="cc">Cuenta Corriente: </label>
+            <input type="text" name="" id="cc">
+            <span id="errCc">  </span>
+        </p>
+        <p>
+            Acepto los términos<input type="checkbox" name="" id="acepto" >
+        </p>
+    </form>
+        <button id="validar" >Enviar datos</button><br>
+        <span id="info">  </span>
+        <span id="valido"></span>
+</body>
+    <noscript>
+        Su navegador no soporta o no tiene habilitado Javascript :(.
+    </noscript>
+</html>
