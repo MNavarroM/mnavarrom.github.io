@@ -1,9 +1,19 @@
 :root {
-    --servidor: #2292A4; 
+    /*--servidor: #2292A4; 
     --HLC: #388659;
     --despliegue: #E1CA96; 
     --diseño: #06D6A0; 
+    --cliente: #BDBF09; */
+    --servidor: #AFB42B; 
+    --HLC:#512DA8;
+    --despliegue: #CDDC39; 
+    --diseño: #06D6A0; 
     --cliente: #BDBF09; 
+    --dark-primary-color : #FBC02D;
+    --light-secondary-color:#FFF9C4;
+    --primay-color:#FFEB3B;
+    --text-color:#212121;
+    --secondary-text-color:#757575;
   }
 
 *{
@@ -18,11 +28,11 @@ h1{
 
 header{
     text-align: center;
-    background-color: blanchedalmond;
+    background-color: var(--dark-primary-color);
 }
 
 nav{
-    background-color: blanchedalmond;
+    background-color: var(--dark-primary-color);
 }
 
 ul{
@@ -41,7 +51,7 @@ li{
 }
 
 main{
-    background-color: blanchedalmond;
+    background-color: var(--primay-color);
     min-height: 80vh;
 }
 
@@ -53,11 +63,11 @@ main h2{
 
 section{
     padding: 10px;
-    background-color: blanchedalmond;
+    background-color: var(--primay-color);
 }
 
 .nota{
-    color: white;
+    color: #212121;
     margin: 5px auto;
     background-color: aquamarine;
     display: grid;
@@ -76,8 +86,8 @@ section{
 }
 
 .nota h3{
-    color: white;
-    text-shadow: 1px 1px black;
+    color: #212121;
+    text-shadow: 1px 1px #757575;
     padding-left: 10px;
     padding-top: 15px;
     text-align: left;
@@ -128,32 +138,32 @@ section{
 
 #delete:hover {
     transform: rotate(360deg);
-    transition-duration: 1s;
+    transition-duration: 0.5s;
 }
 
 #diw{
-    background-color: #06D6A0;
-    box-shadow: 1px 1px 2px 1px #06D6A0;
+    background-color:  var(--diseño);
+    box-shadow: 1px 1px 2px 1px var(--diseño);
 }
 
 #cliente{
-    box-shadow: 1px 1px 2px 1px #BDBF09;
-    background-color: #BDBF09;
+    box-shadow: 1px 1px 2px 1px var(--cliente);
+    background-color: var(--cliente);
 }
 
 #servidor{
-    box-shadow: 1px 1px 2px 1px #2292A4;
-    background-color: #2292A4;
+    box-shadow: 1px 1px 2px 1px var(--servidor);
+    background-color: var(--servidor);
 }
 
 #hlc{
-    box-shadow: 1px 1px 2px 1px #388659;
-    background-color: #388659;
+    box-shadow: 1px 1px 2px 1px var(--HLC);
+    background-color: var(--HLC);
 }
 
 #despliegue{
-    box-shadow: 1px 1px 2px 1px #E1CA96;
-    background-color: #E1CA96;
+    box-shadow: 1px 1px 2px 1px var(--despliegue);
+    background-color: var(--despliegue);
 }
 
 #add {
@@ -172,7 +182,7 @@ footer{
     min-height: 20vh;
     border-top: 1px solid black;
     text-align: center;
-    color: white;
+    color: #212121;
     background-color: black;
     overflow: hidden;
 }
@@ -190,7 +200,7 @@ footer div{
 @media (min-width:600px)  {
 
     nav{
-        background-color: black;
+        background-color: #D1C4E9;
     }
 
     ul{
@@ -202,9 +212,9 @@ footer div{
     li{
         font-size: 19px;
         text-align: left;
-        color: white;
+        color: #212121;
         border: none;
-        background-color: black;
+        background-color: #D1C4E9;
         padding: 0;
         margin: 0;
         width: 11%;
@@ -246,3 +256,12 @@ footer div{
 
 
 }
+
+@media (min-width:1024px)  {
+    section{
+        display: grid;
+        grid-template-columns: repeat(5,auto);
+        grid-gap: 15px;
+    }
+}
+
