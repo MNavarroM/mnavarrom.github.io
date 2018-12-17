@@ -27,6 +27,7 @@
     </nav>
     <main>
         <h2>Últimas Notas</h2>
+        <button id="btnNota">Añadir nota</button>
         <section id="ultimasNotas">
             <article class="nota" id="diw">
                 <div id="editchincheta">
@@ -85,6 +86,32 @@
         </section>
         <img src="css/add.svg" id="add" alt="">
     </main>
+    <div id="modal">
+        <form id="form" action="">
+            <p>
+                <span>Módulo</span>
+                <select name="" id="">
+                    <option value="">Diseño</option>
+                    <option value="">Cliente</option>
+                    <option value="">Servidor</option>
+                    <option value="">HLC</option>
+                    <option value="">Despliegue</option>
+                </select>        
+            </p>
+            <p>
+                <span>Título asignatura</span>
+                <input type="text" name="" id="">
+            </p>
+            <p>
+                <span>Descripción</span><br>
+                <textarea name="" id="" cols="30" rows="6"></textarea>
+            </p>
+            <p>
+                <span>Fecha</span>
+                <input type="date" name="" id="">
+            </p>
+        </form>
+    </div>
     <footer>
         <h3>Mario Navarro Madrid</h3>
         <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"

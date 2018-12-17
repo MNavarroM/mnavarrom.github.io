@@ -1,9 +1,4 @@
 :root {
-    /*--servidor: #2292A4; 
-    --HLC: #388659;
-    --despliegue: #E1CA96; 
-    --diseño: #06D6A0; 
-    --cliente: #BDBF09; */
     --servidor: #AFB42B; 
     --HLC:#512DA8;
     --despliegue: #CDDC39; 
@@ -53,6 +48,12 @@ li{
 main{
     background-color: var(--primay-color);
     min-height: 80vh;
+}
+
+main button{
+    margin: 10px;
+    border-radius: 5px;
+    background-color: var(--light-secondary-color);
 }
 
 main h2{
@@ -178,6 +179,20 @@ section{
     border-radius: 50px;
 }
 
+#form{
+    width: 100vh;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    display: none;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    transition-duration: 1s;
+}
+
 footer{
     min-height: 20vh;
     border-top: 1px solid black;
@@ -257,7 +272,12 @@ footer div{
 
 }
 
-@media (min-width:1024px)  {
+@media (min-width:1366px)  {
+
+    main button{
+        
+    }
+
     section{
         display: grid;
         grid-template-columns: repeat(5,auto);
