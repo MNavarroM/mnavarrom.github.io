@@ -11,10 +11,6 @@
     list-style: none;
 }
 
-html{
-    background-image: url("4577.eps");
-}
-
 h1{
     margin: 0;
     padding: 10px 0;
@@ -31,22 +27,22 @@ nav{
 
 ul{
     padding: 0;
-    margin: 0 auto;
+    margin: 0 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 li{
-    margin-top: 3px;
+    *margin-top: 3px;
     text-align: center;
-    background-color: red;
     padding: 5px;
     border: 1px black solid;
 }
 
 main{
     background-color: blanchedalmond;
+    min-height: 80vh;
 }
 
 main h2{
@@ -97,6 +93,11 @@ section{
     grid-area: fecha;
 }
 
+.nota:hover{
+    transform: scale(1.05);
+    transition-duration: 0.2s;
+}
+
 .chincheta{
     width: 30px;
     height: 20px;
@@ -109,15 +110,25 @@ section{
 }
 
 #edit{
+    transform: scaleX(-1);
     grid-area: edit;
     width: 30px;
-    height: 20px;    
+    height: 20px;
+}
+
+#edit:hover {
+    transform: scaleX(1);
 }
 
 #delete{
     grid-area: delete;
     width: 30px;
     height: 20px;
+}
+
+#delete:hover {
+    transform: rotate(360deg);
+    transition-duration: 1s;
 }
 
 #diw{
@@ -158,15 +169,22 @@ section{
 }
 
 footer{
+    min-height: 20vh;
     border-top: 1px solid black;
     text-align: center;
     color: white;
     background-color: black;
+    overflow: hidden;
 }
 
 footer h3{
     margin: 0;
     padding: 15px;
+}
+
+footer div{
+    font-size: 12px;
+    margin-bottom: 5px;
 }
 
 @media (min-width:600px)  {
@@ -182,6 +200,7 @@ footer h3{
     }
 
     li{
+        font-size: 19px;
         text-align: left;
         color: white;
         border: none;
@@ -213,13 +232,16 @@ footer h3{
 
     section{
         display: grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(3,auto);
         grid-gap: 15px;
     }
 
     .nota{
         margin: 0;
-        
+    }
+
+    #add{
+        display: none;
     }
 
 
