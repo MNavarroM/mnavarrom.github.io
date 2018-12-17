@@ -30,10 +30,10 @@
       contexto.font= "normal 18px Arial";
       contexto.fillText(elemento.getAttribute("id"), 10, 30);
       if (arguments.length > 1) {
+        contexto.fillText("button es : " + button, 120, 90);
+        contexto.fillText("buttons es : " + buttons, 120, 120);
         contexto.fillText("x es igual a : " + x, 120, 30);
         contexto.fillText("y es igual a : " + y, 120, 60);
-        contexto.fillText("button : " + button, 120, 90);
-        contexto.fillText("buttons : " + buttons, 120, 120);
       }
     }
   }

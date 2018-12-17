@@ -6,7 +6,6 @@
     let contadorLineas = 1;
     let tabla;
     let empresa, cliente;
-    let factura;
 
     function init() {
         tabla = document.getElementById("tabla");
@@ -115,6 +114,7 @@
         factura = new Factura(crearEmpresa(),crearCliente(),elementos);
         factura.calcularTotal();
         console.log(factura);
+        let numeracion = factura.getNumeracion();
         let ventanaFactura = window.open("","Factura");
         ventanaFactura.factura;
         ventanaFactura.factura = factura;
@@ -135,6 +135,7 @@
         <body>
             <div>
                 <h3>Tus datos.</h3>
+                <p>Número de factura ${factura.numeracion++}</p>
                 <p><span>Nombre: </span>${factura.empresa.nombre}  <span>CIF: </span>${factura.empresa.cif}</p>
                 <p><span>Dirección: ${factura.empresa.direccion}  </span><span>Teléfono: ${factura.empresa.telefono}</span></p>
             </div>

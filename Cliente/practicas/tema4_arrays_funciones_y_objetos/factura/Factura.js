@@ -14,6 +14,11 @@
 
     Factura.prototype.numeracion = 0;
 
+    Factura.prototype.getNumeracion = function () {
+        this.numeracion++;
+        return this.numeracion;
+    }
+
     Factura.prototype.calcularBase = function () {
         this.elementos.forEach(element => {
             this.base += element.precio * element.cantidad;

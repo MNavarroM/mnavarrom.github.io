@@ -13,7 +13,7 @@
     function creaVentanaGato() {
         let num = document.getElementById("numGatos").value;
         for (let i = 0; i < num; i++) {
-            gato = new Gato(nombres[getAleatorio(0, nombres.length)], getAleatorio(1, 16), razas[getAleatorio(0, razas.length)], fechas[getAleatorio(0, fechas.length)])
+            let gato = new Gato(nombres[getAleatorio(0, nombres.length)], getAleatorio(1, 16), razas[getAleatorio(0, razas.length)], fechas[getAleatorio(0, fechas.length)])
             let ventanaGato = window.open("", "");
             ventanaGato.gato = gato;
             ventanaGato.document.write(

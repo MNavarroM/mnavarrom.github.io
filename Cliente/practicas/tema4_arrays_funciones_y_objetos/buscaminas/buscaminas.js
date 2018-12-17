@@ -148,7 +148,7 @@ buscaminas = {
       }
     }
   },
-  ponerBandera(id) {    
+  ponerBandera(id) {
     let casilla = document.getElementById(id);
     let [fila, columna] = id.split("_");
     if (!casilla.bandera) {

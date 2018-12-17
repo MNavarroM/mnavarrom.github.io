@@ -126,6 +126,6 @@
   function init() {
     calculadora.crearCalculadora();
   }
-
+  
   document.addEventListener("DOMContentLoaded", init);
 }
