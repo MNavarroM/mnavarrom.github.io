@@ -1,0 +1,255 @@
+*{
+    font-family: "Roboto", sans-serif;
+}
+
+html{
+    background: linear-gradient(to bottom, white,red);
+}
+
+h1, h2, h3{
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px px #C9C3C3;
+}
+
+header{
+    text-align: center;
+    background-color: white;
+}
+
+#container{
+    width: 75%;
+    margin: 0 auto;
+    background-color: #CECECE;
+    border: 1px solid white;
+}
+
+#contenido{
+    display: flex;
+    flex-direction: row;
+}
+
+nav{
+    text-align: center;
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    background-color: #000000;
+}
+
+nav li{
+    color: white;
+    text-align: center;
+    margin: 5px;
+    flex-basis: 18%;
+    background-color: #D11919;
+    font-size: 19px;
+    border: 1px solid white;
+}
+
+nav li:hover{
+    color:#D11919;
+    background-color: white;
+    border: 1px solid #D11919;
+
+}
+
+nav li:hover{
+    transform: scale(1.04);
+    transition-duration: 0.5s;
+}
+
+li{
+    cursor: pointer;
+}
+
+main{
+    margin: 5px;
+    flex-basis: 86%;
+}
+
+#comics{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    text-align: center;
+}
+
+section{
+    text-align: center;
+    border: 1px solid black;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px #474448;
+}
+
+section:hover{
+    box-shadow: 1px 1px  #D11919;
+    transition-duration: 1s;
+}
+
+section h2,h3{
+    padding-top: 5px;
+    background-color: white;
+    color: #D11919;
+}
+
+article{
+    *margin: 5px;
+}
+
+#lanzamientos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+}
+
+#ucm{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+}
+
+#series{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background-color: white;
+}
+
+#series figure{
+    text-align: center;
+}
+
+#series h3{
+    text-align: center;
+}
+
+#series article{
+    border: 1px solid black;
+    box-shadow: 1px 1px #C9C3C3;
+    text-align: left;
+}
+
+#series p{
+    margin: 10px;
+}
+
+article{
+    margin: 5px;
+}
+
+header img{
+    padding-top: 5px;
+}
+
+main img{
+    margin: 5px;
+    width: 160px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+main img:hover{
+    transform: scale(1.2);
+    transition-duration: 1s;
+}
+
+figure{
+    text-align: center;
+    margin: 0;
+}
+
+figure p{
+    padding: 0;
+}
+
+figure img{
+    margin: 2px;
+}
+
+aside{
+    flex-basis: 22%;
+    display: flex;
+    flex-direction: column;
+}
+
+#yo{
+    background-color: white;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+#yo img{
+    height: 170px;
+}
+
+#yo:hover img, #yo:hover p{
+    transform: scale(1.09);
+    transition-duration: 1s;
+}
+
+#yo ul{
+    text-align: left;
+    font-size: 13px;
+    margin: 2px;
+    padding: 0;
+    list-style: none;
+}
+
+#websAmigas{
+    background-color: white;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+#websAmigas h3{
+    text-align: center;
+}
+
+#formulario{
+    background-color: white;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+#formulario:hover input:valid{
+    background-color: rgba(0, 245, 20, 0.4);
+}
+
+#formulario:hover input:invalid{
+    background-color: rgba(245, 0, 20, 0.4);
+}
+
+aside a,a:link,a:visited{
+    text-decoration: none;
+    color: #D11919;
+}
+
+footer{
+    background-color: #000000;
+    height: 60px;
+    color: #D11919;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+
+#social{
+    margin: 5px;
+    padding: 0;
+}
+
+#social a:visited{
+    color: #D11919;
+}
