@@ -1,3 +1,11 @@
+:root {
+    --servidor: #2292A4; 
+    --HLC: #388659;
+    --despliegue: #E1CA96; 
+    --diseño: #06D6A0; 
+    --cliente: #BDBF09; 
+  }
+
 *{
     font-family: "Roboto", sans-serif;
     list-style: none;
@@ -14,11 +22,11 @@ h1{
 
 header{
     text-align: center;
-    *background-color: blanchedalmond;
+    background-color: blanchedalmond;
 }
 
 nav{
-    *background-color: blanchedalmond;
+    background-color: blanchedalmond;
 }
 
 ul{
@@ -26,7 +34,7 @@ ul{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 li{
@@ -38,7 +46,7 @@ li{
 }
 
 main{
-    *background-color: blanchedalmond;
+    background-color: blanchedalmond;
 }
 
 main h2{
@@ -49,33 +57,35 @@ main h2{
 
 section{
     padding: 10px;
-    *background-color: blanchedalmond;
+    background-color: blanchedalmond;
 }
 
 .nota{
+    color: white;
     margin: 5px auto;
     background-color: aquamarine;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(4,auto);
-    grid-template-areas: 'titulonota titulonota titulonota titulonota chincheta'
+    grid-template-areas: 'titulonota titulonota titulonota titulonota editchincheta'
                 'des des des des des '
                 'des des des des des '
-                '. . . . fecha'
+                'delete . . . fecha'
 }
 
 .nota p{
-    padding: 10px;
+    padding: 5px 10px;
     margin: 0;
     grid-area: des;
 }
 
 .nota h3{
+    color: white;
+    text-shadow: 1px 1px black;
     padding-left: 10px;
-    padding-top: 10px;
+    padding-top: 15px;
     text-align: left;
     margin: 0;
-    margin-top: 15px;
     margin-bottom: 0;
     grid-area: titulonota;
 }
@@ -83,35 +93,56 @@ section{
 .nota span{
     padding-right: 7px;
     padding-bottom: 7px;
+    text-align: right;
     grid-area: fecha;
 }
 
 .chincheta{
     width: 30px;
     height: 20px;
-    padding: 10px;
-    grid-area: chincheta;
+}
+
+#editchincheta{
+    grid-area: editchincheta;
+    padding: 5px;
     justify-self: end;
 }
 
+#edit{
+    grid-area: edit;
+    width: 30px;
+    height: 20px;    
+}
+
+#delete{
+    grid-area: delete;
+    width: 30px;
+    height: 20px;
+}
+
 #diw{
-    background-color: greenyellow;
+    background-color: #06D6A0;
+    box-shadow: 1px 1px 2px 1px #06D6A0;
 }
 
 #cliente{
-    background-color: red;
+    box-shadow: 1px 1px 2px 1px #BDBF09;
+    background-color: #BDBF09;
 }
 
 #servidor{
-    background-color: blue;
+    box-shadow: 1px 1px 2px 1px #2292A4;
+    background-color: #2292A4;
 }
 
 #hlc{
-    background-color: green;
+    box-shadow: 1px 1px 2px 1px #388659;
+    background-color: #388659;
 }
 
 #despliegue{
-    background-color: brown;
+    box-shadow: 1px 1px 2px 1px #E1CA96;
+    background-color: #E1CA96;
 }
 
 #add {
@@ -136,4 +167,60 @@ footer{
 footer h3{
     margin: 0;
     padding: 15px;
+}
+
+@media (min-width:600px)  {
+
+    nav{
+        background-color: black;
+    }
+
+    ul{
+        padding: 5px;
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    li{
+        text-align: left;
+        color: white;
+        border: none;
+        background-color: black;
+        padding: 0;
+        margin: 0;
+        width: 11%;
+    }
+
+    #liServidor:hover{
+        color: var(--servidor);
+    }
+
+    #liDiseño:hover{
+        color: var(--diseño);
+    }
+
+    #liCliente:hover{
+        color: var(--cliente);
+    }
+
+    #liDespliegue:hover{
+        color: var(--despliegue);
+    }
+
+    #liHLC:hover{
+        color: var(--HLC);
+    }
+
+    section{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 15px;
+    }
+
+    .nota{
+        margin: 0;
+        
+    }
+
+
 }
