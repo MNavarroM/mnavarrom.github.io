@@ -83,6 +83,7 @@ section{
 }
 
 .nota{
+    margin-top: 15px;
     color:var(--primary-text);
     display: grid;
     grid-template-columns: repeat(5,1fr);
@@ -312,7 +313,7 @@ footer div{
     }
 
     .nota{
-        
+        margin: 0;
     }
 
     #add{
