@@ -113,8 +113,6 @@ section{
 }
 
 .nota span{
-    padding-right: 7px;
-    padding-bottom: 7px;
     text-align: right;
     grid-area: fecha;
 }
@@ -148,7 +146,7 @@ section{
 
 #delete{
     grid-area: delete;
-    width: 30px;
+    width: 20px;
     height: 20px;
 }
 
@@ -202,33 +200,38 @@ section{
     left: 0;
     right: 0;
     z-index: 1;
+    text-align: center;
 }
 
 #form{
-    margin: 5% auto;
-    width: 80vh;
-    background-color: white;
-    border: 10px solid var(--primay-color);
-    *padding: 20px;
-    
+    margin-top: 15%;
+    text-align: left;
+    width: auto;
+    display: inline-block;
 }
 
 #form form{
-    padding: 15px;  
+    padding: 15px;
+    background-color: var(--light-primary-color);
 }
 
 #form form input[type="submit"]{
-    margin: 0 65%;
     border: 2px solid var(--primay-color);
 }
 
 #cancel{
     text-align: right;
+    background-color: var(--dark-primary-color);
+    border-bottom: 1px solid black;
 }
 
 #cancel img{
     width: 30px;
     height: 30px;
+}
+
+#btnNota{
+    display: none;
 }
 
 footer{
@@ -290,7 +293,7 @@ footer div{
 
     section{
         display: grid;
-        grid-template-columns: repeat(2,auto);
+        grid-template-columns: repeat(3,auto);
         grid-gap: 15px;
     }
 
@@ -300,6 +303,10 @@ footer div{
 
     #add{
         display: none;
+    }
+
+    #btnNota{
+        display: block;
     }
 
     #form{
