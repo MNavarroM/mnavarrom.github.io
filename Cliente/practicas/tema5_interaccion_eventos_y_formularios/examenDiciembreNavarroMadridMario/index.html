@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="main.js"></script>
+    <script src="reserva.js"></script>
+    <title>Mario Navarro Madrid</title>
+</head>
+<style>
+    span{
+        color:red;
+    }
+</style>
+<body>
+    <noscript>
+        Su navegador no soporta Javascript, actívelo.
+    </noscript>
+    <h1 style="text-align: center;">Mario Navarro Madrid</h1>
+    <form action="">
+
+       <p>Nombre completo: <input type="text" name="" id="nombre">  <span id="errnombre"></span></p>
+       <p>Correo electrónico: <input type="text" name="" id="email">  <span id="erremail"></span></p>
+       <p>Fecha de llegada: <input type="text" name="" id="fechaLlegada">  <span id="errfechaLlegada"></span></p>
+       <p>Hora de llegada: <input type="text" name="" id="horaLlegada">  <span id="errhoraLlegada"></span></p>
+       <p>Número de noches: <input type="text" name="" id="numNoches">  <span id="errnumNoches"></span></p>
+       <p>Número de personas: <input type="text" name="" id="numPersonas">  <span id="errnumPersonas"></span></p>
+       <p>Servicio de restaurante: Desayuno<input type="checkbox" name="" id="desayuno" value="Desayuno"> Almuerzo<input type="checkbox" name="almuerzo" id="" value="Almuerzo">  
+        Cena<input type="checkbox" name="" id="cena" value="Cena">  <span id="errservicio"></span></p>
+       <p>Edad cliente : Menos de 20<input type="radio" name="radio" id="menos20" value="Menos de 20"> Menos de 20 y más de 40<input type="radio" checked name="radio" id="mas20men40" value="Más de 20 y menos de 40"> Más de 40 <input type="radio" name="radio" id="mas40" value="Más de 40">
+        <span id="erredad"></span></p>
+    </form>
+    <p><button id="enviar">Realizar reserva</button></p>
+</body>
+</html>
