@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="main.js"></script>
     <title>Gestor de Tareas</title>
 </head>
 
@@ -73,16 +74,43 @@
         </section>
         <img src="css/add.svg" id="add" alt="">
     </main>
+    <div id="modal">
+        <div id="form">
+            <div id="cancel">
+                <a href="#" id="btnCancel"><img src="css/cancel.svg" alt=""></a>
+            </div>
+            <form action="">
+                <p>
+                    <span>Módulo</span>
+                    <select name="" id="">
+                        <option value="">Diseño</option>
+                        <option value="">Cliente</option>
+                        <option value="">Servidor</option>
+                        <option value="">HLC</option>
+                        <option value="">Despliegue</option>
+                    </select>
+                </p>
+                <p>
+                    <span>Título  </span>
+                    <input required type="text" name="" id="">
+                </p>
+                <p>
+                    <span>Descripción  </span><br><br>
+                    <textarea required name="" id="" cols="20" rows="3   "></textarea>
+                </p>
+                <p>
+                    <span>Fecha  </span>
+                    <input required type="date" name="" id="">
+                </p>
+                <input type="submit" id="enviar" value="Enviar Nota">
+            </form>
+        </div>
+    </div>
     <footer>
         <h3>Mario Navarro Madrid</h3>
         <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-            <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>
-                from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
-                    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-            <a href="https://www.freepik.es/fotos-vectores-gratis/fondo">Foto de fondo creado por topntp26 -
-                www.freepik.es</a>
         </div>
     </footer>
 </body>
