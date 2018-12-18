@@ -186,12 +186,8 @@ section{
     position: fixed;
     right: 1%;
     bottom: 1%;
-    padding: 5px;
-    background-color: yellow;
     height: 40px;
     width: 40px;
-    border: 1px black solid;
-    border-radius: 50px;
 }
 
 #modal{
