@@ -85,7 +85,7 @@ section{
 
 .nota{
     color:var(--primary-text);
-    margin: 10px auto;
+    margin: 15px auto;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(4,auto);
