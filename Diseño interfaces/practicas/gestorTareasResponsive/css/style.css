@@ -1,14 +1,17 @@
 :root {
-    --servidor: #AFB42B; 
-    --HLC:#512DA8;
-    --despliegue: #CDDC39; 
-    --diseño: #06D6A0; 
-    --cliente: #BDBF09; 
-    --dark-primary-color : #FBC02D;
-    --light-secondary-color:#FFF9C4;
-    --primay-color:#FFEB3B;
-    --text-color:#212121;
-    --secondary-text-color:#757575;
+    --servidor: #4dd0e1; 
+    --HLC:#a5d6a7;
+    --despliegue: #ffccbc; 
+    --diseño: #26a69a; 
+    --cliente: #e6ee9c;
+    --dark-primary-color : #00796B;
+    --light-primary-color:#B2DFDB;
+    --primary-color:#009688;
+    --text-icon:#FFFFFF;
+    --accent-color:#03A9F4;
+    --primary-text:#212121;
+    --secondary-text:#757575;
+    --divider-color:#BDBDBD;
   }
 
 *{
@@ -16,21 +19,29 @@
     list-style: none;
 }
 
+a,a:link,a:active,a:visited{
+    color: var(--text-icon);
+    text-decoration: none;
+}
+
 h1{
+    color: var(--primary-text);
+    text-shadow: 1px 1px var(--secondary-text);
     margin: 0;
     padding: 10px 0;
 }
 
 header{
     text-align: center;
-    background-color: var(--dark-primary-color);
+    background-color: var(--light-primary-color);
 }
 
 nav{
-    background-color: var(--dark-primary-color);
+    background-color: var(--primary-color);
 }
 
 ul{
+    background-color: var(--primary-color);
     padding: 0;
     margin: 0 15px;
     display: flex;
@@ -39,6 +50,8 @@ ul{
 }
 
 li{
+    color:var(--text-icon);
+    background-color: var(--primary-color);
     *margin-top: 3px;
     text-align: center;
     padding: 5px;
@@ -46,17 +59,21 @@ li{
 }
 
 main{
-    background-color: var(--primay-color);
+    background-color: var(--light-primary-color);
     min-height: 80vh;
 }
 
 main button{
     margin: 10px;
-    border-radius: 5px;
-    background-color: var(--light-secondary-color);
+    color:var(--text-icon);
+    border: 1px solid var(--secondary-text);
+    box-shadow: 1px 1px var(--primary-color);
+    background-color: var(--primary-color);
 }
 
 main h2{
+    color: var(--primary-text);
+    text-shadow: 1px 1px var(--secondary-text);
     margin: 0;
     padding-top: 20px;
     text-align: center;    
@@ -64,13 +81,11 @@ main h2{
 
 section{
     padding: 10px;
-    background-color: var(--primay-color);
 }
 
 .nota{
-    color: #212121;
+    color:var(--primary-text);
     margin: 5px auto;
-    background-color: aquamarine;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(4,auto);
@@ -83,12 +98,12 @@ section{
 .nota p{
     padding: 5px 10px;
     margin: 0;
+    margin-bottom: 6px;
     grid-area: des;
 }
 
 .nota h3{
-    color: #212121;
-    text-shadow: 1px 1px #757575;
+    text-shadow: 1px 1px var(--secondary-text);
     padding-left: 10px;
     padding-top: 15px;
     text-align: left;
@@ -179,8 +194,8 @@ section{
     border-radius: 50px;
 }
 
-#form{
-    width: 100vh;
+#modal{
+    width: 100%;
     height: 100vh;
     background-color: rgba(0,0,0,0.9);
     display: none;
@@ -189,16 +204,42 @@ section{
     top: 0;
     left: 0;
     right: 0;
-    z-index: -2;
-    transition-duration: 1s;
+    z-index: 1;
+}
+
+#form{
+    margin: 5% auto;
+    width: 80%;
+    background-color: white;
+    border: 10px solid var(--primay-color);
+    *padding: 20px;
+    
+}
+
+#form form{
+    padding: 15px;  
+}
+
+#form form input[type="submit"]{
+    margin: 0 65%;
+    border: 2px solid var(--primay-color);
+}
+
+#cancel{
+    text-align: right;
+}
+
+#cancel img{
+    width: 30px;
+    height: 30px;
 }
 
 footer{
     min-height: 20vh;
-    border-top: 1px solid black;
+    border-top: 1px solid var(--primary-color);
     text-align: center;
     color: #212121;
-    background-color: black;
+    background-color: var(--primary-color);
     overflow: hidden;
 }
 
@@ -214,10 +255,6 @@ footer div{
 
 @media (min-width:600px)  {
 
-    nav{
-        background-color: #D1C4E9;
-    }
-
     ul{
         padding: 5px;
         flex-direction: row;
@@ -227,12 +264,11 @@ footer div{
     li{
         font-size: 19px;
         text-align: left;
-        color: #212121;
         border: none;
-        background-color: #D1C4E9;
         padding: 0;
         margin: 0;
-        width: 11%;
+        margin-right: 10px;
+        width: 20%;
     }
 
     #liServidor:hover{
@@ -257,7 +293,7 @@ footer div{
 
     section{
         display: grid;
-        grid-template-columns: repeat(3,auto);
+        grid-template-columns: repeat(2,auto);
         grid-gap: 15px;
     }
 
@@ -269,19 +305,22 @@ footer div{
         display: none;
     }
 
+    #form{
+        width: 25%;
+    }
 
 }
 
 @media (min-width:1366px)  {
-
-    main button{
-        
-    }
 
     section{
         display: grid;
         grid-template-columns: repeat(5,auto);
         grid-gap: 15px;
     }
-}
 
+    #form{
+        width: 25%;
+    }
+
+}

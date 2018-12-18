@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="main.js"></script> 
     <title>Gestor de Tareas</title>
 </head>
 
@@ -17,12 +18,12 @@
     </header>
     <nav>
         <ul>
-            <li id="">Inicio</li>
-            <li id="liServidor">Servidor</li>
-            <li id="liCliente">Cliente</li>
-            <li id="liDiseño">Diseño</li>
-            <li id="liHLC">HLC</li>
-            <li id="liDespliegue">Despliegue</li>
+            <li id=""><a href="#">Inicio</a></li>
+            <li id="liServidor"><a href="#">Servidor</a></li>
+            <li id="liCliente"><a href="#">Cliente</a></li>
+            <li id="liDiseño"><a href="#">Diseño</a></li>
+            <li id="liHLC"><a href="#">HLC</a></li>
+            <li id="liDespliegue"><a href="#">Despliegue</a></li>
         </ul>
     </nav>
     <main>
@@ -79,7 +80,8 @@
                     <img src="css/pushpin.svg" class="chincheta" alt="">
                 </div>
                 <h3>Despliegue - Tomcat</h3>
-                <p>Instala y configura un servidor de aplicaciones Tomcat. Accede a la herramienta manager y a las páginas de ejemplo bajo webapps. Documenta toda el proceso.</p>
+                <p>Instala y configura un servidor de aplicaciones Tomcat. Accede a la herramienta manager y a las
+                    páginas de ejemplo bajo webapps. Documenta toda el proceso.</p>
                 <img src="css/delete.svg" id="delete" alt="">
                 <span>15/04/2019</span>
             </article>
@@ -87,30 +89,37 @@
         <img src="css/add.svg" id="add" alt="">
     </main>
     <div id="modal">
-        <form id="form" action="">
-            <p>
-                <span>Módulo</span>
-                <select name="" id="">
-                    <option value="">Diseño</option>
-                    <option value="">Cliente</option>
-                    <option value="">Servidor</option>
-                    <option value="">HLC</option>
-                    <option value="">Despliegue</option>
-                </select>        
-            </p>
-            <p>
-                <span>Título asignatura</span>
-                <input type="text" name="" id="">
-            </p>
-            <p>
-                <span>Descripción</span><br>
-                <textarea name="" id="" cols="30" rows="6"></textarea>
-            </p>
-            <p>
-                <span>Fecha</span>
-                <input type="date" name="" id="">
-            </p>
-        </form>
+        <div id="form">
+            <div id="cancel">
+                <a href="#" id="btnCancel"><img src="css/cancel.svg" alt=""></a>
+            </div>                
+            <form action="">
+                <p>
+                    <span>Módulo</span>
+                    <select name="" id="">
+                        <option value="">Diseño</option>
+                        <option value="">Cliente</option>
+                        <option value="">Servidor</option>
+                        <option value="">HLC</option>
+                        <option value="">Despliegue</option>
+                    </select>
+                </p>
+                <p>
+                    <span>Título asignatura</span>
+                    <input type="text" name="" id="">
+                </p>
+                <p>
+                    <span>Descripción</span><br>
+                    <textarea name="" id="" cols="30" rows="6"></textarea>
+                </p>
+                <p>
+                    <span>Fecha</span>
+                    <input type="date" name="" id="">
+                </p>
+                <input type="submit" id="enviar" value="Enviar Nota">
+            </form>
+
+        </div>
     </div>
     <footer>
         <h3>Mario Navarro Madrid</h3>
