@@ -60,7 +60,7 @@ li{
 
 main{
     background-color: var(--light-primary-color);
-    min-height: 80vh;
+    min-height: 90vh;
 }
 
 main button{
@@ -216,7 +216,18 @@ section{
 }
 
 #form form input[type="submit"]{
-    border: 2px solid var(--primay-color);
+    color:var(--text-icon);
+    border: 1px solid var(--secondary-text);
+    box-shadow: 1px 1px var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+:required, input:invalid, textarea:invalid{
+    border: 1px solid red;
+}
+
+input:valid, textarea:valid{
+    border: 1px solid green;
 }
 
 #cancel{
@@ -235,7 +246,7 @@ section{
 }
 
 footer{
-    min-height: 20vh;
+    min-height: 10vh;
     border-top: 1px solid var(--primary-color);
     text-align: center;
     color: #212121;
@@ -324,7 +335,7 @@ footer div{
     }
 
     #form{
-        *width: 25%;
+        margin-top: 10%;
     }
 
 }

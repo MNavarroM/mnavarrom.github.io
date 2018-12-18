@@ -1,5 +1,5 @@
 {
-  let btnAdd, btnExit;
+  let btnAdd,imgAdd, btnExit;
   let modal;
   let notas;
 
@@ -14,8 +14,12 @@
     }*/
     btnAdd = document.getElementById("btnNota");
     btnExit = document.getElementById("btnCancel");
+    imgAdd = document.getElementById("add");
     modal = document.getElementById("modal");
     btnAdd.addEventListener("click", function() {
+      modal.style.display = "block";
+    });
+    imgAdd.addEventListener("click", function() {
       modal.style.display = "block";
     });
     btnExit.addEventListener("click", function() {
