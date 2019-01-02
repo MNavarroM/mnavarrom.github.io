@@ -1,0 +1,55 @@
+*{
+    font-family: "Roboto", sans-serif;
+}
+
+h1,h2,h3{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    color: #8BC34A;
+    text-align: center;
+    border-bottom: 1px solid #8BC34A;
+}
+
+#buscador{
+    color: white;
+    text-shadow: black 1px 1px;
+    background-image: url("../casa1.jpg");
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-size: 22px;
+    text-align: center;
+}
+
+#buscador p{
+    margin:0 auto;
+    padding-top: 100px;
+    margin-bottom: 30px;
+}
+
+#buscador div{
+    margin: 5px auto;
+}
+
+#buscador input[type="submit"]{
+    background-color: #8BC34A;
+    border: none;
+    margin: 0 auto;
+    color: white;
+    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+input[type="text"],input[type="date"]{
+    width: 55%;
+}
+
+.card{
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 90%;
+    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
+}
