@@ -138,11 +138,7 @@
           }
           break;
       }
-      if(!this.finalPartida)
-        this.mostrarInfo();
-    },
-    mostrarInfo(){
-      //console.clear();
+      console.clear();
       this.mostrarTableroConsola();
       if (this.casillasRestantes == 0) {
         console.log("Enhorabuena, has ganado!");
