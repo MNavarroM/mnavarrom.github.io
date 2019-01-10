@@ -142,7 +142,7 @@
         this.mostrarInfo();
     },
     mostrarInfo(){
-      console.clear();
+      //console.clear();
       this.mostrarTableroConsola();
       if (this.casillasRestantes == 0) {
         console.log("Enhorabuena, has ganado!");
@@ -169,7 +169,6 @@
       }
     },
     mostrarMinas() {
-      console.log("jejejejejje");
       for (let i = 0; i < this.filas; i++) {
         for (let j = 0; j < this.columnas; j++) {
           if (this.tablero[i][j] == "X") {
