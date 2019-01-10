@@ -122,7 +122,6 @@
           console.log("Has pulsado una mina, has perdido!");
           this.mostrarMinas();
           this.finalPartida = true;
-          return;
           break;
         case 0:
           if (this.mapeoCasillas[x][y] != -1) {
@@ -139,6 +138,10 @@
           }
           break;
       }
+      if(!this.finalPartida)
+        mostrarInfo();
+    },
+    mostrarInfo(){
       console.clear();
       this.mostrarTableroConsola();
       if (this.casillasRestantes == 0) {
@@ -164,13 +167,13 @@
               if (this.tablero[j][k] != "X") this.abrir(j, k);
             }
       }
-      
     },
     mostrarMinas() {
       for (let i = 0; i < this.filas; i++) {
         for (let j = 0; j < this.columnas; j++) {
           if (this.tablero[i][j] == "X") {
             this.tablero[i][j] = "X";
+            this.tableroVisible[i][j] = "X";
           }
         }
       }
