@@ -112,6 +112,10 @@
         console.log("La partida no está iniciada");
         return;
       }
+      if(x>this.filas || x<0 || y>this.filas || y<0){
+        console.log("Fila o columna no válida");
+        return;
+      }
       let value = this.tablero[x][y];
       switch (value) {
         case "X":
@@ -138,7 +142,8 @@
         console.log("Enhorabuena, has ganado!");
         this.finalPartida = true;
       }
-      buscaminas.mostrarTableroConsola();
+      console.clear();
+      this.mostrarTableroConsola();
     },
     //x,y
     abrirCero(x, y) {
@@ -170,6 +175,10 @@
       }
     },
     ponerBandera(x, y) {
+      if(x>this.filas || x<this.filas || y>this.filas || y<this.filas){
+        console.log("Fila o columna no válida");
+        return;
+      }
       if (this.isFinal()) {
         console.log("Has perdido la partida, no puedes colocar minas");
         return;
@@ -188,6 +197,10 @@
       }
     },
     quitarBandera(x, y) {
+      if(x>this.filas || x<this.filas || y>this.filas || y<this.filas){
+        console.log("Fila o columna no válida");
+        return;
+      }
       if (this.isFinal()) {
         console.log("Has perdido la partida, no puedes quitar banderas");
         return;
@@ -211,7 +224,4 @@
     }
   };
 
-  function init() {}
-
-  document.addEventListener("DOMContentLoaded", init);
 }
