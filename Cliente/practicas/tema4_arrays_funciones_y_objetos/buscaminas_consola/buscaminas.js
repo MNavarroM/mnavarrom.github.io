@@ -22,11 +22,13 @@
     mapeoCasillas: [],
     tableroVisible: [],
     finalPartida: false,
+    partidaIniciada : false,
     contadorBanderas: 10,
     iniciarJuego(dificultad) {
       this.columnas = 0;
       this.filas = 0;
       this.minas = 0;
+      this.partidaIniciada = true;
       try{
         buscaminas.elegirDificultad(dificultad);
       }catch(e){
@@ -106,6 +108,10 @@
         console.log("Has perdido la partida, no puedes colocar minas");
         return;
       }
+      if(!this.isEmpezada()){
+        console.log("La partida no está iniciada");
+        return;
+      }
       let value = this.tablero[x][y];
       switch (value) {
         case "X":
@@ -168,6 +174,10 @@
         console.log("Has perdido la partida, no puedes colocar minas");
         return;
       }
+      if(!this.isEmpezada()){
+        console.log("La partida no está iniciada");
+        return;
+      }
       if (this.tableroVisible[x][y] === "O") {
         if (this.contadorBanderas == 0)
           console.log("Ya has colocado el máximo de banderas");
@@ -182,6 +192,10 @@
         console.log("Has perdido la partida, no puedes quitar banderas");
         return;
       }
+      if(!this.isEmpezada()){
+        console.log("La partida no está iniciada");
+        return;
+      }
       if (this.contadorBanderas > 0) {
         if (this.tableroVisible[x][y] === "P") {
           this.tableroVisible[x][y] = "0";
@@ -191,6 +205,9 @@
     },
     isFinal() {
       return this.finalPartida;
+    },
+    isEmpezada() {
+      return this.partidaIniciada;
     }
   };
 
