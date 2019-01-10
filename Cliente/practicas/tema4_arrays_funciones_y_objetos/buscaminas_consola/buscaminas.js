@@ -169,6 +169,7 @@
       }
     },
     mostrarMinas() {
+      console.log("jejejejejje");
       for (let i = 0; i < this.filas; i++) {
         for (let j = 0; j < this.columnas; j++) {
           if (this.tablero[i][j] == "X") {
