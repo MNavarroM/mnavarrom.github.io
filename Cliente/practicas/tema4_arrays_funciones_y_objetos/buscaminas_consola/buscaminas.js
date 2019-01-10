@@ -122,6 +122,7 @@
           console.log("Has pulsado una mina, has perdido!");
           this.mostrarMinas();
           this.finalPartida = true;
+          return;
           break;
         case 0:
           if (this.mapeoCasillas[x][y] != -1) {
@@ -138,12 +139,12 @@
           }
           break;
       }
+      console.clear();
+      this.mostrarTableroConsola();
       if (this.casillasRestantes == 0) {
         console.log("Enhorabuena, has ganado!");
         this.finalPartida = true;
       }
-      console.clear();
-      this.mostrarTableroConsola();
     },
     //x,y
     abrirCero(x, y) {
