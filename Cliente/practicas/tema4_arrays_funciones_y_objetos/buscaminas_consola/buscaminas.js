@@ -178,7 +178,7 @@
       }
     },
     ponerBandera(x, y) {
-      if(x>this.filas || x<this.filas || y>this.filas || y<this.filas){
+      if(x>this.filas || x<this.filas || y>this.columnas || y<this.columnas){
         console.log("Fila o columna no válida");
         return;
       }
