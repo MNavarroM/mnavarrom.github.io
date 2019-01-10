@@ -139,7 +139,7 @@
           break;
       }
       if(!this.finalPartida)
-        mostrarInfo();
+        this.mostrarInfo();
     },
     mostrarInfo(){
       console.clear();
