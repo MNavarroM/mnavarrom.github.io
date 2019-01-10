@@ -23,6 +23,7 @@
     tableroVisible: [],
     finalPartida: false,
     partidaIniciada : false,
+    derrota : false,
     contadorBanderas: 10,
     iniciarJuego(dificultad) {
       this.columnas = 0;
@@ -119,8 +120,8 @@
       let value = this.tablero[x][y];
       switch (value) {
         case "X":
-          console.log("Has pulsado una mina, has perdido!");
           this.mostrarMinas();
+          this.derrota = true;
           this.finalPartida = true;
           break;
         case 0:
@@ -142,8 +143,10 @@
       this.mostrarTableroConsola();
       if (this.casillasRestantes == 0) {
         console.log("Enhorabuena, has ganado!");
-        this.finalPartida = true;
+        this.finalPartida = true; 
       }
+      if(this.derrota)
+        console.log("Has pulsado una mina, has perdido!");
     },
     //x,y
     abrirCero(x, y) {
