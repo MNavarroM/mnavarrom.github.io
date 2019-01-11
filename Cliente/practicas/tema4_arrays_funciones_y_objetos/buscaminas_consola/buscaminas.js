@@ -178,7 +178,7 @@
       }
     },
     ponerBandera(x, y) {
-      if(x>this.filas || x<this.filas || y>this.columnas || y<this.columnas){
+      if(x>=this.filas || x<0 || y>=this.columnas || y<0){
         console.log("Fila o columna no válida");
         return;
       }
@@ -191,7 +191,7 @@
         return;
       }
       if (this.tableroVisible[x][y] === "O") {
-        if (this.contadorBanderas == 0)
+        if (this.contadorBanderas === 0)
           console.log("Ya has colocado el máximo de banderas");
         else {
           this.tableroVisible[x][y] = "P";
@@ -200,7 +200,7 @@
       }
     },
     quitarBandera(x, y) {
-      if(x>this.filas || x<this.filas || y>this.filas || y<this.filas){
+      if(x>=this.filas || x<0 || y>=this.columnas || y<0){
         console.log("Fila o columna no válida");
         return;
       }
@@ -214,7 +214,7 @@
       }
       if (this.contadorBanderas > 0) {
         if (this.tableroVisible[x][y] === "P") {
-          this.tableroVisible[x][y] = "0";
+          this.tableroVisible[x][y] = "O";
           ++this.contadorBanderas;
         } else console.log("No existe ninguna bandera en esa posición");
       }
