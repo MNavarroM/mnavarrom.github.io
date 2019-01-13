@@ -228,6 +228,36 @@ footer div{
     text-align: right;
 }
 
+
+/*####### CSS RESERVA #############*/
+
+#casa{
+    width: 90%;
+    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin: 20px auto;
+}
+
+#imagenCasa{
+    background-image: url("../img/casita.jpeg");
+    background-size: 100%;    
+    height: 250px;
+    width: 90%;
+    margin: 20px auto;
+}
+
+#extras{
+    padding: 20px;
+}
+
+#descripcion{
+    margin: 0;
+    padding: 20px;
+}
+
+#precio{
+    text-align: right;
+}
+
 @media (min-width:600px){
     #buscador{
         *background-image: url("../casa2.jpg");
