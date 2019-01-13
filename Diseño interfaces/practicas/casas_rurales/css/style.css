@@ -114,8 +114,7 @@ footer{
 }
 
 footer a{
-    padding-left: 10px;
-    padding-top: 5px;
+    padding: 10px;
     text-decoration: none;
     color: white;
     display: block;
