@@ -14,6 +14,7 @@
         //selectores prev ~ siblings
         $("#a2 ~ div.clase").css("font-size", "180%");
         $("#miparrafo ~ table").css("border", "3px dotted #dd6600");
+        let p = $("#miparrafo");
 
 
     });
