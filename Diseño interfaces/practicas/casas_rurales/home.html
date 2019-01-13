@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Ruralia - Tu buscador de aventuras rurales</title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Ruralia</h1>
+    </header>
+    <nav></nav>
+    <main>
+        <section id="buscador">
+            <p>Reserva tus mejores vacaciones.</p>
+            <form action="">
+                <div id="fDestino">
+                    <label for="destino">Destino: </label>
+                    <input type="text" name="destino" id="">
+                </div>
+                <div id="fEntrada">
+                    <label for="entrada">Entrada: </label>
+                    <input type="date" name="entrada" id="">
+                </div>
+                <di id="fSalida">
+                    <label for="salida">Salida: </label>
+                    <input type="date" name="salida" id="">
+                </di>
+                <div id="fExtras">
+                    <label for="extras">Extras: </label>
+                    Desayuno <input type="checkbox" name="" id="">
+                    Cena <input type="checkbox" name="" id="">
+                    Wifi <input type="checkbox" name="" id="">
+                </div>
+                <input type="submit" value="Reservar">
+            </form>
+        </section>
+        <section>
+            <h2>Últimas ofertas</h2>
+            <div id="ultimascasas">
+                <div class="cardCasas">
+                    <h2>Hotel</h2>
+                    <img id="fotocasa" src="hotel1.jpg" alt="">
+                    <p id="descripcioncasa">Hotel ubicado en la desembocadura del Ebro, ideal para desconectar.
+                        </br></br>
+                        Habitaciones: 2
+                    </p>
+                    <p id="preciocasa">Precio: 26.5€/noche</p>
+                    <a href="casa.html"> <button>Acceder</button></a>
+                </div>
+                <div class="cardCasas">
+                    <h2>Hotel</h2>
+                    <img id="fotocasa" src="hotel2.jpg" alt="">
+                    <p id="descripcioncasa">Hotel ubicado en la Sierra de Segura. Un lugar donde perderte a descansar.
+                        </br></br>Habitaciones: 2</p>
+                    <p id="preciocasa">Precio: 43€/noche</p>
+                    <a href="casa.html"><button>Acceder</button></a>
+                </div>
+                <div class="cardCasas">
+                    <h2>Hotel</h2>
+                    <img id="fotocasa" src="hotel3.jpg" alt="">
+                    <p id="descripcioncasa">Hotel ubicado en Sierra Morena. Ideal para visitar con la familia y
+                        disfrutar de sus actividades
+                        </br></br>Habitaciones: 5</p>
+                    <p id="preciocasa">Precio: 23€/noche</p>
+                    <a href="casa.html"><button>Acceder</button></a>
+                </div>
+                <div class="cardCasas">
+                    <h2>Hotel</h2>
+                    <img id="fotocasa" src="hotel4.jpg" alt="">
+                    <p id="descripcioncasa">Casa rural en plena sierra asturiana. Un lugar mágico para una escapada
+                        romántica.
+                        </br></br>Habitaciones: 1</p>
+                    <p id="preciocasa">Precio: 82€/noche</p>
+                    <a href="casa.html"><button>Acceder</button></a>
+                </div>
+                <div class="cardCasas">
+                    <h2>Hotel</h2>
+                    <img id="fotocasa" src="hotel5.jpg" alt="">
+                    <p id="descripcioncasa">Casa rural en plena sierra asturiana. Un lugar mágico para una escapada
+                        romántica.
+                        </br></br>Habitaciones: 3</p>
+                    <p id="preciocasa">Precio: 82€/noche</p>
+                    <a href="casa.html"><button>Acceder</button></a>
+                </div>
+                <div class="cardCasas">
+                    <h2>Hotel</h2>
+                    <img id="fotocasa" src="hotel6.jpg" alt="">
+                    <p id="descripcioncasa">Casa rural en plena sierra asturiana. Un lugar mágico para una escapada
+                        romántica.
+                        </br></br>Habitaciones: 4</p>
+                    <p id="preciocasa">Precio: 82€/noche</p>
+                    <a href="casa.html"><button>Acceder</button></a>
+                </div>
+            </div>
+        </section>
+        <div id="support">
+            <img src="help.svg" alt="" id="btnHelp">
+        </div>
+        <div id="modal">
+            <div id="form">
+                <div id="cancel">
+                    <a href="#" id="btnCancel">Salir<img src=".svg" alt=""></a>
+                </div>
+                <form action="">
+                    <p>
+                        Nombre: <input type="text" name="" id="">
+                    </p>
+                    <p>
+                        <span>Motivo</span>
+                        <select name="" id="">
+                            <option value="">Error al procesar reserva</option>
+                            <option value="">Error en la página web</option>
+                            <option value="">Contacto</option>
+                            <option value="">Otros</option>
+                        </select>
+                    </p>
+                    <p>
+                        <span>Correo electrónico: </span>
+                        <input required type="text" name="" id="">
+                    </p>
+                    <p>
+                        <span>Descripción </span><br><br>
+                        <textarea required name="" id="" cols="20" rows="3   "></textarea>
+                    </p>
+                    <input type="submit" id="enviar" value="Enviar Nota">
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div id="infofooter">
+            <h3>Información</h3>
+            <a href="#">Suscríbete a nuetro boletín</a>
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Aviso Legal</a>
+        </div>
+        <div id="provincias">
+            <h3>Comunidades</h3>
+            <a href="">Andalucía</a>
+            <a href="">Aragón</a>
+            <a href="">Asturias</a>
+            <a href="">Cantabria</a>
+            <a href="">Castilla y León</a>
+            <a href="">Castilla - La Mancha</a>
+            <a href="">Cataluña</a>
+            <a href="">Comunidad de Madrid</a>
+            <a href="">Comunidad Valenciana</a>
+            <a href="">Extremadura</a>
+            <a href="">Galicia</a>
+            <a href="">Islas Baleares</a>
+            <a href="">Islas Canarias</a>
+            <a href="">La Rioja</a>
+            <a href="">Murcia</a>
+            <a href="">Navarro</a>
+            <a href="">País Vasco</a>
+        </div>
+
+    </footer>
+</body>
+
+</html>
