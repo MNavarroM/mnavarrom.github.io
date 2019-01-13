@@ -15,18 +15,17 @@ header{
 
 #buscador{
     color: white;
-    text-shadow: black 1px 1px;
+    text-shadow: #8BC34A 1px 1px;
     background-image: url("../casa1.jpg");
-    height: 60vh;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     font-size: 22px;
     text-align: center;
+    padding: 20px 0;
 }
 
 #buscador p{
     margin:0 auto;
-    padding-top: 100px;
     margin-bottom: 30px;
 }
 
@@ -34,7 +33,7 @@ header{
     margin: 5px auto;
 }
 
-#buscador input[type="submit"]{
+input[type="submit"],button{
     background-color: #8BC34A;
     border: none;
     margin: 0 auto;
@@ -44,12 +43,91 @@ header{
 
 input[type="text"],input[type="date"]{
     width: 55%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 .card{
+    padding: 10px;
     margin: 0 auto;
     margin-top: 10px;
     width: 90%;
     box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     text-align: center;
+}
+
+.card img{
+    padding-top: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.card h3{
+    color:#8BC34A;
+}
+
+#ultimascasas h2{
+    margin: 10px;
+    text-align: center;
+}
+
+#descripcioncasa{
+    grid-area: descripcioncasa;
+}
+
+#fotocasa{
+    grid-area: fotocasa;
+    width: 140px;
+    height: 100px;
+}
+
+#preciocasa{
+    grid-area: preciocasa;
+}
+
+.cardCasas button{
+    grid-area: reservaCasa;
+    width: 80px;
+}
+
+.cardCasas{
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 90%;
+    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,auto);
+    grid-template-areas: 
+                "fotocasa descripcioncasa descripcioncasa"
+                "fotocasa descripcioncasa descripcioncasa"
+                "preciocasa . reservaCasa";
+    grid-gap: 10px;
+}
+
+footer{
+    background-color: #8BC34A;
+    margin-top: 10px;
+}
+
+footer a{
+    padding-left: 10px;
+    padding-top: 5px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+@media (min-width:1366px){
+    #buscador{
+        display: grid;
+        grid-template-columns: repeat(6,auto);
+        grid-template-rows: repeat(6,auto);
+        grid-area: ". . . . . ."
+                    ". labelDestino destino destino . ."
+                    ". labelEntrada entrada labelSalida salido ."
+                    ". labelExtra . . . ."
+                    " . desayuno cena wifi . .";
+    }
 }
