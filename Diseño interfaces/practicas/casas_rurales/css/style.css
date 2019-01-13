@@ -79,6 +79,7 @@ section h2{
 
 #descripcioncasa{
     grid-area: descripcioncasa;
+    font-size: 18px;
 }
 
 #fotocasa{
@@ -91,7 +92,12 @@ section h2{
     grid-area: preciocasa;
 }
 
-.cardCasas button{
+.cardCasas h2{
+    padding: 10px;
+    grid-area: nombrehotel;
+}
+
+.cardCasas a{
     grid-area: reservaCasa;
     width: 80px;
 }
@@ -104,12 +110,19 @@ section h2{
     box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3,auto);
+    grid-template-rows: repeat(4,auto);
     grid-template-areas: 
+                "nombrehotel . ."
                 "fotocasa descripcioncasa descripcioncasa"
                 "fotocasa descripcioncasa descripcioncasa"
                 "preciocasa . reservaCasa";
     grid-gap: 10px;
+    transition-duration: 1s;
+}
+
+.cardCasas:hover{
+    transform: scale(1.04);
+    transition-duration: 1s;
 }
 
 footer{
@@ -165,9 +178,24 @@ footer div{
         display: grid;
         grid-template-columns: repeat(2,1fr);
     }
+
+    #fotocasa{
+        width: 140px;
+        height: 120px;    
+    }
     
 }
 
 @media (min-width:1366px)  {
+
+    #fotocasa{
+        width: 250px;
+        height: 190px;    
+    }
+
+    #descripcioncasa{
+        font-size: 25px;
+    }
+
 }
 
