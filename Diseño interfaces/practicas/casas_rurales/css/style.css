@@ -109,6 +109,8 @@ input[type="text"],input[type="date"]{
 footer{
     background-color: #8BC34A;
     margin-top: 10px;
+    display: flex;
+    text-align: center;
 }
 
 footer a{
@@ -117,6 +119,10 @@ footer a{
     text-decoration: none;
     color: white;
     display: block;
+}
+
+footer h3{
+    padding: 10px;
 }
 
 @media (min-width:1366px){
