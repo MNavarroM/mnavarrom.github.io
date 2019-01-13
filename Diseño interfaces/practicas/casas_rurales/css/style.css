@@ -47,6 +47,11 @@ input[type="text"],input[type="date"]{
     border-color: rgba(255, 255, 255, 0.8);
 }
 
+section h2{
+    text-align: center;
+    padding: 20px;
+}
+
 .card{
     padding: 10px;
     margin: 0 auto;
@@ -128,7 +133,7 @@ footer div{
     flex-basis: 48%;
 }
 
-@media (min-width:1366px){
+@media (min-width:600px){
     #buscador{
         display: grid;
         grid-template-columns: repeat(6,auto);
@@ -139,4 +144,23 @@ footer div{
                     ". labelExtra . . . ."
                     " . desayuno cena wifi . .";
     }
+    
+    #nosotros{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card{
+        margin: 0 auto;
+        margin-top: 10px;
+        flex-basis: 28%;
+        box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        text-align: center;
+    }
+
+    #ultimascasas{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    
 }
