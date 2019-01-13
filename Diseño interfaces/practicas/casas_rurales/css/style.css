@@ -240,6 +240,7 @@ footer div{
 #imagenCasa{
     background-image: url("../img/casita.jpeg");
     background-size: 100%;    
+    background-repeat: no-repeat;
     height: 250px;
     width: 90%;
     margin: 20px auto;
