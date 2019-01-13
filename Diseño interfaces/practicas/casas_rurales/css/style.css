@@ -80,6 +80,7 @@ section h2{
 #descripcioncasa{
     grid-area: descripcioncasa;
     font-size: 18px;
+    padding: 0;
 }
 
 #fotocasa{
