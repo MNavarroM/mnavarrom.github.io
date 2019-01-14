@@ -11,18 +11,27 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Ruralia - Tu buscador de aventuras rurales</title>
-    <script src="main.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>Ruralia</h1><img src="img/leaf.svg" alt="">
+        <h1>Ruralia</h1>
+        <img src="img/menu.svg" id="menu" alt="">
     </header>
-    <nav></nav>
+    <nav>
+        <ul>
+            <li>Inicio</li>
+            <li>Casas</li>
+            <li>Hoteles</li>
+            <li>Contacto</li>
+        </ul>
+    </nav>
     <main>
         <section id="buscador">
             <form action="">
-                <div id="fDestino">     
+                <div id="fDestino">
                     <label for="destino">Destino: </label>
                     <input type="text" name="destino" id="">
                 </div>

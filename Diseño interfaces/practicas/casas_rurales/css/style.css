@@ -13,6 +13,10 @@ header{
     color: #8BC34A;
     text-align: center;
     border-bottom: 1px solid #8BC34A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
 }
 
 header img{
@@ -23,6 +27,19 @@ header img{
 
 header h1{
     display: inline-block;
+}
+
+nav{
+    width: auto;
+    text-align: center;
+    background-color: #8BC34A;
+    color: white;
+    display: none;
+}
+
+#menu{
+    width: 40px;
+    height: 40px;
 }
 
 footer{
@@ -70,16 +87,44 @@ footer div{
     font-size: 30px;
 }
 
+#nosotros{
+    margin: 30px auto;
+}
+
+
+.card{
+    width: 90%;
+    margin: 10px auto;
+    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
+}
+
+.card img{
+    padding-top: 20px;
+    width: 100px;
+    height: 100px;
+    transition-duration: 0.7s;
+}
+
+.card img:hover{
+    transform: rotate(360deg);
+    transition-duration: 2s;
+}
+
+.card h3{
+    color:#8BC34A;
+}
+
 #buscador{
     color: white;
     text-shadow: #8BC34A 1px 1px;
-    *background-image: url("../casa1.jpg");
     background-color: #8BC34A;
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 22px;
     text-align: center;
     padding: 20px 0;
+    margin: 0 auto;
 }
 
 #buscador p{
@@ -110,48 +155,6 @@ section h2{
     padding: 20px;
 }
 
-@media (min-width:600px){
-    #buscador{
-    }
-
-    #buscador form{
-        margin: 0 auto;
-    }
-
-    #ultimascasas{
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        width: 95%;
-    }
-
-    #fotocasa{
-        width: auto;
-        height: auto;    
-    }
-    
-}
-
-@media (min-width:1366px)  {
-
-    #ultimascasas{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-    }
-
-
-    #fotocasa{
-        width: 250px;
-        height: 190px;    
-    }
-
-    #descripcioncasa{
-        *font-size: 25px;
-    }
-
-}
-    
 
 /* ##### FORMULARIO MODAL ##### */
 
@@ -228,34 +231,6 @@ section h2{
     margin: 0;
 }
 
-#nosotros{
-    margin: 30px auto;
-}
-
-
-.card{
-    width: 90%;
-    margin: 10px auto;
-    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    text-align: center;
-}
-
-.card img{
-    padding-top: 20px;
-    width: 100px;
-    height: 100px;
-    transition-duration: 0.7s;
-}
-
-.card img:hover{
-    transform: rotate(360deg);
-    transition-duration: 2s;
-}
-
-.card h3{
-    color:#8BC34A;
-}
-
 #ultimascasas h2{
     text-align: left;
     
@@ -269,7 +244,7 @@ section h2{
 }
 
 #fotocasa{
-    padding: 5px;
+    margin-left: 10px;
     grid-area: fotocasa;
     width: 160px;
     height: 130px;
@@ -301,8 +276,8 @@ section h2{
 .cardCasas{
     margin: 20px auto;
     width: 90%;
-    background-color: rgba(137, 216, 137, 0.144);
-    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-color: rgba(21, 255, 0, 0.116);
+    box-shadow:  0 3px 6px rgba(65, 121, 20, 0.226), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(3,auto);
@@ -320,7 +295,7 @@ section h2{
 
 .extras{
     grid-area: extras;
-    padding-left: 32px;
+    padding-left: 35px;
 }
 
 ul,li{
@@ -332,3 +307,68 @@ ul,li{
 }
 
 
+@media (min-width:600px){
+
+    #nosotros{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 80px auto;
+    }
+
+    .card{
+        flex-basis: 30%;
+    }
+
+    #buscador form{
+        width: 55%;
+        margin: 0 auto;
+    }
+
+    #ultimascasas{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        width: 95%;
+    }
+
+    #fotocasa{
+        width: 200px;
+        *height: auto;
+    }
+
+    #form{
+        width: 50%;
+    }
+
+    
+}
+
+@media (min-width:1280px)  {
+
+    #nosotros{
+        font-size: 22px;
+    }
+
+    #ultimascasas{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .card{
+        padding: 15px;
+        flex-basis: 25%;
+    }
+
+
+    #fotocasa{
+        width: 220px;
+        height: 190px;
+    }
+
+    #descripcioncasa{
+        *font-size: 25px;
+    }
+
+}
