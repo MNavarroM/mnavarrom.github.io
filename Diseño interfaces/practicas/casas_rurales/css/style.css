@@ -292,7 +292,6 @@
     }
 
     #descripcion{
-        padding: 20px;
         text-align: center;
     }
 
@@ -302,7 +301,7 @@
     }
 
     #imagenCasa img{
-        width: 70%;
+        width: 100%;
     }
 
     #extras{
