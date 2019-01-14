@@ -123,8 +123,8 @@ section h2{
     }
 
     #fotocasa{
-        width: 140px;
-        height: 120px;    
+        width: auto;
+        height: auto;    
     }
     
 }
@@ -267,8 +267,8 @@ section h2{
 #fotocasa{
     padding: 5px;
     grid-area: fotocasa;
-    width: 140px;
-    height: 100px;
+    width: 160px;
+    height: 130px;
 }
 
 #preciocasa{
@@ -286,14 +286,11 @@ section h2{
 .cardCasas a{
     grid-area: reservaCasa;
     padding: 10px;
-    width: 80px;
-    height: 40px;
-    justify-self: right;
-
+    text-align: right;
 }
 
 .cardCasas button{
-    width: 80px;
+    width: auto;
     height: 40px;
 }
 
@@ -303,13 +300,12 @@ section h2{
     background-color: rgba(137, 216, 137, 0.144);
     box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(4,auto);
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(3,auto);
     grid-template-areas: 
-                "nombrehotel . ."
-                "fotocasa descripcioncasa descripcioncasa"
-                "fotocasa descripcioncasa descripcioncasa"
-                "preciocasa reservaCasa reservaCasa";
+                "nombrehotel . . ."
+                "fotocasa fotocasa extras extras"
+                ". . . reservaCasa";
     transition-duration: 1s;
 }
 
@@ -318,6 +314,17 @@ section h2{
     transition-duration: 1s;
 }
 
+.extras{
+    grid-area: extras;
+    padding-left: 32px;
+}
 
+ul,li{
+    text-decoration: none;
+    list-style: none;
+
+    padding: 2px;
+    margin: 0;
+}
 
 
