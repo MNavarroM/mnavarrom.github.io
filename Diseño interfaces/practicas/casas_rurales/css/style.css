@@ -1,472 +1,468 @@
 /* ####CSS GENERAL */
 
-*{
-    font-family: "Roboto", sans-serif;
-}
+    *{
+        font-family: "Roboto", sans-serif;
+    }
 
-a{
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
+    a{
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+    }
 
-h1,h2,h3{
-    margin: 0;
-    padding: 0;
-}
+    h1,h2,h3{
+        margin: 0;
+        padding: 0;
+    }
 
-header{
-    color: #8BC34A;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 5px;
-}
-
-header img{
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-}
-
-header h1{
-    display: inline-block;
-}
-
-nav{
-    width: auto;
-    text-align: center;
-    background-color: #8BC34A;
-    color: white;
-    display: none;
-    border-bottom: 1px solid #8BC34A;
-}
-
-nav li{
-    width: auto;
-    margin-top: 10px;
-}
-
-#menu{
-    width: 40px;
-    height: 40px;
-}
-
-footer{
-    background-color: #8BC34A;
-    margin-top: 10px;
-    display: flex;
-    text-align: center;
-}
-
-footer a{
-    padding: 10px;
-    text-decoration: none;
-    color: white;
-    display: block;
-}
-
-footer h3{
-    padding: 10px;
-}
-
-footer div{
-    flex-basis: 48%;
-}
-
-/* ####CSS HOME#####*/
-
-#bienvenida{
-    color: white;
-    text-shadow: #8BC34A 1px 1px;
-    background-color: #8BC34A;
-    font-size: 22px;
-    text-align: center;
-    padding: 20px 0;
-}
-
-#bienvenida button{
-    margin: 20px 0;
-    width: 200px;
-    height: 50px;
-    background-color: white;
-    color: #8BC34A;
-}
-
-#bienvenida a{
-    font-size: 30px;
-}
-
-#nosotros{
-    margin: 30px auto;
-}
-
-
-.card{
-    width: 90%;
-    margin: 10px auto;
-    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    text-align: center;
-}
-
-.card img{
-    padding-top: 20px;
-    width: 100px;
-    height: 100px;
-    transition-duration: 0.7s;
-}
-
-.card img:hover{
-    transform: rotate(360deg);
-    transition-duration: 2s;
-}
-
-.card h3{
-    color:#8BC34A;
-}
-
-#buscador{
-    color: white;
-    text-shadow: #8BC34A 1px 1px;
-    background-color: #8BC34A;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-size: 22px;
-    text-align: center;
-    padding: 20px 0;
-    margin: 0 auto;
-}
-
-#buscador p{
-    margin:0 auto;
-    margin-bottom: 30px;
-}
-
-#buscador div{
-    margin: 5px auto;
-}
-
-input[type="submit"],button{
-    background-color: #8BC34A;
-    border: none;
-    margin: 0 auto;
-    color: white;
-    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-input[type="text"],input[type="date"]{
-    width: 55%;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-color: rgba(255, 255, 255, 0.8);
-}
-
-section h2{
-    text-align: center;
-    padding: 20px;
-}
-
-
-/* ##### FORMULARIO MODAL ##### */
-
-#support{
-    position: fixed;
-    right: 2%;
-    bottom: 2%;
-}
-
-#support img{
-    height: 80px;
-    width: 80px;
-}
-
-#modal{
-    color: black;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.9);
-    display: none;
-    position: fixed;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    text-align: center;
-}
-
-#form{
-    text-align: left;
-    width: 80%;
-    background-color: white;
-    margin: 30px auto;
-    padding: 20px;
-    border: 3px solid #8BC34A;
-}
-
-#cancel{
-    text-align: right;
-}
-
-
-
-#ultimascasas h2{
-    text-align: left;
-    
-}
-
-#descripcioncasa{
-    grid-area: descripcioncasa;
-    padding: 5px;
-    margin: 0;
-    text-align: left;
-}
-
-#fotocasa{
-    grid-area: fotocasa;
-    width: 100%;
-    height: 200px;
-}
-
-#fotocasa img{
-    width: 100%;
-    height: 100%;
-}
-
-#preciocasa{
-    grid-area: preciocasa;
-    text-align: left;
-    padding: 5px;
-    margin: 0;
-}
-
-.cardCasas h2{
-    padding: 10px;
-    grid-area: nombrehotel;
-}
-
-.cardCasas a{
-    grid-area: reservaCasa;
-    padding: 10px;
-    text-align: right;
-}
-
-.cardCasas button{
-    width: auto;
-    height: 40px;
-}
-
-.cardCasas{
-    margin: 20px auto;
-    width: 90%;
-    box-shadow:  0 3px 6px rgba(65, 121, 20, 0.226), 0 3px 6px rgba(0, 0, 0, 0.23);
-    display: grid;
-    grid-template-columns: repeat(3,auto);
-    grid-template-rows: repeat(4,auto);
-    grid-template-areas: 
-                "fotocasa fotocasa fotocasa"
-                "nombrehotel . ."
-                "extras extras extras"
-                ". . reservaCasa";
-    transition-duration: 1s;
-}
-
-.cardCasas:hover{
-    transform: scale(1.04);
-    transition-duration: 1s;
-}
-
-.extras{
-    grid-area: extras;
-    padding-left: 35px;
-}
-
-ul,li{
-    text-decoration: none;
-    list-style: none;
-
-    padding: 2px;
-    margin: 0;
-}
-
-/*####### CSS RESERVA #############*/
-
-#casa{
-    width: 90%;
-    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    margin: 20px auto;
-}
-
-#imagenCasa{
-    width: 100%;
-    
-}
-
-#imagenCasa img{
-    width: 100%;
-}
-
-#extras{
-    padding: 20px;
-    padding-top: 0;
-    margin: 0;
-}
-
-#descripcion{
-    margin: 0;
-}
-
-#texto{
-    padding: 20px;
-    text-align: justify;
-    margin: 0;
-}
-
-#precio{
-    text-align: right;
-    padding-right: 20px;
-    margin: 0;
-}
-
-#btnReservar{
-    color: white;
-    text-align: right;
-    padding: 15px;
-}
-
-#btnReservar button{
-    color: white;
-    background-color: #8BC34A;
-    width: 90px;
-    height: 40px;
-}
-
-
-@media (min-width:600px){
-
-    #nosotros{
+    header{
+        color: #8BC34A;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 80px auto;
-    }
-
-    .card{
-        flex-basis: 30%;
-    }
-
-    #buscador form{
-        width: 55%;
-        margin: 0 auto;
-    }
-
-    #ultimascasas{
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        width: 95%;
-    }
-
-    #form{
-        width: 50%;
-    }
-
-    
-}
-
-@media (min-width:1280px)  {
-
-    a{
-        color: white;
-    }
-
-    #menu{
-        display: none;
+        padding: 5px;
     }
 
     nav{
-        display: block;
-        color: white;
-    }
-
-    nav ul{
-        display: flex;
-        flex-direction: row;
-        text-align: left;
+        width: auto;
+        text-align: center;
         background-color: #8BC34A;
+        color: white;
+        display: none;
     }
 
     nav li{
+        width: auto;
+        margin-top: 10px;
+    }
+
+    #menu{
+        width: 40px;
+        height: 40px;
+    }
+
+    footer{
+        background-color: #8BC34A;
+        margin-top: 10px;
+        display: flex;
+        text-align: center;
+    }
+
+    footer a{
         padding: 10px;
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+
+    footer h3{
+        padding: 10px;
+    }
+
+    footer div{
+        flex-basis: 48%;
+    }
+
+    /* ####CSS HOME#####*/
+
+    #bienvenida{
+        color: white;
+        text-shadow: #8BC34A 1px 1px;
+        background-color: #8BC34A;
         font-size: 22px;
-        display: inline-block;
+        text-align: center;
+        padding: 20px 0;
     }
 
-    nav li:hover{
-        color: #8BC34A;
+    #bienvenida button{
+        margin: 20px 0;
+        width: 200px;
+        height: 50px;
         background-color: white;
+        color: #8BC34A;
     }
 
-    nav a{
-        flex-basis: 10%;
+    #bienvenida a{
+        font-size: 30px;
     }
 
     #nosotros{
-        font-size: 22px;
-    }
-
-    #ultimascasas{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-    }
-
-    #fotocasa{
-        height: 250px;
+        margin: 30px auto;
     }
 
     .card{
-        padding: 15px;
-        flex-basis: 25%;
+        width: 90%;
+        margin: 10px auto;
+        box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        text-align: center;
     }
 
-    #casa{
+    .card img{
+        padding-top: 20px;
+        width: 100px;
+        height: 100px;
+        transition-duration: 0.7s;
+    }
+
+    .card img:hover{
+        transform: rotate(360deg);
+        transition-duration: 2s;
+    }
+
+    .card h3{
+        color:#8BC34A;
+    }
+
+    #buscador{
+        color: white;
+        text-shadow: black 1px 1px;
+        background-color: #8BC34A;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    #buscador p{
+        margin:0;
+    }
+
+
+    input[type="submit"],button{
+        background-color: #8BC34A;
+        border: none;
+        margin: 0 auto;
+        color: white;
+        box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    input[type="text"],input[type="date"]{
+        *width: 50%;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    section h2{
+        text-align: center;
         padding: 20px;
+    }
+
+    input:required,textarea:required{
+        border: 1px solid red;
+    }
+
+    input:valid,textarea:valid{
+        border: 1px solid #8BC34A;
+    }
+
+    /* ##### FORMULARIO MODAL ##### */
+
+    #support{
+        position: fixed;
+        right: 2%;
+        bottom: 2%;
+    }
+
+    #support img{
+        height: 80px;
+        width: 80px;
+    }
+
+    #modal{
+        color: black;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.3);
+        display: none;
+        position: fixed;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        text-align: center;
+    }
+
+    #btnCancel{
+        padding: 0;
+    }
+
+    #form{
+        text-align: left;
         width: 70%;
+        background-color: white;
+        margin: 30px auto;
+        padding: 20px;
+        border: 3px solid #8BC34A;
+    }
+
+    #cancel{
+        text-align: right;
+    }
+
+
+
+
+    #ultimascasas h2{
+        text-align: left;
+        
+    }
+
+    #descripcioncasa{
+        grid-area: descripcioncasa;
+        padding: 5px;
+        margin: 0;
+        text-align: left;
+    }
+
+    #fotocasa{
+        grid-area: fotocasa;
+        width: 100%;
+        height: 200px;
+    }
+
+    #fotocasa img{
+        width: 100%;
+        height: 100%;
+    }
+
+    #preciocasa{
+        grid-area: preciocasa;
+        text-align: left;
+        padding: 5px;
+        margin: 0;
+    }
+
+    .cardCasas h2{
+        padding: 10px;
+        grid-area: nombrehotel;
+    }
+
+    .cardCasas a{
+        grid-area: reservaCasa;
+        padding: 10px;
+        text-align: right;
+    }
+
+    .cardCasas button{
+        width: auto;
+        height: 40px;
+    }
+
+    .cardCasas{
+        margin: 20px auto;
+        width: 90%;
+        box-shadow:  0 3px 6px rgba(65, 121, 20, 0.226), 0 3px 6px rgba(0, 0, 0, 0.23);
         display: grid;
-        grid-template-rows: repeat(3,auto);
-        grid-template-columns: repeat(2,auto);
+        grid-template-columns: repeat(3,auto);
+        grid-template-rows: repeat(4,auto);
         grid-template-areas: 
-        "descripcion extras"
-        "descripcion extras"
-        ". btnReservar";
+                    "fotocasa fotocasa fotocasa"
+                    "nombrehotel nombrehotel nombrehotel"
+                    "extras extras extras"
+                    ". . reservaCasa";
+        transition-duration: 1s;
+    }
 
+    .cardCasas:hover{
+        transform: scale(1.04);
+        transition-duration: 1s;
+    }
 
+    .extras{
+        grid-area: extras;
+        padding-left: 35px;
+    }
+
+    ul,li{
+        text-decoration: none;
+        list-style: none;
+
+        padding: 2px;
+        margin: 0;
+    }
+
+    /*####### CSS RESERVA #############*/
+
+    #casa{
+        width: 75%;
+        box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        margin: 20px auto;
     }
 
     #descripcion{
-        grid-area: descripcion;
-        width: 90%;
-        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
     }
 
-    #descripcion img{
-        height: 350px;
+    #imagenCasa{
         width: 100%;
+        
+    }
+
+    #imagenCasa img{
+        width: 70%;
     }
 
     #extras{
         padding: 20px;
-        padding-left: 0;
-        grid-area: extras;
+        padding-top: 0;
+        margin: 0;
+    }
+
+    #descripcion{
+        margin: 0;
+    }
+
+    #texto{
+        padding: 20px;
+        text-align: justify;
+        margin: 0;
+    }
+
+    #precio{
+        text-align: right;
+        padding-right: 20px;
+        margin: 0;
     }
 
     #btnReservar{
-        padding: 20px;
-        grid-area: btnReservar;
+        color: white;
+        text-align: right;
+        padding: 15px;
     }
 
-    #form{
-        width: 25%;
+    #btnReservar button{
+        color: white;
+        background-color: #8BC34A;
+        width: 90px;
+        height: 40px;
     }
 
-}
+
+    @media (min-width:600px){
+
+        #nosotros{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 80px auto;
+        }
+
+        .card{
+            flex-basis: 30%;
+        }
+
+        #buscador form{
+            
+        }
+
+        #ultimascasas{
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            width: 95%;
+        }
+
+        #form{
+            width: 40%;
+        }
+
+        
+    }
+
+    @media (min-width:1280px)  {
+
+        a{
+            color: white;
+        }
+
+        #menu{
+            display: none;
+        }
+
+        nav{
+            display: block;
+            color: white;
+        }
+
+        nav ul{
+            display: flex;
+            flex-direction: row;
+            text-align: left;
+            background-color: #8BC34A;
+        }
+
+        nav li{
+            margin: 0;
+            padding: 10px;
+            font-size: 22px;
+            display: inline-block;
+        }
+
+        nav li:hover{
+            color: #8BC34A;
+            background-color: white;
+        }
+
+        nav a{
+            flex-basis: 10%;
+        }
+
+        #nosotros{
+            font-size: 22px;
+        }
+
+        #ultimascasas{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        #fotocasa{
+            height: 250px;
+        }
+
+        .card{
+            padding: 15px;
+            flex-basis: 25%;
+        }
+
+        #casa{
+            padding: 20px;
+            width: 70%;
+            display: grid;
+            grid-template-rows: repeat(3,auto);
+            grid-template-columns: repeat(2,auto);
+            grid-template-areas: 
+            "descripcion extras"
+            "descripcion extras"
+            ". btnReservar";
+
+
+        }
+
+        #descripcion{
+            grid-area: descripcion;
+            width: 100%;
+            text-align: center;
+        }
+
+        #descripcion img{
+            height: 350px;
+            width: 80%;
+        }
+
+        #extras{
+            padding: 20px;
+            padding-left: 0;
+            grid-area: extras;
+        }
+
+        #btnReservar{
+            padding: 20px;
+            grid-area: btnReservar;
+        }
+
+        #form{
+            width: 25%;
+        }
+
+    }

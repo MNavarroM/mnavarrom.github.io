@@ -10,10 +10,15 @@
     modal = $("#modal");
     showMenu = $("#menu");
     nav = $("nav");
+    btnReservar = $("#btnReservar button");
     $("#bienvenida h2").hide();
     $("#bienvenida h2").fadeIn(3000);
     $("#bienvenida button").hide();
     $("#bienvenida button").show(3000);
+
+    btnReservar.click(function (e) { 
+      modal.fadeIn();
+    });
 
     btnAdd.click(function (e) {
       modal.fadeIn();
