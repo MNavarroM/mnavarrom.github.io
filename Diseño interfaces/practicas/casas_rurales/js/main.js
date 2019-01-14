@@ -10,11 +10,11 @@
     modal = $("#modal");
     showMenu = $("#menu");
     nav = $("nav");
-    $("#bienvenida h2").fadeOut();
-    $("#bienvenida h2").fadeIn(2500);
-    $("#bienvenida button").fadeOut();
-    $("#bienvenida button").fadeIn(2500);
-  
+    $("#bienvenida h2").hide();
+    $("#bienvenida h2").fadeIn(3000);
+    $("#bienvenida button").hide();
+    $("#bienvenida button").show(3000);
+
     btnAdd.click(function (e) {
       modal.fadeIn();
     });
