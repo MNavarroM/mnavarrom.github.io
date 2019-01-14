@@ -8,19 +8,30 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/main.js"></script>
+
     <title>Ruralia - Tu buscador de aventuras rurales</title>
 </head>
 
 <body>
     <header>
         <h1>Ruralia</h1>
-        <img src="img/menu.svg" alt="" id="menu">
+        <img src="img/menu.svg" id="menu" alt="menu">
     </header>
-    <nav></nav>
+    <nav>
+        <ul>
+            <a href="home.html"><li>Inicio</li></a>
+            <a href=""><li>Casas</li></a>
+            <a href=""><li>Hoteles</li></a>
+            <a href=""><li>Contacto</li></a>
+        </ul>
+    </nav>
     <main>
         <section id="casa">
             <div id="descripcion">
-                <div id="imagenCasa">                
+                <div id="imagenCasa">
+                    <img src="img/casita.jpeg" alt="">
                     </div>
                 <p id="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus laborum veritatis
                     aspernatur placeat ab quia eius sed corporis adipisci et, rerum ipsum temporibus animi fuga ipsam
@@ -39,6 +50,10 @@
                     <li>Pack actividades extras : No</li>
                 </ul>
             </div>
+            <div id="btnReservar">
+                <button>Reservar</button>
+            </div>
+            
         </section>
 
     </main>

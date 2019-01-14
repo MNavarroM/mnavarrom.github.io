@@ -15,14 +15,17 @@
     $("#bienvenida button").fadeOut();
     $("#bienvenida button").fadeIn(2500);
   
-    btnAdd.click(function (e) { 
+    btnAdd.click(function (e) {
       modal.fadeIn();
     });
     btnExit.click(function (e) { 
       modal.fadeOut();
     });
     showMenu.click(function (e) { 
-      nav.fadeIn(100);
+      if(nav.css("display")=="block")
+        nav.css("display", "none");
+      else
+        nav.css("display", "block");
     });
 
 

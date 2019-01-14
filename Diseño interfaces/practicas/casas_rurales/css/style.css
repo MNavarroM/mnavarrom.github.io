@@ -4,6 +4,12 @@
     font-family: "Roboto", sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
 h1,h2,h3{
     margin: 0;
     padding: 0;
@@ -12,7 +18,6 @@ h1,h2,h3{
 header{
     color: #8BC34A;
     text-align: center;
-    border-bottom: 1px solid #8BC34A;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -35,6 +40,12 @@ nav{
     background-color: #8BC34A;
     color: white;
     display: none;
+    border-bottom: 1px solid #8BC34A;
+}
+
+nav li{
+    width: auto;
+    margin-top: 10px;
 }
 
 #menu{
@@ -137,10 +148,10 @@ footer div{
 }
 
 input[type="submit"],button{
-    background-color: white;
+    background-color: #8BC34A;
     border: none;
     margin: 0 auto;
-    color: #8BC34A;
+    color: white;
     box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -160,13 +171,13 @@ section h2{
 
 #support{
     position: fixed;
-    right: 5%;
+    right: 2%;
     bottom: 2%;
 }
 
 #support img{
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
 }
 
 #modal{
@@ -198,38 +209,6 @@ section h2{
 }
 
 
-/*####### CSS RESERVA #############*/
-
-#casa{
-    width: 90%;
-    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    margin: 20px auto;
-}
-
-#imagenCasa{
-    background-image: url("../img/casita.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 90%;
-    height: 28vh;
-    padding: 20px 20px;
-}
-
-#extras{
-    padding: 20px;
-    padding-top: 0;
-    margin: 0;
-}
-
-#descripcion{
-    margin: 0;
-    padding: 0 20px 0 20px;
-}
-
-#precio{
-    text-align: right;
-    margin: 0;
-}
 
 #ultimascasas h2{
     text-align: left;
@@ -244,10 +223,14 @@ section h2{
 }
 
 #fotocasa{
-    margin-left: 10px;
     grid-area: fotocasa;
-    width: 160px;
-    height: 130px;
+    width: 100%;
+    height: 200px;
+}
+
+#fotocasa img{
+    width: 100%;
+    height: 100%;
 }
 
 #preciocasa{
@@ -276,15 +259,15 @@ section h2{
 .cardCasas{
     margin: 20px auto;
     width: 90%;
-    background-color: rgba(21, 255, 0, 0.116);
     box-shadow:  0 3px 6px rgba(65, 121, 20, 0.226), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(3,auto);
+    grid-template-columns: repeat(3,auto);
+    grid-template-rows: repeat(4,auto);
     grid-template-areas: 
-                "nombrehotel . . ."
-                "fotocasa fotocasa extras extras"
-                ". . . reservaCasa";
+                "fotocasa fotocasa fotocasa"
+                "nombrehotel . ."
+                "extras extras extras"
+                ". . reservaCasa";
     transition-duration: 1s;
 }
 
@@ -304,6 +287,58 @@ ul,li{
 
     padding: 2px;
     margin: 0;
+}
+
+/*####### CSS RESERVA #############*/
+
+#casa{
+    width: 90%;
+    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin: 20px auto;
+}
+
+#imagenCasa{
+    width: 100%;
+    
+}
+
+#imagenCasa img{
+    width: 100%;
+}
+
+#extras{
+    padding: 20px;
+    padding-top: 0;
+    margin: 0;
+}
+
+#descripcion{
+    margin: 0;
+}
+
+#texto{
+    padding: 20px;
+    text-align: justify;
+    margin: 0;
+}
+
+#precio{
+    text-align: right;
+    padding-right: 20px;
+    margin: 0;
+}
+
+#btnReservar{
+    color: white;
+    text-align: right;
+    padding: 15px;
+}
+
+#btnReservar button{
+    color: white;
+    background-color: #8BC34A;
+    width: 90px;
+    height: 40px;
 }
 
 
@@ -329,13 +364,7 @@ ul,li{
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(2,1fr);
-        box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         width: 95%;
-    }
-
-    #fotocasa{
-        width: 200px;
-        *height: auto;
     }
 
     #form{
@@ -347,6 +376,41 @@ ul,li{
 
 @media (min-width:1280px)  {
 
+    a{
+        color: white;
+    }
+
+    #menu{
+        display: none;
+    }
+
+    nav{
+        display: block;
+        color: white;
+    }
+
+    nav ul{
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        background-color: #8BC34A;
+    }
+
+    nav li{
+        padding: 10px;
+        font-size: 22px;
+        display: inline-block;
+    }
+
+    nav li:hover{
+        color: #8BC34A;
+        background-color: white;
+    }
+
+    nav a{
+        flex-basis: 10%;
+    }
+
     #nosotros{
         font-size: 22px;
     }
@@ -356,19 +420,53 @@ ul,li{
         grid-template-columns: repeat(3,1fr);
     }
 
+    #fotocasa{
+        height: 250px;
+    }
+
     .card{
         padding: 15px;
         flex-basis: 25%;
     }
 
+    #casa{
+        padding: 20px;
+        width: 70%;
+        display: grid;
+        grid-template-rows: repeat(3,auto);
+        grid-template-columns: repeat(2,auto);
+        grid-template-areas: 
+        "descripcion extras"
+        "descripcion extras"
+        ". btnReservar";
 
-    #fotocasa{
-        width: 220px;
-        height: 190px;
+
     }
 
-    #descripcioncasa{
-        *font-size: 25px;
+    #descripcion{
+        grid-area: descripcion;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #descripcion img{
+        height: 350px;
+        width: 100%;
+    }
+
+    #extras{
+        padding: 20px;
+        padding-left: 0;
+        grid-area: extras;
+    }
+
+    #btnReservar{
+        padding: 20px;
+        grid-area: btnReservar;
+    }
+
+    #form{
+        width: 25%;
     }
 
 }
