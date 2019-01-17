@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../jquery/jquery-3.3.1.js"></script>
+    <script src="main.js"></script>
+    <title>Animación jQuery</title>
+</head>
+<style type="text/css">
+    body {
+        font-size: 0.75em;
+        font-family: tahoma, verdana, sans-serif;
+    }
+
+    .notar {
+        color: #339;
+    }
+
+    #mensaje {
+        margin: 20px 5px;
+    }
+
+    #micapa {
+        left: 200px;
+        top: 150px;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: #3d3;
+    }
+</style>
+
+<body>
+    <button id="botonfade">Muestra y luego oculta con fadeIn y fadeOut</button>
+    <button id="botonslide">Muestra y luego oculta con slideUp slideDown</button>
+    <button id="botontamanocola">Muestra el número de funciones en cola ahora mismo</button>
+    <div id="mensaje">
+        En estos momentos no hay funciones de efectos en la cola por defecto.
+        <br>
+        <span class="notar">Pulsa repetidas veces los botones de arriba para ir metiendo funciones en la cola</span>
+    </div>
+    <div id="micapa"></div>
+
+
+</body>
+
+</html>
