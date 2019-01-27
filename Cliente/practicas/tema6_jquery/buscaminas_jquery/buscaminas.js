@@ -13,7 +13,12 @@
         getDificultad: () => buscaminas.getDificultad(),
         getFilas: () => buscaminas.getFilas(),
         getColumnas: () => buscaminas.getColumnas(),
-        getValue: (x,y) => buscaminas.getValue(x,y)
+        getValue: (x,y) => buscaminas.getValue(x,y),
+        getCasillasPintar: () => buscaminas.getCasillasPintar(),
+        reiniciarCasillasPintar : () => buscaminas.reiniciarCasillasPintar(),
+        getDerrota: () => buscaminas.getDerrota(),
+        getVictoria: () => buscaminas.getVictoria()
+
     };
 })();
 
@@ -30,6 +35,7 @@
     partidaIniciada : false,
     derrota : false,
     contadorBanderas: 10,
+    casillasPintar: [],
     iniciarJuego(dificultad) {
       this.dificultad = dificultad;
       this.columnas = 0;
@@ -43,7 +49,7 @@
         return;
       }
       buscaminas.crearTablero();
-      buscaminas.generarMinas();
+      buscaminas.generarMinasNumeros();
       buscaminas.mostrarTableroConsola();
       this.casillasRestantes = this.filas * this.columnas - this.minas;
       this.finalPartida = false;
@@ -82,7 +88,7 @@
         }
       }
     },
-    generarMinas() {
+    generarMinasNumeros() {
       let fila;
       let columna;
       for (let i = 0; i < this.minas; i++) {
@@ -113,7 +119,7 @@
     abrir(x, y) {
       if (this.isFinal()) {
         console.log("Has perdido la partida, no puedes colocar minas");
-        return;
+        return "Has perdido la partida, no puedes colocar minas";
       }
       if(!this.isEmpezada()){
         console.log("La partida no está iniciada");
@@ -121,7 +127,7 @@
       }
       if(x>this.filas || x<0 || y>this.filas || y<0){
         console.log("Fila o columna no válida");
-        return;
+        return "Fila o columna no válida";
       }
       let value = this.tablero[x][y];
       switch (value) {
@@ -147,9 +153,10 @@
       }
       console.clear();
       this.mostrarTableroConsola();
-      if (this.casillasRestantes == 0) {
-        console.log("Enhorabuena, has ganado!");
-        this.finalPartida = true; 
+      this.casillasPintar.unshift([x, y, this.getValue(x, y)]);
+      if (buscaminas.casillasPorDescubrir == 0) {
+          buscaminas.partidaFinalizada = true;
+          return "¡Enhorabuena, has ganado!";
       }
       if(this.derrota)
         console.log("Has pulsado una mina, has perdido!");
@@ -179,6 +186,7 @@
           if (this.tablero[i][j] == "X") {
             this.tablero[i][j] = "X";
             this.tableroVisible[i][j] = "X";
+            this.casillasPintar.push([i, j, this.getValue(i, j)]);
           }
         }
       }
@@ -242,6 +250,18 @@
     },
     getValue(x,y){
       return this.tablero[x][y];
+    },
+    getCasillasPintar(){
+      return this.casillasPintar;
+    },
+    reiniciarCasillasPintar(){
+      this.casillasPintar = []
+    },
+    getDerrota(){
+      return this.derrota;
+    },
+    getVictoria(){
+      return this.casillasRestantes == 0;
     }
   };
 
