@@ -42,6 +42,7 @@
       this.filas = 0;
       this.minas = 0;
       this.partidaIniciada = true;
+      this.derrota = false;
       try{
         buscaminas.elegirDificultad(dificultad);
       }catch(e){

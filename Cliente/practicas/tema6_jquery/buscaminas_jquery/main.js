@@ -17,7 +17,7 @@
     $(function () {
         $("button").click(function (e) {
             e.preventDefault();
-            $("#mensaje").text("");
+            $("#mensaje").text(""); 
             switch ($(this).attr("id")) {
                 case "facil":
                     juego.iniciarJuego(0);
