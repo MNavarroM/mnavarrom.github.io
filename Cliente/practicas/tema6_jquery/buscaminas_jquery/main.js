@@ -33,17 +33,19 @@
             $("td").mousedown(function (e) {
                 if(juego.getDerrota() || juego.getVictoria())
                     return;
-                let x = $(this).attr("x");
-                let y = $(this).attr("y");
-                juego.abrir(x,y);
+                juego.abrir($(this).attr("x"),$(this).attr("y"));
                 mostrarCasilla();
-                if(juego.getDerrota())
-                    $("#mensaje").text("Has perdido!");
-                if(juego.getVictoria())
-                    $("#mensaje").text("Has ganado!");
+                checkVictoria();
             });
         });
     });
+
+    function checkVictoria(){
+        if(juego.getDerrota())
+            $("#mensaje").text("Has perdido!");
+        if(juego.getVictoria())
+            $("#mensaje").text("Has ganado!");
+    }
 
     function mostrarCasilla(){
         let casillas = juego.getCasillasPintar();
