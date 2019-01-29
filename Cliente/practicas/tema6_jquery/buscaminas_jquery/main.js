@@ -31,6 +31,8 @@
             }
             crearTablero();
             $("td").mousedown(function (e) {
+                if(juego.getDerrota() || juego.getVictoria())
+                    return;
                 let x = $(this).attr("x");
                 let y = $(this).attr("y");
                 juego.abrir(x,y);
