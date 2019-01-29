@@ -53,7 +53,7 @@
                 casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
                 casilla.fadeIn(150,function () {
                     if(juego.getDerrota())
-                        $(this).addClass("casillaBomba");    
+                        $(this).addClass("casillaBomba");
                     else
                         $(this).addClass("casillaDestapada");
                    if(casillas[i][2] !=0 || casillas[i][2] !="X")
