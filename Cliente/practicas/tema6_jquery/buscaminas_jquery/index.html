@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="../jquery/jquery-3.3.1.js"></script>
     <script src="buscaminas.js"></script>
     <script src="main.js"></script>
-    <title>Buscaminas consola</title>
-</head>
-<style>
+    <title>Buscaminas</title>
+  </head>
+  <style>
+    body {
+      background-color: antiquewhite;
+    }
 
-.casilla{
-    background-color : grey;
-    height : 30px;
-    width : 30px;
-}
+    table {
+      border: 2px solid black;
+      background-color: #8c93a8;
+      margin: 0 auto;
 
-.casillaDestapada{
-    background-color: white;
-}
+    }
 
-</style>
-<body>
+    td{
+        padding: 0;
+    }
+
+    .casilla {
+      color: white;
+      background-color: #2e294e;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+    }
+
+    .casillaDestapada {
+      background-color: #1b998b;
+    }
+
+    .casillaBomba {
+      background-color: #e71d36;
+    }
+  </style>
+  <body>
     <h1>Autor: Mario Navarro Madrid</h1>
-    <h2>Buscaminas</h2>
-    <p>Instrucciones consola: </p>
-    <ul>
-        <li>Iniciar juego. 0 - fácil, 1 - normal, 2 - difícil : juego.iniciarJuego(dificultad).</li>
-        <li>Abrir casilla : juego.abrir(x,y)</li>
-        <li>Poner bandera : juego.ponerBandera(x,y)</li>
-        <li>Quitar bandera : juego.quitarBandera(x,y)</li>
-        <li>Mosrar tablero : juego.mostrarTableroGrafico()</li>
-    </ul>
-    <button id="facil">Fácil</button>
-    <button id="normal">Normal</button>
-    <button id="dificil">Difícil</button>
-    <div id="tablero"></div>
-    <div id="mensaje"></div>
+    <main>
+      <button id="facil">Fácil</button> <button id="normal">Normal</button>
+      <button id="dificil">Difícil</button>
 
-
-
-</body>
+      <div id="tablero"></div>
+      <div id="mensaje"></div>
+    </main>
+  </body>
 </html>

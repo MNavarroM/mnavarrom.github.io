@@ -30,19 +30,15 @@
                     break;
             }
             crearTablero();
-            $("td").click(function (e) {
+            $("td").mousedown(function (e) {
                 let x = $(this).attr("x");
                 let y = $(this).attr("y");
-                //$(this).removeClass("casilla");
                 juego.abrir(x,y);
                 mostrarCasilla();
                 if(juego.getDerrota())
                     $("#mensaje").text("Has perdido!");
                 if(juego.getVictoria())
                     $("#mensaje").text("Has ganado!");
-                //$(this).text(juego.getValue(x,y));
-                //$(this).addClass("casillaDestapada");
-
             });
         });
     });
@@ -54,11 +50,14 @@
             setTimeout(function () {
                 casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
                 casilla.fadeIn(150,function () {
-                   $(this).addClass("casillaDestapada");
+                    if(juego.getDerrota())
+                        $(this).addClass("casillaBomba");    
+                    else
+                        $(this).addClass("casillaDestapada");
                    if(casillas[i][2] !=0 || casillas[i][2] !="X")
                     $(this).text(casillas[i][2]);
                 });
-            },i*10);
+            },i*9);
         }
         juego.reiniciarCasillasPintar();
     }

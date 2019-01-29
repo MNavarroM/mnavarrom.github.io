@@ -250,6 +250,9 @@
       return this.columnas;
     },
     getValue(x,y){
+      let value = this.tablero[x][y];
+      if(value == 0)
+        return "";
       return this.tablero[x][y];
     },
     getCasillasPintar(){
