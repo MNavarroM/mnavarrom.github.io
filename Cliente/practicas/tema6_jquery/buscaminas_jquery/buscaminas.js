@@ -58,8 +58,8 @@
     elegirDificultad(dificultad) {
       switch (dificultad) {
         case 0:
-          this.columnas = 8;
-          this.filas = 8;
+          this.columnas = 9;
+          this.filas = 9;
           this.minas = 10;
           break;
         case 1:
@@ -68,8 +68,8 @@
           this.minas = 40;
           break;
         case 2:
-          this.columnas = 16;
-          this.filas = 30;
+          this.columnas = 30;
+          this.filas = 16;
           this.minas = 99;
           break;
         default:
@@ -126,7 +126,7 @@
         console.log("La partida no está iniciada");
         return;
       }
-      if(x>this.filas || x<0 || y>this.filas || y<0){
+      if(x>this.filas || x<0 || y>this.columnas || y<0){
         console.log("Fila o columna no válida");
         return "Fila o columna no válida";
       }
