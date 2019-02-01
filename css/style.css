@@ -58,9 +58,9 @@ section {
 
 
 article {
-    margin-top: 25px;
-    height: 250px;
-    flex-basis: 30%;
+    margin: 10px;
+    height: 150px;
+    flex-basis: 44%;
     text-align: center;
     *background-color: #8c93a8;
     background-color: #2e294e;
@@ -69,12 +69,32 @@ article {
 }
 
 article a {
-    font-size: 23px;
+    font-size: 18px;
     display: block;
-    margin-top:80px;
+    padding: 50px 20px;
     height: 100%;
 }
 
 footer {
     background-color: #1b998b;
+    text-align: center;
+    padding: 10px;
+}
+
+#atras{
+    position: fixed;
+    background-color: #2e294e;
+    border: 1px solid white;
+    margin-left: 10px;
+    width: 80px;
+    font-size: 24px;
+    text-align: center;
+}
+
+@media (min-width:600px){
+    article{
+        flex-basis: 30%;
+        margin: 35px;
+
+    }
 }
