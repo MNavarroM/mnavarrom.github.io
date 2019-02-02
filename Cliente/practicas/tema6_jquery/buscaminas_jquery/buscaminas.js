@@ -5,22 +5,23 @@
 
   juego = (function () {
     return {
-        iniciarJuego: (dificultad) => buscaminas.iniciarJuego(dificultad),
-        abrir: (x, y) => buscaminas.abrir(x, y),
-        ponerBandera: (x,y) => buscaminas.ponerBandera(x,y),
-        quitarBandera: (x,y) => buscaminas.quitarBandera(x,y),
-        mostrarTableroConsola :() => buscaminas.mostrarTableroConsola(),
-        getDificultad: () => buscaminas.getDificultad(),
-        getFilas: () => buscaminas.getFilas(),
-        getColumnas: () => buscaminas.getColumnas(),
-        getValue: (x,y) => buscaminas.getValue(x,y),
-        getCasillasPintar: () => buscaminas.getCasillasPintar(),
-        reiniciarCasillasPintar : () => buscaminas.reiniciarCasillasPintar(),
-        getDerrota: () => buscaminas.getDerrota(),
-        getVictoria: () => buscaminas.getVictoria()
+      iniciarJuego: (dificultad) => buscaminas.iniciarJuego(dificultad),
+      abrir: (x, y) => buscaminas.abrir(x, y),
+      ponerBandera: (x, y) => buscaminas.ponerBandera(x, y),
+      quitarBandera: (x, y) => buscaminas.quitarBandera(x, y),
+      mostrarTableroConsola: () => buscaminas.mostrarTableroConsola(),
+      getDificultad: () => buscaminas.getDificultad(),
+      getFilas: () => buscaminas.getFilas(),
+      getColumnas: () => buscaminas.getColumnas(),
+      getValue: (x, y) => buscaminas.getValue(x, y),
+      getCasillasPintar: () => buscaminas.getCasillasPintar(),
+      reiniciarCasillasPintar: () => buscaminas.reiniciarCasillasPintar(),
+      getDerrota: () => buscaminas.getDerrota(),
+      getVictoria: () => buscaminas.getVictoria(),
+      hasBandera: (x, y) => buscaminas.hasBandera(x, y)
 
     };
-})();
+  })();
 
   let buscaminas = {
     dificultad: 0,
@@ -32,8 +33,8 @@
     mapeoCasillas: [],
     tableroVisible: [],
     finalPartida: false,
-    partidaIniciada : false,
-    derrota : false,
+    partidaIniciada: false,
+    derrota: false,
     contadorBanderas: 10,
     casillasPintar: [],
     iniciarJuego(dificultad) {
@@ -43,9 +44,9 @@
       this.minas = 0;
       this.partidaIniciada = true;
       this.derrota = false;
-      try{
+      try {
         buscaminas.elegirDificultad(dificultad);
-      }catch(e){
+      } catch (e) {
         console.log(e.message);
         return;
       }
@@ -99,14 +100,10 @@
         } while (this.tablero[fila][columna] == "X");
         this.tablero[fila][columna] = "X";
         for (
-          let j = Math.max(fila - 1, 0);
-          j <= Math.min(fila + 1, this.filas - 1);
-          j++
+          let j = Math.max(fila - 1, 0); j <= Math.min(fila + 1, this.filas - 1); j++
         )
           for (
-            let k = Math.max(columna - 1, 0);
-            k <= Math.min(columna + 1, this.columnas - 1);
-            k++
+            let k = Math.max(columna - 1, 0); k <= Math.min(columna + 1, this.columnas - 1); k++
           )
             if (this.tablero[j][k] !== "X") this.tablero[j][k] += 1;
       }
@@ -116,17 +113,19 @@
       console.table(this.tablero);
       console.log("Tablero juego");
       console.table(this.tableroVisible);
+      console.log("Tablero mapeo");
+      console.table(this.mapeoCasillas);
     },
     abrir(x, y) {
       if (this.isFinal()) {
         console.log("Has perdido la partida, no puedes colocar minas");
         return "Has perdido la partida, no puedes colocar minas";
       }
-      if(!this.isEmpezada()){
+      if (!this.isEmpezada()) {
         console.log("La partida no está iniciada");
         return;
       }
-      if(x>this.filas || x<0 || y>this.columnas || y<0){
+      if (x > this.filas || x < 0 || y > this.columnas || y < 0) {
         console.log("Fila o columna no válida");
         return "Fila o columna no válida";
       }
@@ -156,10 +155,10 @@
       this.mostrarTableroConsola();
       this.casillasPintar.unshift([x, y, this.getValue(x, y)]);
       if (buscaminas.casillasPorDescubrir == 0) {
-          buscaminas.partidaFinalizada = true;
-          return "¡Enhorabuena, has ganado!";
+        buscaminas.partidaFinalizada = true;
+        return "¡Enhorabuena, has ganado!";
       }
-      if(this.derrota)
+      if (this.derrota)
         console.log("Has pulsado una mina, has perdido!");
     },
     //x,y
@@ -168,14 +167,10 @@
         this.mapeoCasillas[x][y] = -1;
         if (this.tablero[x][y] == 0)
           for (
-            let j = Math.max(x - 1, 0);
-            j <= Math.min(x + 1, this.filas - 1);
-            j++
+            let j = Math.max(x - 1, 0); j <= Math.min(x + 1, this.filas - 1); j++
           )
             for (
-              let k = Math.max(y - 1, 0);
-              k <= Math.min(y + 1, this.columnas - 1);
-              k++
+              let k = Math.max(y - 1, 0); k <= Math.min(y + 1, this.columnas - 1); k++
             ) {
               if (this.tablero[j][k] != "X") this.abrir(j, k);
             }
@@ -193,7 +188,7 @@
       }
     },
     ponerBandera(x, y) {
-      if(x>=this.filas || x<0 || y>=this.columnas || y<0){
+      if (x >= this.filas || x < 0 || y >= this.columnas || y < 0) {
         console.log("Fila o columna no válida");
         return;
       }
@@ -201,21 +196,23 @@
         console.log("Has perdido la partida, no puedes colocar minas");
         return;
       }
-      if(!this.isEmpezada()){
+      if (!this.isEmpezada()) {
         console.log("La partida no está iniciada");
         return;
       }
-      if (this.tableroVisible[x][y] === "O") {
-        if (this.contadorBanderas === 0)
-          console.log("Ya has colocado el máximo de banderas");
-        else {
-          this.tableroVisible[x][y] = "P";
+      if (this.contadorBanderas > 0) {
+        if (this.mapeoCasillas[x][y] === 0) {
+          this.mapeoCasillas[x][y] = "P";
           --this.contadorBanderas;
+          return true;
+        } else {
+          return false;
         }
-      }
+      }else
+        console.log("Ya has colocado el máximo de banderas");
     },
     quitarBandera(x, y) {
-      if(x>=this.filas || x<0 || y>=this.columnas || y<0){
+      if (x >= this.filas || x < 0 || y >= this.columnas || y < 0) {
         console.log("Fila o columna no válida");
         return;
       }
@@ -223,15 +220,19 @@
         console.log("Has perdido la partida, no puedes quitar banderas");
         return;
       }
-      if(!this.isEmpezada()){
+      if (!this.isEmpezada()) {
         console.log("La partida no está iniciada");
         return;
       }
       if (this.contadorBanderas > 0) {
-        if (this.tableroVisible[x][y] === "P") {
-          this.tableroVisible[x][y] = "O";
+        if (this.mapeoCasillas[x][y] === "P") {
+          this.mapeoCasillas[x][y] = 0;
           ++this.contadorBanderas;
-        } else console.log("No existe ninguna bandera en esa posición");
+          return true;
+        } else{
+          console.log("No existe ninguna bandera en esa posición");
+          return false
+        }
       }
     },
     isFinal() {
@@ -240,32 +241,35 @@
     isEmpezada() {
       return this.partidaIniciada;
     },
-    getDificultad(){
+    getDificultad() {
       return this.dificultad;
     },
-    getFilas(){
+    getFilas() {
       return this.filas;
     },
-    getColumnas(){
+    getColumnas() {
       return this.columnas;
     },
-    getValue(x,y){
+    getValue(x, y) {
       let value = this.tablero[x][y];
-      if(value == 0)
+      if (value == 0)
         return "";
       return this.tablero[x][y];
     },
-    getCasillasPintar(){
+    getCasillasPintar() {
       return this.casillasPintar;
     },
-    reiniciarCasillasPintar(){
+    reiniciarCasillasPintar() {
       this.casillasPintar = []
     },
-    getDerrota(){
+    getDerrota() {
       return this.derrota;
     },
-    getVictoria(){
+    getVictoria() {
       return this.casillasRestantes == 0;
+    },
+    hasBandera(x, y) {
+      return this.mapeoCasillas[x][y] === "P";
     }
   };
 
