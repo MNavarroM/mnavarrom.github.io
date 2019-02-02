@@ -18,7 +18,9 @@
       reiniciarCasillasPintar: () => buscaminas.reiniciarCasillasPintar(),
       getDerrota: () => buscaminas.getDerrota(),
       getVictoria: () => buscaminas.getVictoria(),
-      hasBandera: (x, y) => buscaminas.hasBandera(x, y)
+      hasBandera: (x, y) => buscaminas.hasBandera(x, y),
+      getBanderas: () => buscaminas.getBanderas(),
+      getMinas: () => buscaminas.getMinas()
 
     };
   })();
@@ -208,7 +210,7 @@
         } else {
           return false;
         }
-      }else
+      } else
         console.log("Ya has colocado el máximo de banderas");
     },
     quitarBandera(x, y) {
@@ -224,15 +226,13 @@
         console.log("La partida no está iniciada");
         return;
       }
-      if (this.contadorBanderas > 0) {
-        if (this.mapeoCasillas[x][y] === "P") {
-          this.mapeoCasillas[x][y] = 0;
-          ++this.contadorBanderas;
-          return true;
-        } else{
-          console.log("No existe ninguna bandera en esa posición");
-          return false
-        }
+      if (this.mapeoCasillas[x][y] === "P") {
+        this.mapeoCasillas[x][y] = 0;
+        ++this.contadorBanderas;
+        return true;
+      } else {
+        console.log("No existe ninguna bandera en esa posición");
+        return false
       }
     },
     isFinal() {
@@ -270,6 +270,13 @@
     },
     hasBandera(x, y) {
       return this.mapeoCasillas[x][y] === "P";
+    },
+    getBanderas() {
+      console.log(this.contadorBanderas);
+      return this.contadorBanderas;
+    },
+    getMinas(){
+      return this.minas;
     }
   };
 

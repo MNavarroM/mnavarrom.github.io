@@ -20,6 +20,7 @@
     tablero += "</table>";
     $("#tablero").html(tablero);
     $("td").addClass("casilla");
+    $("#numBombas").text(juego.getMinas());
   }
 
   $(function() {
@@ -30,6 +31,7 @@
 
     $("button").click(function(e) {
       e.preventDefault();
+      $("#info").css("display", "block");
       $("#mensaje").text("");
       switch ($(this).attr("id")) {
         case "facil":
@@ -53,9 +55,11 @@
           case 2:
             if(juego.hasBandera($(this).attr("x"), $(this).attr("y")))
               quitarBandera($(this).attr("x"), $(this).attr("y"));
-            else
+            else{
               ponerBandera($(this).attr("x"), $(this).attr("y"));
-          break;
+            }
+            $("#numBanderas").text(juego.getBanderas());
+            break;
         }
       });
     });
