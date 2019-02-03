@@ -62,8 +62,10 @@ li{
     text-align: center;
 }
 
-#portfolio, #contacto h2{
+#portfolio h2, #contacto h2{
     font-size: 34px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .cajaWeb{
@@ -123,4 +125,15 @@ footer{
     text-align: center;
     background-color: black;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer a{
+    padding: 8px;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
 }
