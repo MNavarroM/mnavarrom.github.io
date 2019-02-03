@@ -24,8 +24,7 @@
   }
 
   $(function() {
-
-    $("#tablero").contextmenu(function (e) {
+    $("#tablero").contextmenu(function(e) {
       e.preventDefault();
     });
 
@@ -45,17 +44,18 @@
           break;
       }
       crearTablero();
+      $("#numBanderas").text(juego.getBanderas());
       $("td").mousedown(function(e) {
         e.preventDefault();
         switch (e.buttons) {
           case 1:
-            if(!juego.hasBandera($(this).attr("x"), $(this).attr("y")))
+            if (!juego.hasBandera($(this).attr("x"), $(this).attr("y")))
               picar($(this).attr("x"), $(this).attr("y"));
             break;
           case 2:
-            if(juego.hasBandera($(this).attr("x"), $(this).attr("y")))
+            if (juego.hasBandera($(this).attr("x"), $(this).attr("y")))
               quitarBandera($(this).attr("x"), $(this).attr("y"));
-            else{
+            else {
               ponerBandera($(this).attr("x"), $(this).attr("y"));
             }
             $("#numBanderas").text(juego.getBanderas());
@@ -65,14 +65,12 @@
     });
   });
 
-  function ponerBandera(x,y){
-    if(juego.ponerBandera(x,y))
-      $("#"+x+"_"+y).addClass("bandera");
+  function ponerBandera(x, y) {
+    if (juego.ponerBandera(x, y)) $("#" + x + "_" + y).addClass("bandera");
   }
 
-  function quitarBandera(x,y){
-    if(juego.quitarBandera(x,y))
-      $("#"+x+"_"+y).removeClass("bandera");
+  function quitarBandera(x, y) {
+    if (juego.quitarBandera(x, y)) $("#" + x + "_" + y).removeClass("bandera");
   }
 
   function picar(x, y) {
@@ -96,10 +94,12 @@
         casilla.fadeIn(150, function() {
           if (juego.getDerrota()) $(this).addClass("casillaBomba");
           else $(this).addClass("casillaDestapada");
-          if (casillas[i][2] != 0 || casillas[i][2] != "X"){
+          if (casillas[i][2] != 0 || casillas[i][2] != "X") {
             $(this).text(casillas[i][2]);
-            if(juego.hasBandera(casillas[i][0],casillas[i][1]))
-              quitarBandera(casillas[i][0],casillas[i][1])  ;
+            if (juego.hasBandera(casillas[i][0], casillas[i][1])) {
+              quitarBandera(casillas[i][0], casillas[i][1]);
+              $("#numBanderas").text(juego.getBanderas());
+            }
           }
         });
       }, i * 9);

@@ -46,6 +46,7 @@
       this.minas = 0;
       this.partidaIniciada = true;
       this.derrota = false;
+      this.contadorBanderas = 10;
       try {
         buscaminas.elegirDificultad(dificultad);
       } catch (e) {
