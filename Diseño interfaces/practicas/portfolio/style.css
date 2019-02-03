@@ -23,7 +23,7 @@ li{
 #sobre_mi{
     color: white;
     background-color: rgba(0, 0, 0, 0.63);
-    background-image: url("img/fondo-medium.jpeg");
+    background-image: url("img/fondo-big.jpeg");
     background-repeat: no-repeat;
     background-position: 20%;
     *background-size: cover;
@@ -40,11 +40,11 @@ li{
 }
 
 .capa div{
-    margin-top: 20%;
+    margin-top: 40%;
 }
 
 .capa h2{
-    margin-top: 10%;
+    margin-top: 20%;
 }
 
 #menu{
@@ -72,7 +72,7 @@ li{
     display: inline-block;
     margin: 0 auto;
     background-color: white;
-    width: 90%;
+    width: 95%;
     background-color: rgba(0, 0, 0, 0.63);
     margin-bottom: 10px;
 }
@@ -86,7 +86,7 @@ li{
 
 .cajaWeb img{
     margin: 0 auto;
-    margin-top: 10px;
+    padding: 10px;
     width: 90%;
     height: 280px;
 }
@@ -95,7 +95,6 @@ li{
     color: white;
     *text-align: center;
     background-color: rgba(0, 0, 0, 0.63);
-    background-image: url("img/contact-medium.jpeg");
     height:auto;
     text-align: center;
 }
@@ -137,3 +136,85 @@ footer a{
     color: white;
     text-decoration: none;
 }
+
+@media (min-width:700px){
+
+    .capa div{
+        margin-top: 20%;
+    }
+    
+    .capa h2{
+        margin-top: 10%;
+    }
+
+    .capa{
+        font-size: 300px;
+
+    }
+    
+    .cajaWeb img{
+        height: 450px;
+    }
+
+    .cajaWeb p{
+        font-size: 24px;
+        margin: 0;
+        text-align: justify;
+    }
+
+    footer a{
+        font-size: 26px;
+    }
+}
+
+@media (min-width:1200px){
+
+    #sobre_mi{
+        background-image: url("img/fondo-big.jpeg");
+    }
+
+    .capa div{
+        margin-top: 10%;
+    }
+    
+    .capa h2{
+        margin-top: 5%;
+    }
+
+    #portfolio{
+        background-image: url("img/pattern-big.jpeg");
+    }
+
+    #cajas{
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .cajaWeb{
+        flex-basis:45%;
+    }
+
+    .cajaWeb:hover{
+        transform: scale(1.02);
+        transition-duration: 1s;
+    }
+
+    .cajaWeb img{
+        height: 300px;
+    }
+
+    .cajaWeb p{
+        font-size: 22px;
+        margin: 0;
+        text-align: justify;
+    }
+
+    footer a{
+        font-size: 30px;
+    }
+}
+
+
