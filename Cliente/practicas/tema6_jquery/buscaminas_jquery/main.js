@@ -96,8 +96,11 @@
         casilla.fadeIn(150, function() {
           if (juego.getDerrota()) $(this).addClass("casillaBomba");
           else $(this).addClass("casillaDestapada");
-          if (casillas[i][2] != 0 || casillas[i][2] != "X")
+          if (casillas[i][2] != 0 || casillas[i][2] != "X"){
             $(this).text(casillas[i][2]);
+            if(juego.hasBandera(casillas[i][0],casillas[i][1]))
+              quitarBandera(casillas[i][0],casillas[i][1])  ;
+          }
         });
       }, i * 9);
     }
