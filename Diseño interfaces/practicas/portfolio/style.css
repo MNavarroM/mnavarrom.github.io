@@ -219,4 +219,10 @@ footer a{
     }
 }
 
+@media (min-width:1500px){
+    .cajaWeb img{
+        height: 400px;
+    }
+}
+
 
