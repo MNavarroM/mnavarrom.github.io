@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <script src="jquery/jquery-3.3.1.js"></script>
@@ -36,7 +35,6 @@
     <main>
         <section id="sobre_mi">
             <div class="capa">
-                <div id="menu"><i class="material-icons">menu</i></div>
                 <div>
                     <h2>mnavarro:~$ whoami</h2>
                     <h2>Mario Navaro Madrid</h2>
@@ -45,37 +43,40 @@
                 </div>
             </div>
         </section>
-        <section id="skills">
-            <h2>Portfolio</h2>
-            <article id="frontend"></article>
-            <article id="backend"></article>
-        </section>
         <section id="portfolio">
-            <article>
-                <img src="" alt="">
-                <div>
-                    <p>
-                        Maquetación mediante flex con tema libre. Se realizó durante el mes de octubre.
-                    </p>
-                </div>
-            </article>
-            <article>
-                <img src="" alt="">
+            <h2>Proyectos</h2>
+            <article class="cajaWeb">
+                <img src="img/port1.jpg" alt="">
                 <p>
-                    Creación de una web para la gestión de notas de las asignaturas. Se realizó combinando flex y grid.
+                    Maquetación mediante flex con tema libre. Se realizó durante el mes de octubre.
+                </p>
+            </article>
+            <article class="cajaWeb">
+                <img src="img/port2.jpg" alt="">
+                <p>
+                    Creación de una web para la gestión de notas de las asignaturas. Se realizó combinando flex y
+                    grid.
                     Totalmente responsive.
                 </p>
             </article>
-            <article>
-                <img src="" alt="">
-                <div>
-                    <p>
-                        Creación de una web para el alquiler de casas rurales. Se realizó combinando flex y grid.
-                        Se añadieron algunos efectos de jQuery.
-                        Totalmente responsive.
-                    </p>
-                </div>
+            <article class="cajaWeb">
+                <img src="img/port3.jpg" alt="">
+                <p>
+                    Creación de una web para el alquiler de casas rurales. Se realizó combinando flex y grid.
+                    Se añadieron algunos efectos de jQuery.
+                    Totalmente responsive.
+                </p>
             </article>
+        </section>
+        <section id="contacto">
+            <div id="capaContacto">
+                <h2>Contacto</h2>
+                <form action="">
+                    <label for="nombre">Nombre </label></br><input type="text" name="" id=""></br>
+                    <label for="email">Email </label></br><input type="email" name="" id=""></br>
+                    <label for="area">Comentario </label></br></br><textarea name="area" id="" cols="30" rows="10"></textarea></br>
+                </form>
+            </div>
         </section>
         <section id="social">
             <a href="https://twitter.com/sisnavarro21"><img src="asd" alt="twitter"></a>

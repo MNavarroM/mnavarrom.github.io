@@ -5,7 +5,8 @@
 
 h2{
     margin: 0;
-    text-shadow: black 4px 4px;
+    *text-shadow: black 4px 4px;
+    font-size: 30px;
 }
 
 ul{
@@ -38,11 +39,6 @@ li{
     font-size: 22px;
 }
 
-#skills{
-    text-align: center;
-    font-size: 32px;
-}
-
 .capa div{
     margin-top: 20%;
 }
@@ -57,15 +53,63 @@ li{
     padding: 10px;
 }
 
-#skills{
+#portfolio{
     color: white;
     background-color: rgba(0, 0, 0, 0.63);
     background-image: url("img/pattern-medium.jpeg");
-    background-repeat: no-repeat;
-    background-position: 20%;
-    *background-size: cover;
-    height:100vh;
-    display: flex;
-    flex-direction: column;
+    background-repeat: repeat-y;
+    height:auto;
+    text-align: center;
 }
 
+#portfolio, #contacto h2{
+    padding: 20px;
+    font-size: 34px;
+}
+
+.cajaWeb{
+    display: inline-block;
+    margin: 0 auto;
+    background-color: white;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.63);
+    margin-bottom: 10px;
+}
+
+.cajaWeb p{
+    font-size: 20px;
+}
+
+.cajaWeb img{
+    padding: 20px;
+    margin: 0 auto;
+    width: 320px;
+    height: 320px;
+}
+
+#contacto{
+    color: white;
+    *text-align: center;
+    background-color: rgba(0, 0, 0, 0.63);
+    background-image: url("img/contact-medium.jpeg");
+    height:auto;
+    text-align: center;
+}
+
+#contacto form{
+    font-size: 25px;
+    text-align: justify;
+    padding: 30px;
+}
+
+#capaContacto{
+    background-color: rgba(0, 0, 0, 0.63);
+}
+
+input, textarea{
+    width: 90%;
+}
+
+input, textarea, label{
+    margin: 20px;
+}
