@@ -38,6 +38,14 @@ $(function () {
             }
         });
 
+        $("input[type=text], textarea").focus(function (e) { 
+            e.preventDefault();
+            $(this).css({
+                color: "black",
+                border: "2px solid #ffD3D7"
+            });
+        });
+
         $("input[type=submit]").click(function (e) {
             e.preventDefault();
             inputError = [];
