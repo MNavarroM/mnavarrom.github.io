@@ -86,9 +86,9 @@ li{
 
 .cajaWeb img{
     margin: 0 auto;
-    padding: 10px;
-    width: 90%;
-    height: 280px;
+    *padding: 10px;
+    width: 100%;
+    height: 320px;
 }
 
 #contacto{
@@ -137,7 +137,15 @@ footer a{
     text-decoration: none;
 }
 
-@media (min-width:700px){
+input:invalid{
+    color: red;
+}
+
+textarea:valid, input:valid{
+    color: green;
+}
+
+@media (min-width:600px){
 
     .capa div{
         margin: 0 auto;
