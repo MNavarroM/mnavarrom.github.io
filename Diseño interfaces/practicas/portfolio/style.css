@@ -42,6 +42,58 @@ li {
   text-align: center;
 }
 
+.bar{
+  margin: 0 auto;
+  width: 90%;
+  height: 20px;
+  background-color: gray;
+}
+
+h3{
+  margin: 10px;
+}
+
+.fillBar{
+  text-align: right;
+  padding-right: 5px;
+  height: 20px;
+  border-radius: 2px;
+  color: white;
+}
+
+#html{
+  background-color: #FF5722;
+  width: 90%;
+
+}
+
+#css{
+  background-color: #3F51B5;
+  width: 90%;
+
+}
+
+#js{
+  width: 70%;
+  background-color: #FFEB3B;
+}
+
+#jquery{
+  width: 60%;
+  background-color: #303f9f;
+
+}
+
+#php{
+  width: 60%;
+  background-color: #5c6bc0;
+}
+
+#symfony{
+  width: 10%;
+  background-color: black;
+}
+
 #me h2,
 #contacto h2 {
   font-size: 34px;
@@ -54,11 +106,6 @@ li {
 #me p{
   padding: 15px;
   text-align: justify;
-}
-
-#contacto h2 {
-  color: white;
-  text-shadow: black 4px 3px;
 }
 
 .cajaWeb {
@@ -84,6 +131,11 @@ li {
   color: white;
   background-color: rgba(37, 36, 36, 0.884);
   text-align: center;
+}
+
+#contacto h2 {
+  color: white;
+  text-shadow: black 4px 3px;
 }
 
 #contacto form {
@@ -142,6 +194,11 @@ input:invalid{
     margin-top: 15%;
   }
 
+  #skill{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+
   .cajaWeb p {
     margin: 0;
     text-align: justify;
@@ -160,6 +217,11 @@ input:invalid{
   #titulo h2 {
     font-size: 30px;
     margin-top: 10%;
+  }
+
+  #skill{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
   }
 
   #cajas {
