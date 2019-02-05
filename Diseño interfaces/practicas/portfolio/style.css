@@ -45,7 +45,7 @@ li {
 .bar{
   margin: 0 auto;
   width: 90%;
-  height: 20px;
+  height: 30px;
   background-color: gray;
 }
 
@@ -56,8 +56,8 @@ h3{
 .fillBar{
   text-align: right;
   padding-right: 5px;
-  height: 20px;
   border-radius: 2px;
+  height: 30px;
   color: white;
 }
 
@@ -85,13 +85,29 @@ h3{
 }
 
 #php{
-  width: 60%;
+  width: 70%;
   background-color: #5c6bc0;
 }
 
 #symfony{
   width: 10%;
   background-color: black;
+}
+
+#java{
+  background-color: #f44336;
+  width: 70%;
+}
+
+#android{
+  background-color: #9ccc65;
+  width: 30%;
+}
+
+#sql{
+  background-color: #1565c0;
+  width: 60%;
+
 }
 
 #me h2,
