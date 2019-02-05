@@ -123,11 +123,11 @@ footer a {
 }
 
 i{
-  font-size: 40px;
+  font-size: 50px;
   margin: 0 20px;
 }
 
-input:invalid {
+input:invalid{
   border-color: red;
 }
 
