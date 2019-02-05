@@ -1,234 +1,174 @@
-*{
-    font-family: 'Roboto', sans-serif;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-ul{
-    list-style: none;
-    list-style-image: none;
-    display: none;
+ul {
+  list-style: none;
+  list-style-image: none;
+  display: none;
 }
 
-li{
-    padding: 0;
+li {
+  padding: 0;
+  margin: 0;
+}
+
+#titulo {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.856);
+  background-image: url("img/fondo-big.jpeg");
+  background-repeat: no-repeat;
+  background-position: 20%;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#titulo h2 {
+  text-shadow: black 4px 4px;
+  text-align: center;
+  margin-top: 20%;
+}
+
+.capa {
+  background-color: rgba(0, 0, 0, 0.63);
+  height: 100%;
+}
+
+#me {
+  color: black;
+  background-color: white;
+  text-align: center;
+}
+
+#me h2,
+#contacto h2 {
+  font-size: 34px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: black;
+  text-shadow: white 3px 3px;
+}
+
+#contacto h2 {
+  color: white;
+  text-shadow: black 4px 3px;
+}
+
+.cajaWeb {
+  display: inline-block;
+  margin: 0 auto;
+  width: 90%;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition-duration: 1s;
+}
+
+.cajaWeb p {
+  padding: 12px;
+  text-align: justify;
+}
+
+.cajaWeb img {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#contacto {
+  color: white;
+  background-color: grey;
+  text-align: center;
+}
+
+#contacto form {
+  font-size: 25px;
+}
+
+#capaContacto {
+  background-color: rgba(0, 0, 0, 0.63);
+}
+
+input,
+textarea {
+  width: 90%;
+}
+
+input,
+textarea,
+label {
+  margin: 15px;
+}
+
+form button {
+  margin: 15px;
+}
+
+footer {
+  text-align: center;
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer a {
+  padding: 8px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+input:invalid {
+  color: red;
+}
+
+@media (min-width: 650px) {
+  #titulo h2 {
+    font-size: 30px;
+    margin-top: 15%;
+  }
+
+  .cajaWeb p {
     margin: 0;
-}
-
-#titulo{
-    color: white;
-    background-color: rgba(0, 0, 0, 0.856);
-    background-image: url("img/fondo-big.jpeg");
-    background-repeat: no-repeat;
-    background-position: 20%;
-    background-size: cover;
-    height:100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-#titulo h2{
-    text-shadow: black 4px 4px;
-}
-
-.capa{
-    background-color: rgba(0, 0, 0, 0.63);
-    height: 100vh;
-    text-align: center;
-    font-size: 22px;
-}
-
-.capa div{
-    margin: 5% auto;
-}
-
-.capa h2{
-    padding-top: 10%;
-}
-
-#menu{
-    text-align: right;
-    margin: 0;
-    padding: 10px;
-}
-
-#me{
-    color: black;
-    background-color: white;
-    text-align: center;
-}
-
-#me h2,#contacto h2{
-    font-size: 34px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: black;
-    text-shadow: white 3px 3px;
-}
-
-#contacto h2{
-    color: white;
-    text-shadow: black 4px 3px;
-}
-
-.cajaWeb{
-    display: inline-block;
-    margin: 0 auto;
-    width: 90%;
-    margin-bottom: 20px;
-    box-shadow:  0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    transition-duration: 1s;
-}
-
-.cajaWeb p{
-    padding: 12px;
     text-align: justify;
+  }
 }
 
-.cajaWeb img{
-    margin: 0 auto;
-    width: 100%;
-}
+@media (min-width: 1200px) {
+  #titulo {
+    background-image: url("img/fondo-big.jpeg");
+  }
 
-#contacto{
-    color: white;
-    background-color: grey;
-    text-align: center;
-}
+  #titulo h2 {
+    font-size: 30px;
+    margin-top: 10%;
+  }
 
-#contacto form{
-    font-size: 25px;
-    text-align: center;
-}
-
-#capaContacto{
-    background-color: rgba(0, 0, 0, 0.63);
-}
-
-input, textarea{
-    width: 90%;
-}
-
-input, textarea, label{
-    margin: 10px;
-}
-
-form button{
-    margin: 15px;
-}
-
-footer{
-    text-align: center;
-    background-color: black;
-    padding: 20px;
+  #cajas {
+    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-}
+  }
 
-footer a{
-    padding: 8px;
+  .cajaWeb {
+    flex-basis: 30%;
+  }
+
+  .cajaWeb:hover {
+    transform: scale(1.02);
+    transition-duration: 1s;
+  }
+
+
+  .cajaWeb p {
     font-size: 20px;
-    color: white;
-    text-decoration: none;
+    margin: 0;
+    text-align: justify;
+  }
+
 }
-
-input:invalid{
-    color: red;
-}
-
-textarea:valid, input:valid{
-    color: green;
-}
-
-@media (min-width:600px){
-
-    .capa div{
-        margin: 0 auto;
-    }
-    
-    .capa h2{
-        font-size: 30px;
-        padding-top: 10%;
-    }
-
-    .capa{
-        font-size: 300px;
-
-    }
-
-    .cajaWeb img{
-        *height: 450px;
-        *height: 50vw;
-    }
-
-    .cajaWeb p{
-        font-size: 24px;
-        margin: 0;
-        text-align: justify;
-    }
-
-    footer a{
-        font-size: 26px;
-    }
-}
-
-@media (min-width:1200px){
-
-    #titulo{
-        background-image: url("img/fondo-big.jpeg");
-    }
-
-    .capa div{
-        margin: 0 auto;
-    }
-    
-    .capa h2{
-        font-size: 40px;
-        padding-top: 5%;
-    }
-
-    #me{
-        background-color: white;
-        *background-image: url("img/skills-big.jpeg");
-        *background-position: center;
-    }
-
-    #cajas{
-        padding: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .cajaWeb{
-        flex-basis:30%;
-    }
-
-    .cajaWeb:hover{
-        transform: scale(1.02);
-        transition-duration: 1s;
-    }
-
-    .cajaWeb img{
-        height: 240px;
-    }
-
-    .cajaWeb p{
-        font-size: 20px;
-        margin: 0;
-        text-align: justify;
-    }
-
-    footer a{
-        font-size: 30px;
-    }
-}
-
-@media (min-width:1500px){
-    .cajaWeb img{
-        *height: 280px;
-    }
-}
-
-
