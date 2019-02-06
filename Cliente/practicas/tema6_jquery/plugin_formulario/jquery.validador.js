@@ -54,6 +54,13 @@ $(function () {
             console.log(inputError);
             if(inputError.length>0)
                 inputError[0].focus();
+            $.ajax({
+                url: "info.txt",
+                dataType: "text",
+                success: function (response) {
+                    $("textarea").val(response);
+                }
+            });
         });
 
 
