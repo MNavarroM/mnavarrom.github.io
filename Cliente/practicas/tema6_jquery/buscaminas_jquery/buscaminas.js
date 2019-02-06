@@ -2,14 +2,13 @@
  * @author Mario Navarro Madrid
  */
 {
-
-  juego = (function () {
+  juego = (function() {
     return {
-      iniciarJuego: (dificultad) => buscaminas.iniciarJuego(dificultad),
+      iniciarJuego: dificultad => buscaminas.iniciarJuego(dificultad),
       abrir: (x, y) => buscaminas.abrir(x, y),
       ponerBandera: (x, y) => buscaminas.ponerBandera(x, y),
       quitarBandera: (x, y) => buscaminas.quitarBandera(x, y),
-      mostrarTableroConsola: () => buscaminas.mostrarTableroConsola(),
+      mostrar: () => buscaminas.mostrar(),
       getDificultad: () => buscaminas.getDificultad(),
       getFilas: () => buscaminas.getFilas(),
       getColumnas: () => buscaminas.getColumnas(),
@@ -22,7 +21,6 @@
       getBanderas: () => buscaminas.getBanderas(),
       getMinas: () => buscaminas.getMinas(),
       despejar: (x, y) => buscaminas.despejar(x, y)
-
     };
   })();
 
@@ -56,7 +54,7 @@
       }
       buscaminas.crearTablero();
       buscaminas.generarMinasNumeros();
-      buscaminas.mostrarTableroConsola();
+      buscaminas.mostrar();
       this.casillasRestantes = this.filas * this.columnas - this.minas;
       this.finalPartida = false;
     },
@@ -65,7 +63,7 @@
         case 0:
           this.columnas = 9;
           this.filas = 9;
-          this.minas = 8;
+          this.minas = 10;
           break;
         case 1:
           this.columnas = 16;
@@ -104,15 +102,19 @@
         } while (this.tablero[fila][columna] == "X");
         this.tablero[fila][columna] = "X";
         for (
-          let j = Math.max(fila - 1, 0); j <= Math.min(fila + 1, this.filas - 1); j++
+          let j = Math.max(fila - 1, 0);
+          j <= Math.min(fila + 1, this.filas - 1);
+          j++
         )
           for (
-            let k = Math.max(columna - 1, 0); k <= Math.min(columna + 1, this.columnas - 1); k++
+            let k = Math.max(columna - 1, 0);
+            k <= Math.min(columna + 1, this.columnas - 1);
+            k++
           )
             if (this.tablero[j][k] !== "X") this.tablero[j][k] += 1;
       }
     },
-    mostrarTableroConsola() {
+    mostrar() {
       console.log("Tablero minas");
       console.table(this.tablero);
       console.log("Tablero juego");
@@ -161,54 +163,112 @@
           break;
       }
       console.clear();
-      this.mostrarTableroConsola();
+      this.mostrar();
       this.casillasPintar.unshift([x, y, this.getValue(x, y)]);
       if (buscaminas.casillasPorDescubrir == 0) {
         buscaminas.partidaFinalizada = true;
         return "¡Enhorabuena, has ganado!";
       }
-      if (this.derrota)
-        console.log("Has pulsado una mina, has perdido!");
+      if (this.derrota) console.log("Has pulsado una mina, has perdido!");
     },
     despejar(fila, columna) {
       let x = parseInt(fila);
       let y = parseInt(columna);
-      if (this.mapeoCasillas[x][y] === 0)
-        return;
+      if (this.mapeoCasillas[x][y] === 0) return;
       console.log("x es " + x + ". y es " + y);
-      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
-        if (this.mapeoCasillas[x - 1][y - 1] == -1 && this.mapeoCasillas[x - 1][y - 1] != "P")
+      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
+        if (
+          this.mapeoCasillas[x - 1][y - 1] == -1 &&
+          this.mapeoCasillas[x - 1][y - 1] != "P"
+        )
           this.abrir(x - 1, y - 1);
       }
 
-      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
-        if (this.mapeoCasillas[x - 1][y] != -1 && this.mapeoCasillas[x - 1][y] != "P")
+      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
+        if (
+          this.mapeoCasillas[x - 1][y] != -1 &&
+          this.mapeoCasillas[x - 1][y] != "P"
+        )
           this.abrir(x - 1, y);
       }
-      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
-        if (this.mapeoCasillas[x - 1][y + 1] != -1 && this.mapeoCasillas[x - 1][y + 1] != "P")
+      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
+        if (
+          this.mapeoCasillas[x - 1][y + 1] != -1 &&
+          this.mapeoCasillas[x - 1][y + 1] != "P"
+        )
           this.abrir(x - 1, y + 1);
       }
-      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
-        if (this.mapeoCasillas[x][y - 1] != -1 && this.mapeoCasillas[x][y - 1] != "P")
+      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
+        if (
+          this.mapeoCasillas[x][y - 1] != -1 &&
+          this.mapeoCasillas[x][y - 1] != "P"
+        )
           this.abrir(x, y - 1);
       }
-      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
-        if (this.mapeoCasillas[x][y + 1] != -1 && this.mapeoCasillas[x][y + 1] != "P")
+      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
+        if (
+          this.mapeoCasillas[x][y + 1] != -1 &&
+          this.mapeoCasillas[x][y + 1] != "P"
+        )
           this.abrir(x, y + 1);
       }
-      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
-        if (this.mapeoCasillas[x + 1][y - 1] != -1 && this.mapeoCasillas[x + 1][y - 1] != "P")
+      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
+        if (
+          this.mapeoCasillas[x + 1][y - 1] != -1 &&
+          this.mapeoCasillas[x + 1][y - 1] != "P"
+        )
           this.abrir(x + 1, y - 1);
       }
-      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
-        if (this.mapeoCasillas[x + 1][y] != -1 && this.mapeoCasillas[x + 1][y] != "P")
+      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
+        if (
+          this.mapeoCasillas[x + 1][y] != -1 &&
+          this.mapeoCasillas[x + 1][y] != "P"
+        )
           this.abrir(x + 1, y);
       }
-      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
-        if (this.mapeoCasillas[x + 1][y + 1] != -1 && this.mapeoCasillas[x + 1][y + 1] != "P")
+      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
+        if (
+          this.mapeoCasillas[x + 1][y + 1] != -1 &&
+          this.mapeoCasillas[x + 1][y + 1] != "P"
+        )
           this.abrir(x + 1, y + 1);
       }
+    },
+    calcularNumeroBanderas(fila, columna, filas, columnas) {
+      let numBanderas = 0;
+      if (fila != 0) {
+        if (this.mapeoCasillas[fila - 1][columna] === "P") numBanderas++;
+        else buscaminas.casillasAlrededor.push([fila - 1, columna]);
+      }
+      if (fila != filas) {
+        if (this.mapeoCasillas[fila + 1][columna] === "P") numBanderas++;
+        else buscaminas.casillasAlrededor.push([fila + 1, columna]);
+      }
+      if (columna != columnas) {
+        if (this.mapeoCasillas[fila][columna + 1] === "P") numBanderas++;
+        else buscaminas.casillasAlrededor.push([fila, columna + 1]);
+      }
+      if (columna != 0) {
+        if (this.mapeoCasillas[fila][columna - 1] === "P") numBanderas++;
+        else buscaminas.casillasAlrededor.push([fila, columna - 1]);
+      }
+      if (columna !== 0 && fila !== filas) {
+        if (this.mapeoCasillas[fila + 1][columna - 1] === "P") numBanderas++;
+        else buscaminas.casillasAlrededor.push([fila + 1, columna - 1]);
+      }
+      if (fila != 0 && columna != 0) {
+        if (this.mapeoCasillas[fila - 1][columna - 1] === "P") numBanderas++;
+        else buscaminas.casillasAlrededor.push([fila - 1, columna - 1]);
+      }
+      if (fila != filas && columna != columnas) {
+        if (this.mapeoCasillas[fila + 1][columna + 1] === "P") numBanderas++;
+        else buscaminas.casillasAlrededor.push([fila + 1, columna + 1]);
+      }
+      if (fila != 0 && columna != columnas) {
+        if (this.mapeoCasillas[fila - 1][columna + 1] === "P") numBanderas++;
+        else buscaminas.casillasAlrededor.push([fila - 1, columna + 1]);
+      }
+      return numBanderas;
     },
     //x,y
     abrirCero(x, y) {
@@ -216,10 +276,14 @@
         this.mapeoCasillas[x][y] = -1;
         if (this.tablero[x][y] == 0)
           for (
-            let j = Math.max(x - 1, 0); j <= Math.min(x + 1, this.filas - 1); j++
+            let j = Math.max(x - 1, 0);
+            j <= Math.min(x + 1, this.filas - 1);
+            j++
           )
             for (
-              let k = Math.max(y - 1, 0); k <= Math.min(y + 1, this.columnas - 1); k++
+              let k = Math.max(y - 1, 0);
+              k <= Math.min(y + 1, this.columnas - 1);
+              k++
             ) {
               if (this.tablero[j][k] != "X") this.abrir(j, k);
             }
@@ -257,8 +321,7 @@
         } else {
           return false;
         }
-      } else
-        console.log("Ya has colocado el máximo de banderas");
+      } else console.log("Ya has colocado el máximo de banderas");
     },
     quitarBandera(x, y) {
       if (x >= this.filas || x < 0 || y >= this.columnas || y < 0) {
@@ -279,7 +342,7 @@
         return true;
       } else {
         console.log("No existe ninguna bandera en esa posición");
-        return false
+        return false;
       }
     },
     isFinal() {
@@ -299,15 +362,14 @@
     },
     getValue(x, y) {
       let value = this.tablero[x][y];
-      if (value == 0)
-        return "";
+      if (value == 0) return "";
       return this.tablero[x][y];
     },
     getCasillasPintar() {
       return this.casillasPintar;
     },
     reiniciarCasillasPintar() {
-      this.casillasPintar = []
+      this.casillasPintar = [];
     },
     getDerrota() {
       return this.derrota;
@@ -326,5 +388,4 @@
       return this.minas;
     }
   };
-
 }
