@@ -20,7 +20,8 @@
       getVictoria: () => buscaminas.getVictoria(),
       hasBandera: (x, y) => buscaminas.hasBandera(x, y),
       getBanderas: () => buscaminas.getBanderas(),
-      getMinas: () => buscaminas.getMinas()
+      getMinas: () => buscaminas.getMinas(),
+      despejar: (x, y) => buscaminas.despejar(x, y)
 
     };
   })();
@@ -64,7 +65,7 @@
         case 0:
           this.columnas = 9;
           this.filas = 9;
-          this.minas = 10;
+          this.minas = 8;
           break;
         case 1:
           this.columnas = 16;
@@ -130,7 +131,12 @@
       }
       if (x > this.filas || x < 0 || y > this.columnas || y < 0) {
         console.log("Fila o columna no válida");
-        return "Fila o columna no válida";
+        return;
+      }
+
+      if (this.mapeoCasillas[x][y] == -1) {
+        console.log("Casilla ya pulsada");
+        return;
       }
       let value = this.tablero[x][y];
       switch (value) {
@@ -163,6 +169,46 @@
       }
       if (this.derrota)
         console.log("Has pulsado una mina, has perdido!");
+    },
+    despejar(fila, columna) {
+      let x = parseInt(fila);
+      let y = parseInt(columna);
+      if (this.mapeoCasillas[x][y] === 0)
+        return;
+      console.log("x es " + x + ". y es " + y);
+      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
+        if (this.mapeoCasillas[x - 1][y - 1] == -1 && this.mapeoCasillas[x - 1][y - 1] != "P")
+          this.abrir(x - 1, y - 1);
+      }
+
+      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
+        if (this.mapeoCasillas[x - 1][y] != -1 && this.mapeoCasillas[x - 1][y] != "P")
+          this.abrir(x - 1, y);
+      }
+      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
+        if (this.mapeoCasillas[x - 1][y + 1] != -1 && this.mapeoCasillas[x - 1][y + 1] != "P")
+          this.abrir(x - 1, y + 1);
+      }
+      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
+        if (this.mapeoCasillas[x][y - 1] != -1 && this.mapeoCasillas[x][y - 1] != "P")
+          this.abrir(x, y - 1);
+      }
+      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
+        if (this.mapeoCasillas[x][y + 1] != -1 && this.mapeoCasillas[x][y + 1] != "P")
+          this.abrir(x, y + 1);
+      }
+      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
+        if (this.mapeoCasillas[x + 1][y - 1] != -1 && this.mapeoCasillas[x + 1][y - 1] != "P")
+          this.abrir(x + 1, y - 1);
+      }
+      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
+        if (this.mapeoCasillas[x + 1][y] != -1 && this.mapeoCasillas[x + 1][y] != "P")
+          this.abrir(x + 1, y);
+      }
+      if (x >= 0 && y>=0 && x<=this.filas-1 && y <= this.columnas-1) {
+        if (this.mapeoCasillas[x + 1][y + 1] != -1 && this.mapeoCasillas[x + 1][y + 1] != "P")
+          this.abrir(x + 1, y + 1);
+      }
     },
     //x,y
     abrirCero(x, y) {
@@ -276,7 +322,7 @@
       console.log(this.contadorBanderas);
       return this.contadorBanderas;
     },
-    getMinas(){
+    getMinas() {
       return this.minas;
     }
   };

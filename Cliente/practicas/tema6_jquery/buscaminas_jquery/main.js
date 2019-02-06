@@ -60,6 +60,10 @@
             }
             $("#numBanderas").text(juego.getBanderas());
             break;
+          case 3:
+            juego.despejar($(this).attr("x"), $(this).attr("y"));
+            mostrarCasilla();
+            break;
         }
       });
     });
