@@ -61,11 +61,23 @@
             $("#numBanderas").text(juego.getBanderas());
             break;
           case 3:
+          case 4:
             juego.despejar($(this).attr("x"), $(this).attr("y"));
-            mostrarCasilla();
+            if(juego.getCasillasResaltadas().length !== 0){
+              resaltarCasillas();
+            }
+            else{
+              mostrarCasilla();}
             break;
         }
       });
+      $("td").mouseleave(function () { 
+        $("td").removeClass("casillaResaltada");
+      });
+      $("td").mouseup(function () { 
+        $("td").removeClass("casillaResaltada");
+      });
+      
     });
   });
 
@@ -87,6 +99,18 @@
   function checkVictoria() {
     if (juego.getDerrota()) $("#mensaje").text("Has perdido!");
     if (juego.getVictoria()) $("#mensaje").text("Has ganado!");
+  }
+
+  function resaltarCasillas(){
+    let casilla,value;
+    let casillas = juego.getCasillasResaltadas();
+    for (let i = 0; i < casillas.length; i++) {
+      value = juego.getValueMapeado(casillas[i][0],casillas[i][1]);
+      casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
+      if(value === 0)
+        $(casilla).addClass("casillaResaltada");
+    }
+    juego.reiniciarCasillasResaltar();
   }
 
   function mostrarCasilla() {

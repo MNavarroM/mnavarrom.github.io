@@ -13,8 +13,11 @@
       getFilas: () => buscaminas.getFilas(),
       getColumnas: () => buscaminas.getColumnas(),
       getValue: (x, y) => buscaminas.getValue(x, y),
+      getValueMapeado: (x, y) => buscaminas.getValueMapeado(x, y),
       getCasillasPintar: () => buscaminas.getCasillasPintar(),
+      getCasillasResaltadas: () => buscaminas.getCasillasResaltadas(),
       reiniciarCasillasPintar: () => buscaminas.reiniciarCasillasPintar(),
+      reiniciarCasillasResaltar: () => buscaminas.reiniciarCasillasResaltar(),
       getDerrota: () => buscaminas.getDerrota(),
       getVictoria: () => buscaminas.getVictoria(),
       hasBandera: (x, y) => buscaminas.hasBandera(x, y),
@@ -38,6 +41,7 @@
     derrota: false,
     contadorBanderas: 10,
     casillasPintar: [],
+    casillasResaltar: [],
     iniciarJuego(dificultad) {
       this.dificultad = dificultad;
       this.columnas = 0;
@@ -117,36 +121,27 @@
     mostrar() {
       console.log("Tablero minas");
       console.table(this.tablero);
-      console.log("Tablero juego");
-      console.table(this.tableroVisible);
+      //console.log("Tablero juego");
+      //console.table(this.tableroVisible);
       console.log("Tablero mapeo");
       console.table(this.mapeoCasillas);
     },
     abrir(x, y) {
       if (this.isFinal()) {
         console.log("Has perdido la partida, no puedes colocar minas");
-        return "Has perdido la partida, no puedes colocar minas";
+        return;
       }
       if (!this.isEmpezada()) {
         console.log("La partida no está iniciada");
         return;
       }
-      if (x > this.filas || x < 0 || y > this.columnas || y < 0) {
+      if (x > this.filas - 1 || x < 0 || y > this.columnas - 1 || y < 0) {
         console.log("Fila o columna no válida");
         return;
       }
 
-      if (this.mapeoCasillas[x][y] == -1) {
-        console.log("Casilla ya pulsada");
-        return;
-      }
       let value = this.tablero[x][y];
       switch (value) {
-        case "X":
-          this.mostrarMinas();
-          this.derrota = true;
-          this.finalPartida = true;
-          break;
         case 0:
           if (this.mapeoCasillas[x][y] != -1) {
             this.casillasRestantes--;
@@ -154,119 +149,92 @@
             this.abrirCero(x, y);
           }
           break;
+        case "X":
+          this.mostrarMinas();
+          this.derrota = true;
+          this.finalPartida = true;
+          break;
         default:
           if (this.mapeoCasillas[x][y] != -1) {
-            this.mapeoCasillas[x][y] = -1;
-            this.tableroVisible[x][y] = this.tablero[x][y];
+            this.mapeoCasillas[x][y] = value;
+            this.tableroVisible[x][y] = value;
             this.casillasRestantes--;
           }
           break;
       }
-      console.clear();
-      this.mostrar();
       this.casillasPintar.unshift([x, y, this.getValue(x, y)]);
-      if (buscaminas.casillasPorDescubrir == 0) {
+      if (buscaminas.casillasRestantes == 0) {
         buscaminas.partidaFinalizada = true;
-        return "¡Enhorabuena, has ganado!";
+        return "¡Has ganado!";
       }
       if (this.derrota) console.log("Has pulsado una mina, has perdido!");
     },
     despejar(fila, columna) {
       let x = parseInt(fila);
       let y = parseInt(columna);
-      if (this.mapeoCasillas[x][y] === 0) return;
-      console.log("x es " + x + ". y es " + y);
-      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
-        if (
-          this.mapeoCasillas[x - 1][y - 1] == -1 &&
-          this.mapeoCasillas[x - 1][y - 1] != "P"
-        )
-          this.abrir(x - 1, y - 1);
-      }
-
-      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
-        if (
-          this.mapeoCasillas[x - 1][y] != -1 &&
-          this.mapeoCasillas[x - 1][y] != "P"
-        )
-          this.abrir(x - 1, y);
-      }
-      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
-        if (
-          this.mapeoCasillas[x - 1][y + 1] != -1 &&
-          this.mapeoCasillas[x - 1][y + 1] != "P"
-        )
-          this.abrir(x - 1, y + 1);
-      }
-      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
-        if (
-          this.mapeoCasillas[x][y - 1] != -1 &&
-          this.mapeoCasillas[x][y - 1] != "P"
-        )
-          this.abrir(x, y - 1);
-      }
-      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
-        if (
-          this.mapeoCasillas[x][y + 1] != -1 &&
-          this.mapeoCasillas[x][y + 1] != "P"
-        )
-          this.abrir(x, y + 1);
-      }
-      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
-        if (
-          this.mapeoCasillas[x + 1][y - 1] != -1 &&
-          this.mapeoCasillas[x + 1][y - 1] != "P"
-        )
-          this.abrir(x + 1, y - 1);
-      }
-      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
-        if (
-          this.mapeoCasillas[x + 1][y] != -1 &&
-          this.mapeoCasillas[x + 1][y] != "P"
-        )
-          this.abrir(x + 1, y);
-      }
-      if (x >= 0 && y >= 0 && x <= this.filas - 1 && y <= this.columnas - 1) {
-        if (
-          this.mapeoCasillas[x + 1][y + 1] != -1 &&
-          this.mapeoCasillas[x + 1][y + 1] != "P"
-        )
-          this.abrir(x + 1, y + 1);
+      this.casillasResaltar = [];
+      let numBanderas = this.calcularNumeroBanderas(x,y,this.filas - 1,this.columnas - 1);
+      if (numBanderas === this.tablero[x][y] && this.tablero[x][y] !== 0) {
+        this.casillasResaltar = [];
+        if (x != 0) {
+          if (this.mapeoCasillas[x - 1][y] === 0){console.log("entrando en if numero 1"); this.abrir(x - 1, y);}
+        }
+        if (x != this.filas - 1) {
+          if (this.mapeoCasillas[x + 1][y] === 0){console.log("entrando en if numero 2"); this.abrir(x + 1, y);}
+        }
+        if (y != this.columnas - 1) {
+          if (this.mapeoCasillas[x][y + 1] === 0){console.log("entrando en if numero 3"); this.abrir(x, y + 1);}
+        }
+        if (y != 0) {
+          if (this.mapeoCasillas[x][y - 1] === 0){console.log("entrando en if numero 4"); this.abrir(x, y - 1);}
+        }
+        if (y !== 0 && x !== this.filas - 1) {
+          if (this.mapeoCasillas[x + 1][y - 1] === 0){console.log("entrando en if numero 5"); this.abrir(x + 1, y - 1);}
+        }
+        if (x != 0 && y != 0) {
+          if (this.mapeoCasillas[x - 1][y - 1] === 0){console.log("entrando en if numero 6"); this.abrir(x - 1, y - 1);}
+        }
+        if (x != this.filas - 1 && y != this.columnas - 1) {
+          if (this.mapeoCasillas[x + 1][y + 1] === 0){console.log("entrando en if numero 7"); this.abrir(x + 1, y + 1);}
+        }
+        if (x != 0 && y != this.columnas - 1) {
+          if (this.mapeoCasillas[x - 1][y + 1] === 0){console.log("entrando en if numero 8"); this.abrir(x - 1, y + 1);}
+        }
       }
     },
     calcularNumeroBanderas(fila, columna, filas, columnas) {
       let numBanderas = 0;
       if (fila != 0) {
         if (this.mapeoCasillas[fila - 1][columna] === "P") numBanderas++;
-        else buscaminas.casillasAlrededor.push([fila - 1, columna]);
+        else this.casillasResaltar.push([fila - 1, columna]);
       }
       if (fila != filas) {
         if (this.mapeoCasillas[fila + 1][columna] === "P") numBanderas++;
-        else buscaminas.casillasAlrededor.push([fila + 1, columna]);
+        else this.casillasResaltar.push([fila + 1, columna]);
       }
       if (columna != columnas) {
         if (this.mapeoCasillas[fila][columna + 1] === "P") numBanderas++;
-        else buscaminas.casillasAlrededor.push([fila, columna + 1]);
+        else this.casillasResaltar.push([fila, columna + 1]);
       }
       if (columna != 0) {
         if (this.mapeoCasillas[fila][columna - 1] === "P") numBanderas++;
-        else buscaminas.casillasAlrededor.push([fila, columna - 1]);
+        else this.casillasResaltar.push([fila, columna - 1]);
       }
       if (columna !== 0 && fila !== filas) {
         if (this.mapeoCasillas[fila + 1][columna - 1] === "P") numBanderas++;
-        else buscaminas.casillasAlrededor.push([fila + 1, columna - 1]);
+        else this.casillasResaltar.push([fila + 1, columna - 1]);
       }
       if (fila != 0 && columna != 0) {
         if (this.mapeoCasillas[fila - 1][columna - 1] === "P") numBanderas++;
-        else buscaminas.casillasAlrededor.push([fila - 1, columna - 1]);
+        else this.casillasResaltar.push([fila - 1, columna - 1]);
       }
       if (fila != filas && columna != columnas) {
         if (this.mapeoCasillas[fila + 1][columna + 1] === "P") numBanderas++;
-        else buscaminas.casillasAlrededor.push([fila + 1, columna + 1]);
+        else this.casillasResaltar.push([fila + 1, columna + 1]);
       }
       if (fila != 0 && columna != columnas) {
         if (this.mapeoCasillas[fila - 1][columna + 1] === "P") numBanderas++;
-        else buscaminas.casillasAlrededor.push([fila - 1, columna + 1]);
+        else this.casillasResaltar.push([fila - 1, columna + 1]);
       }
       return numBanderas;
     },
@@ -299,6 +267,8 @@
           }
         }
       }
+      this.partidaFinalizada = true;
+      this.derrota = true;
     },
     ponerBandera(x, y) {
       if (x >= this.filas || x < 0 || y >= this.columnas || y < 0) {
@@ -363,14 +333,24 @@
     getValue(x, y) {
       let value = this.tablero[x][y];
       if (value == 0) return "";
-      return this.tablero[x][y];
+      return value;
     },
+    getValueMapeado(x, y) {
+      let value = this.mapeoCasillas[x][y];
+      return value;
+    },    
     getCasillasPintar() {
       return this.casillasPintar;
+    },
+    getCasillasResaltadas(){
+      return this.casillasResaltar;
     },
     reiniciarCasillasPintar() {
       this.casillasPintar = [];
     },
+    reiniciarCasillasResaltar() {
+      this.casillasResaltar = [];
+    },    
     getDerrota() {
       return this.derrota;
     },
