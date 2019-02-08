@@ -108,6 +108,7 @@
     });
 
     objetosCasillas.forEach(element => {
+      
       element.addClass("casillaResaltada");
     });
 
