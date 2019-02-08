@@ -68,19 +68,19 @@
           this.columnas = 9;
           this.filas = 9;
           this.minas = 10;
-          this.banderas = 10;
+          this.contadorBanderas = 10;
           break;
         case 1:
           this.columnas = 16;
           this.filas = 16;
           this.minas = 40;
-          this.banderas = 40;
+          this.contadorBanderas = 40;
           break;
         case 2:
           this.columnas = 30;
           this.filas = 16;
           this.minas = 99;
-          this.banderas = 99;
+          this.contadorBanderas = 99;
           break;
         default:
           throw new Error("Debes elegir 0, 1 o 2 de dificultad");
