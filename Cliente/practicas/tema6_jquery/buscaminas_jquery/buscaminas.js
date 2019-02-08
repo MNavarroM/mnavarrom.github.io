@@ -2,7 +2,7 @@
  * @author Mario Navarro Madrid
  */
 {
-  juego = (function() {
+  juego = (function () {
     return {
       iniciarJuego: dificultad => buscaminas.iniciarJuego(dificultad),
       abrir: (x, y) => buscaminas.abrir(x, y),
@@ -59,7 +59,7 @@
       buscaminas.crearTablero();
       buscaminas.generarMinasNumeros();
       buscaminas.mostrar();
-      this.casillasRestantes = this.filas * this.columnas - this.minas;
+      this.casillasRestantes = (this.filas * this.columnas) - this.minas;
       this.finalPartida = false;
     },
     elegirDificultad(dificultad) {
@@ -106,14 +106,10 @@
         } while (this.tablero[fila][columna] == "X");
         this.tablero[fila][columna] = "X";
         for (
-          let j = Math.max(fila - 1, 0);
-          j <= Math.min(fila + 1, this.filas - 1);
-          j++
+          let j = Math.max(fila - 1, 0); j <= Math.min(fila + 1, this.filas - 1); j++
         )
           for (
-            let k = Math.max(columna - 1, 0);
-            k <= Math.min(columna + 1, this.columnas - 1);
-            k++
+            let k = Math.max(columna - 1, 0); k <= Math.min(columna + 1, this.columnas - 1); k++
           )
             if (this.tablero[j][k] !== "X") this.tablero[j][k] += 1;
       }
@@ -135,6 +131,8 @@
         console.log("La partida no está iniciada");
         return;
       }
+      if(this.mapeoCasillas[x][y] !== 0)
+        return;
       if (x > this.filas - 1 || x < 0 || y > this.columnas - 1 || y < 0) {
         console.log("Fila o columna no válida");
         return;
@@ -143,9 +141,10 @@
       let value = this.tablero[x][y];
       switch (value) {
         case 0:
+          console.log(" he entrao en ccero shurmano");
           if (this.mapeoCasillas[x][y] != -1) {
+            //this.tableroVisible[x][y] = 0;
             this.casillasRestantes--;
-            this.tableroVisible[x][y] = 0;
             this.abrirCero(x, y);
           }
           break;
@@ -168,37 +167,38 @@
         return "¡Has ganado!";
       }
       if (this.derrota) console.log("Has pulsado una mina, has perdido!");
+      console.log(this.casillasRestantes);
     },
     despejar(fila, columna) {
       let x = parseInt(fila);
       let y = parseInt(columna);
       this.casillasResaltar = [];
-      let numBanderas = this.calcularNumeroBanderas(x,y,this.filas - 1,this.columnas - 1);
+      let numBanderas = this.calcularNumeroBanderas(x, y, this.filas - 1, this.columnas - 1);
       if (numBanderas === this.tablero[x][y] && this.tablero[x][y] !== 0) {
         this.casillasResaltar = [];
         if (x != 0) {
-          if (this.mapeoCasillas[x - 1][y] === 0){console.log("entrando en if numero 1"); this.abrir(x - 1, y);}
+          if (this.mapeoCasillas[x - 1][y] === 0) this.abrir(x - 1, y);
         }
         if (x != this.filas - 1) {
-          if (this.mapeoCasillas[x + 1][y] === 0){console.log("entrando en if numero 2"); this.abrir(x + 1, y);}
+          if (this.mapeoCasillas[x + 1][y] === 0) this.abrir(x + 1, y);
         }
         if (y != this.columnas - 1) {
-          if (this.mapeoCasillas[x][y + 1] === 0){console.log("entrando en if numero 3"); this.abrir(x, y + 1);}
+          if (this.mapeoCasillas[x][y + 1] === 0) this.abrir(x, y + 1);
         }
         if (y != 0) {
-          if (this.mapeoCasillas[x][y - 1] === 0){console.log("entrando en if numero 4"); this.abrir(x, y - 1);}
+          if (this.mapeoCasillas[x][y - 1] === 0) this.abrir(x, y - 1);
         }
         if (y !== 0 && x !== this.filas - 1) {
-          if (this.mapeoCasillas[x + 1][y - 1] === 0){console.log("entrando en if numero 5"); this.abrir(x + 1, y - 1);}
+          if (this.mapeoCasillas[x + 1][y - 1] === 0) this.abrir(x + 1, y - 1);
         }
         if (x != 0 && y != 0) {
-          if (this.mapeoCasillas[x - 1][y - 1] === 0){console.log("entrando en if numero 6"); this.abrir(x - 1, y - 1);}
+          if (this.mapeoCasillas[x - 1][y - 1] === 0) this.abrir(x - 1, y - 1);
         }
         if (x != this.filas - 1 && y != this.columnas - 1) {
-          if (this.mapeoCasillas[x + 1][y + 1] === 0){console.log("entrando en if numero 7"); this.abrir(x + 1, y + 1);}
+          if (this.mapeoCasillas[x + 1][y + 1] === 0) this.abrir(x + 1, y + 1);
         }
         if (x != 0 && y != this.columnas - 1) {
-          if (this.mapeoCasillas[x - 1][y + 1] === 0){console.log("entrando en if numero 8"); this.abrir(x - 1, y + 1);}
+          if (this.mapeoCasillas[x - 1][y + 1] === 0) this.abrir(x - 1, y + 1);
         }
       }
     },
@@ -242,19 +242,15 @@
     abrirCero(x, y) {
       if (this.mapeoCasillas[x][y] === 0) {
         this.mapeoCasillas[x][y] = -1;
-        if (this.tablero[x][y] == 0)
-          for (
-            let j = Math.max(x - 1, 0);
-            j <= Math.min(x + 1, this.filas - 1);
-            j++
-          )
-            for (
-              let k = Math.max(y - 1, 0);
-              k <= Math.min(y + 1, this.columnas - 1);
-              k++
-            ) {
-              if (this.tablero[j][k] != "X") this.abrir(j, k);
+        if (this.tablero[x][y] == 0) {
+          for (let j = Math.max(x - 1, 0); j <= Math.min(x + 1, this.filas - 1); j++) {
+            for (let k = Math.max(y - 1, 0); k <= Math.min(y + 1, this.columnas - 1); k++) {
+              if (this.tablero[j][k] != "X") {
+                this.abrir(j, k);
+              }
             }
+          }
+        }
       }
     },
     mostrarMinas() {
@@ -338,11 +334,11 @@
     getValueMapeado(x, y) {
       let value = this.mapeoCasillas[x][y];
       return value;
-    },    
+    },
     getCasillasPintar() {
       return this.casillasPintar;
     },
-    getCasillasResaltadas(){
+    getCasillasResaltadas() {
       return this.casillasResaltar;
     },
     reiniciarCasillasPintar() {
@@ -350,7 +346,7 @@
     },
     reiniciarCasillasResaltar() {
       this.casillasResaltar = [];
-    },    
+    },
     getDerrota() {
       return this.derrota;
     },
@@ -361,7 +357,7 @@
       return this.mapeoCasillas[x][y] === "P";
     },
     getBanderas() {
-      console.log(this.contadorBanderas);
+      //console.log(this.contadorBanderas);
       return this.contadorBanderas;
     },
     getMinas() {

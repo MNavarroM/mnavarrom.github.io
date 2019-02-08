@@ -23,12 +23,12 @@
     $("#numBombas").text(juego.getMinas());
   }
 
-  $(function() {
-    $("#tablero").contextmenu(function(e) {
+  $(function () {
+    $("#tablero").contextmenu(function (e) {
       e.preventDefault();
     });
 
-    $("button").click(function(e) {
+    $("button").click(function (e) {
       e.preventDefault();
       $("#info").css("display", "block");
       $("#mensaje").text("");
@@ -45,39 +45,35 @@
       }
       crearTablero();
       $("#numBanderas").text(juego.getBanderas());
-      $("td").mousedown(function(e) {
+      $("td").mousedown(function (e) {
         e.preventDefault();
+        let x = $(this).attr("x");
+        let y = $(this).attr("y");
         switch (e.buttons) {
           case 1:
-            if (!juego.hasBandera($(this).attr("x"), $(this).attr("y")))
-              picar($(this).attr("x"), $(this).attr("y"));
+            if (!juego.hasBandera(x, y))
+              picar(x, y);
             break;
           case 2:
-            if (juego.hasBandera($(this).attr("x"), $(this).attr("y")))
-              quitarBandera($(this).attr("x"), $(this).attr("y"));
+            if (juego.hasBandera(x, y))
+              quitarBandera(x, y);
             else {
-              ponerBandera($(this).attr("x"), $(this).attr("y"));
+              ponerBandera(x, y);
             }
             $("#numBanderas").text(juego.getBanderas());
             break;
           case 3:
           case 4:
-            juego.despejar($(this).attr("x"), $(this).attr("y"));
-            if(juego.getCasillasResaltadas().length !== 0){
+            juego.despejar(x, y);
+            if (juego.getCasillasResaltadas().length !== 0){
               resaltarCasillas();
+            }else{
+              mostrarCasilla();
+              checkVictoria();
             }
-            else{
-              mostrarCasilla();}
             break;
         }
       });
-      $("td").mouseleave(function () { 
-        $("td").removeClass("casillaResaltada");
-      });
-      $("td").mouseup(function () { 
-        $("td").removeClass("casillaResaltada");
-      });
-      
     });
   });
 
@@ -101,15 +97,28 @@
     if (juego.getVictoria()) $("#mensaje").text("Has ganado!");
   }
 
-  function resaltarCasillas(){
-    let casilla,value;
+  function resaltarCasillas() {
+    let casilla, value;
     let casillas = juego.getCasillasResaltadas();
-    for (let i = 0; i < casillas.length; i++) {
-      value = juego.getValueMapeado(casillas[i][0],casillas[i][1]);
-      casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
-      if(value === 0)
-        $(casilla).addClass("casillaResaltada");
-    }
+    let objetosCasillas = [];
+
+    casillas.forEach(element => {
+      if(juego.getValueMapeado(element[0],element[1]) === 0)
+        objetosCasillas.push($("#" + element[0] + "_" + element[1]))
+    });
+
+    objetosCasillas.forEach(element => {
+      element.addClass("casillaResaltada");
+    });
+
+    $("td").on("mouseleave mouseup", function () {
+        objetosCasillas.forEach(element => {
+          element.removeClass("casillaResaltada");  
+        });
+        $(this).off("mouseleave mouseup");
+    });
+  
+
     juego.reiniciarCasillasResaltar();
   }
 
@@ -117,9 +126,9 @@
     let casillas = juego.getCasillasPintar();
     let casilla;
     for (let i = 0; i < casillas.length; i++) {
-      setTimeout(function() {
+      setTimeout(function () {
         casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
-        casilla.fadeIn(150, function() {
+        casilla.fadeIn(i * 10, function () {
           if (juego.getDerrota()) $(this).addClass("casillaBomba");
           else $(this).addClass("casillaDestapada");
           if (casillas[i][2] != 0 || casillas[i][2] != "X") {
@@ -130,7 +139,7 @@
             }
           }
         });
-      }, i * 9);
+      }, i * 10);
     }
     juego.reiniciarCasillasPintar();
   }
