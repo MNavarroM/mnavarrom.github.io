@@ -144,7 +144,6 @@
       let value = this.tablero[x][y];
       switch (value) {
         case 0:
-          console.log(" he entrao en ccero shurmano");
           if (this.mapeoCasillas[x][y] != -1) {
             //this.tableroVisible[x][y] = 0;
             this.casillasRestantes--;
@@ -170,7 +169,6 @@
         return "¡Has ganado!";
       }
       if (this.derrota) console.log("Has pulsado una mina, has perdido!");
-      console.log(this.casillasRestantes);
     },
     despejar(fila, columna) {
       let x = parseInt(fila);

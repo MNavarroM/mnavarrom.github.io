@@ -31,10 +31,11 @@
     $("button").click(function (e) {
       e.preventDefault();
       $("#info").css("display", "block");
-      $("#mensaje").text("");
+      $("#mensaje").hide();
+      $("#mensaje span").text("");
       switch ($(this).attr("id")) {
         case "facil":
-          juego.iniciarJuego(0);
+          juego.iniciarJuego(0);6
           break;
         case "normal":
           juego.iniciarJuego(1);
@@ -65,9 +66,9 @@
           case 3:
           case 4:
             juego.despejar(x, y);
-            if (juego.getCasillasResaltadas().length !== 0){
+            if (juego.getCasillasResaltadas().length !== 0) {
               resaltarCasillas();
-            }else{
+            } else {
               mostrarCasilla();
               checkVictoria();
             }
@@ -93,8 +94,16 @@
   }
 
   function checkVictoria() {
-    if (juego.getDerrota()) $("#mensaje").text("Has perdido!");
-    if (juego.getVictoria()) $("#mensaje").text("Has ganado!");
+    if (juego.getDerrota()){
+      $("#mensaje span").text("Has perdido!");
+      $("#mensaje").fadeIn(1200);
+      $("#mensaje").css("display", "block");
+    } 
+    if (juego.getVictoria()){
+      $("#mensaje span").text("Has ganado!");
+      $("#mensaje").fadeIn(1200);
+      $("#mensaje").css("display", "block");
+    } 
   }
 
   function resaltarCasillas() {
@@ -103,22 +112,22 @@
     let objetosCasillas = [];
 
     casillas.forEach(element => {
-      if(juego.getValueMapeado(element[0],element[1]) === 0)
+      if (juego.getValueMapeado(element[0], element[1]) === 0)
         objetosCasillas.push($("#" + element[0] + "_" + element[1]))
     });
 
     objetosCasillas.forEach(element => {
-      
+
       element.addClass("casillaResaltada");
     });
 
     $("td").on("mouseleave mouseup", function () {
-        objetosCasillas.forEach(element => {
-          element.removeClass("casillaResaltada");  
-        });
-        $(this).off("mouseleave mouseup");
+      objetosCasillas.forEach(element => {
+        element.removeClass("casillaResaltada");
+      });
+      $(this).off("mouseleave mouseup");
     });
-  
+
 
     juego.reiniciarCasillasResaltar();
   }
