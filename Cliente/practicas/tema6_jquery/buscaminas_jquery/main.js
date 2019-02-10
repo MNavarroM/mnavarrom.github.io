@@ -79,11 +79,15 @@
   });
 
   function ponerBandera(x, y) {
-    if (juego.ponerBandera(x, y)) $("#" + x + "_" + y).addClass("bandera");
+    if (juego.ponerBandera(x, y)) $("#" + x + "_" + y).fadeIn(1500,function () {
+        $(this).addClass("bandera");
+      })
   }
 
   function quitarBandera(x, y) {
-    if (juego.quitarBandera(x, y)) $("#" + x + "_" + y).removeClass("bandera");
+    if (juego.quitarBandera(x, y)) $("#" + x + "_" + y).fadeIn(1500,function () {
+        $(this).removeClass("bandera");
+      })
   }
 
   function picar(x, y) {
@@ -117,7 +121,6 @@
     });
 
     objetosCasillas.forEach(element => {
-
       element.addClass("casillaResaltada");
     });
 
@@ -134,22 +137,26 @@
 
   function mostrarCasilla() {
     let casillas = juego.getCasillasPintar();
-    let casilla;
+    let $casilla;
+    let clase;
+    if(juego.getDerrota())
+      clase = "casillaBomba";
+    else
+      clase = "casillaDestapada";
+
     for (let i = 0; i < casillas.length; i++) {
       setTimeout(function () {
-        casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
-        casilla.fadeIn(i * 10, function () {
-          if (juego.getDerrota()) $(this).addClass("casillaBomba");
-          else $(this).addClass("casillaDestapada");
-          if (casillas[i][2] != 0 || casillas[i][2] != "X") {
+        $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
+        $casilla.fadeIn(i * 30 + 100, function () {
+          $(this).addClass(clase);
+          if (casillas[i][2] != 0 || casillas[i][2] != "X")
             $(this).text(casillas[i][2]);
             if (juego.hasBandera(casillas[i][0], casillas[i][1])) {
               quitarBandera(casillas[i][0], casillas[i][1]);
               $("#numBanderas").text(juego.getBanderas());
             }
-          }
         });
-      }, i * 10);
+      }, i * 30 + 100);
     }
     juego.reiniciarCasillasPintar();
   }
