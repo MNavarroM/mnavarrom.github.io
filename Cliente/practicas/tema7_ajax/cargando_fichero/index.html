@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+<style>
+        *{
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    div{
+        border: 1px solid black;
+        display: inline-block;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <noscript>
+        Por favor, active JavaScript para que la página funciona correctamente.
+    </noscript>
+    <div id="url">
+        <input type="text" id="cajaTexto" value="index2.html"><br /><br />
+        <button>Cargar archivo</button>
+    </div>
+    <div id="mensajes">
+        <div id="cajaPeticion">
+            <h2>Estado petición</h2>
+            <p>
+                Código : <span id="codigoPeticion"></span>
+            </p>
+            <p>
+                Descripción: <span id="descripcionPeticion"></span>
+            </p>
+        </div>
+        <div id="cajaRespuesta">
+            <h2>Estado respuesta</h2>
+            <p>Código: <span id="codigoRespuesta"></span></p>
+            <p>Descripción: <span id="descripcionRespuesta"></span></p>
+        </div>
+    </div>
+    <div id="cajaPagina">
+        <h2>Página</h2>
+        <div style="height:300px; width:400px; border:1px solid black; overflow: scroll;" id="pagina"></div>
+    </div>
+</body>
+
+</html>

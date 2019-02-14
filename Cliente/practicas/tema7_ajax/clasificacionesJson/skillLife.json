@@ -1,0 +1,14 @@
+{
+    "skills" : [
+        {"skill" : "Autoconocimiento", "descripcion" : "reconocimiento de nuestra personalidad, características, idiosincrasia, fortalezas, debilidades, aspiraciones, expectativas, etc" },
+        {"skill" : "Empatía", "descripcion" : "capacidad para ponerse en el lugar de otra persona y desde esa posición captar sus sentimientos." },
+        {"skill" : "Comunicación ", "descripcion" : "habilidad para expresarse de manera apropiada al contexto relacional y social en el que se vive" },
+        {"skill" : "Relaciones interpersonales", "descripcion" : "competencia para interactuar positivamente con las demás personas." },
+        {"skill" : "Toma de decisiones", "descripcion" : "capacidad para construir racionalmente las decisiones cotidianas de nuestra vida." },
+        {"skill" : "Solución de problemas y conflictos", "descripcion" : "destreza para afrontar constructivamente las exigencias de la vida cotidiana." },
+        {"skill" : "Pensamiento creativo", "descripcion" : "utilización de los procesos de pensamiento para buscar respuestas innovadoras a los diversos desafíos vitales." },
+        {"skill" : "Pensamiento crítico", "descripcion" : "capacidad para analizar con objetividad experiencias e información, sin asumir pasivamente criterios ajenos." },
+        {"skill" : "Manejo de emociones y sentimientos", "descripcion" : "reconocimiento y gestión positiva de nuestro mundo emocional." },
+        {"skill" : "Manejo de la tensión y el estrés", "descripcion" : "capacidad para reconocer nuestras fuentes de tensión y actuar positivamente para su control" }
+    ]
+}

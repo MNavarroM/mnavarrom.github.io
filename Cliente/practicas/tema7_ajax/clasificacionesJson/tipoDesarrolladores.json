@@ -1,0 +1,22 @@
+{
+    "desarrolladores" : [
+        {"tipo" : "Desarrollador Front-end", "descripcion" : "En general se asocia a los desarrolladores front-end con los principios de diseño y de estructura de páginas. Sin embargo, un desarrollador web va más allá que un diseñador. Obviamente tiene que tener en cuenta la usabilidad  y la legibilidad de la página o de la aplicación web, pero como buen programador es consciente de que su trabajo se ejecutará en el lado Cliente, en la mayoría de los casos, en el navegador. Y la información no se almacena en el lado Cliente.", "lenguajes" : [
+            {"lenguaje" : "HTML", "descripcion" : "HyperText Markup Language, es el componente estructural clave de todas las webs de internet. Sin él las páginas web no pueden existir."},
+            {"lenguaje" : "CSS", "descripcion" : "Cascading Style Sheets, es lo que le proporciona estilo a HTML."},
+            {"lenguaje" : "JavaScript", "descripcion" : "Usando solo HTML y CSS tus webs serían páginas estáticas, con JS tus páginas web son interactivas."}
+        ]},
+        {"tipo" : "Desarrollador Back-end", "descripcion" : "El desarrollador back-end trabaja del lado Servidor, detrás del escenario, permitiendo con su trabajo que el usuario disfrute de su experiencia. Sin él, el desarrollo llevado a cabo por su anterior compañero no se sostendría. Sin embargo, no es suficiente con dominar un lenguaje y un framework. Toda aplicación web debe almacenar datos de alguna manera. Por lo tanto, un desarrollador back-end también debe estar familiarizado con las bases de datos", "lenguajes" : [
+            {"lenguaje" : "ASP.NET", "descripcion" : "es la plataforma de desarrollo web de Microsoft. Muy utilizada en las empresas. Tiene las variantes Web Forms y MVC, y ahora también ASP.NET Core MVC"},
+            {"lenguaje" : "PHP", "descripcion" : "por ejemplo, el famoso gestor de contenidos WordPress usa por detrás PHP. Laravel es uno de los frameworks usados con este lenguaje"},
+            {"lenguaje" : "Ruby", "descripcion" : "junto con su framework Ruby on rails."},
+            {"lenguaje" : "Python", "descripcion" : "fácil de aprender. Usado a menudo con Django como framework."},
+            {"lenguaje" : "Node.js", "descripcion" : "se está haciendo cada vez más popular debido a que usa el mismo lenguaje que en el lado cliente: JavaScript.."},
+            {"lenguaje" : "Java", "descripcion" : "el lenguaje clásico y uno de los más demandados."},
+            {"lenguaje" : "SQL Server", "descripcion" : ""},
+            {"lenguaje" : "MySQL", "descripcion" : ""},
+            {"lenguaje" : "PostgreSQL", "descripcion" : ""},
+            {"lenguaje" : "MongoDB", "descripcion" : "E un almacén de datos no-relacional o NoSQL"}
+        ]},
+        {"tipo" : "Desarrollador Full stack", "descripcion" : "Un programador multiusos, responsable del desarrollo del proyecto, desde el montaje de los servidores, hasta el diseño con CSS"}
+    ]
+}
