@@ -55,23 +55,16 @@ section {
     flex-wrap: wrap;
 }
 
-
-
 article {
-    margin: 10px;
-    height: 150px;
-    flex-basis: auto;
     text-align: center;
-    *background-color: #8c93a8;
     background-color: #2e294e;
-    *background-color: #e71d36;
     color: white;
 }
 
 article a {
-    font-size: 18px;
+    font-size: 22px;
     display: block;
-    padding: 50px 20px;
+    padding: 50px;
     height: 100%;
 }
 
