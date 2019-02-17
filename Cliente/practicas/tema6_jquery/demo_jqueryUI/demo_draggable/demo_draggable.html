@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        div {
+            display: inline-block;
+            width: 100px;
+            padding: 0.5em;
+            margin-right: 20px;
+        }
+
+        #containment-wrapper {
+            width: 95%;
+            border: 2px solid #ccc;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#draggable").draggable();
+            $("#draggable1").draggable({
+                axis: "y",
+                cursor: "crosshair",
+                delay: 200
+            });
+            $("#draggable2").draggable({
+                axis: "x",
+                cursor: "move",
+                cursorAt: {
+                    top: 0,
+                    left: 0
+                },
+                revert: true,
+                helper: "clone",
+
+            });
+            $("#draggable3").draggable({
+                containment: "#containment-wrapper",
+                scroll: false,
+                cursor: "pointer"
+            });
+            $("#draggable4").draggable({
+                containment: "parent"
+            }, );
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="draggable" class="ui-widget-content">
+        <p>Drag me around</p>
+    </div>
+    <div id="draggable1" class="ui-widget-content">
+        <p>I can be dragged only vertically</p>
+        <p>axis: "y",</br>
+            cursor: "crosshair",</br>
+            delay : 200</p>
+    </div>
+    <div id="draggable2" class="ui-widget-content">
+        <p>I can be dragged only horizontally</p>
+        <p> axis: "x",<br />
+            cursor: "move",<br />
+            cursorAt: { top: 0, left: 0 },<br />
+            revert: true, <br />
+            helper: "clone",</p>
+    </div>
+    <h3>Or to within another DOM element:</h3>
+    <div id="containment-wrapper">
+        <div id="draggable3" class="draggable ui-widget-content">
+            <p>I'm contained within the box</p>
+            <p> containment: "#containment-wrapper",<br />
+                scroll: false,<br />
+                cursor: "pointer"</p>
+        </div>
+
+        <div style="height: 200px;" class="draggable ui-widget-content">
+            <p id="draggable4" class="ui-widget-header">I'm contained within my parent<br /> containment: "parent"</p>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
