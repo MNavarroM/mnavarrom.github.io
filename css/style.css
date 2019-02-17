@@ -60,7 +60,7 @@ section {
 article {
     margin: 10px;
     height: 150px;
-    flex-basis: 44%;
+    flex-basis: 40%;
     text-align: center;
     *background-color: #8c93a8;
     background-color: #2e294e;
