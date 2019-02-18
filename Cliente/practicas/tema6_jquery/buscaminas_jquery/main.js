@@ -121,12 +121,13 @@
     });
 
     objetosCasillas.forEach(element => {
-      element.addClass("casillaResaltada");
+      element.addClass("casillaResaltada",400,"swing");
+
     });
 
     $("td").on("mouseleave mouseup", function () {
       objetosCasillas.forEach(element => {
-        element.removeClass("casillaResaltada");
+        element.removeClass("casillaResaltada",100,"easeInBounce");
       });
       $(this).off("mouseleave mouseup");
     });
@@ -138,17 +139,15 @@
   function mostrarCasilla() {
     let casillas = juego.getCasillasPintar();
     let $casilla;
-    let clase;
-    if(juego.getDerrota())
-      clase = "casillaBomba";
-    else
-      clase = "casillaDestapada";
 
     for (let i = 0; i < casillas.length; i++) {
       setTimeout(function () {
         $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
         $casilla.fadeIn(i * 30 + 100, function () {
-          $(this).addClass(clase);
+          if(juego.getDerrota())
+            $(this).addClass("casillaBomba",3000,"easeOutBounce");
+          else
+            $(this).addClass("casillaDestapada",300,"easeInBounce");
           if (casillas[i][2] != 0 || casillas[i][2] != "X")
             $(this).text(casillas[i][2]);
             if (juego.hasBandera(casillas[i][0], casillas[i][1])) {

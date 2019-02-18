@@ -2,129 +2,127 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
-    <link rel="stylesheet" href="normalize.css">
-    <script src="../jquery/jquery-3.3.1.js"></script>
-    <script src="../jquery/jquery-ui-1.12.1/jquery-ui.js"></script>
-    <script src="buscaminas.js"></script>
-    <script src="main.js"></script>
-    <title>Buscaminas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+  <script src="buscaminas.js"></script>
+  <script src="main.js"></script>
+  <title>Buscaminas</title>
 </head>
 <style>
-        * {
-          font-family: "Roboto Mono", monospace;
-        }
-    
-        h2{
-            text-align: center;
-        }
-    
-        body {
-          background-color: #BCFFDB;
-        }
-    
-        #botonera {
-          margin: 0 auto;
-          text-align: center;
-          margin-bottom: 20px;
-        }
-    
-        button {
-          border: none;
-          background-color: #1b998b;
-          border: 1px solid white;
-          color: white;
-          font-size: 28px;
-        }
-    
-        table {
-          border: 2px solid black;
-          background-color: #8c93a8;
-          margin: 0 auto;
-        }
-    
-        td {
-          padding: 0;
-        }
-    
-        .casilla {
-          color: white;
-          background-color: #2e294e;
-          height: 15px;
-          width: 20px;
-          text-align: center;
-          transition: 1s;
-        }
-    
-        .casillaDestapada {
-          background-color: #1b998b;
-          transition: 1s;
-        }
+  * {
+    font-family: "Roboto Mono", monospace;
+  }
 
-        .casillaResaltada{
-          background-color:rgba(247, 244, 84, 0.644);
-          transition: 1s;
-        }
-    
-        .casillaBomba {
-          background-color: #e71d36;
-          transition: 1s;
-        }
+  h2 {
+    text-align: center;
+  }
 
-        .bandera{
-          background-color: #F0C808;
-          transition: 0.5s;
-        }
+  body {
+    background-color: #BCFFDB;
+  }
 
-        #mensaje{
-          position: absolute;
-          width: 100%;
-          top: 50%;
-          text-align: center;
-          color: white;
-          display: none;
-        }
+  #botonera {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
-        #mensaje span{
-          padding: 20px;
-          background-color: #e71d36;
-          width: auto;
-          font-size: 30px;
-        }
+  button {
+    border: none;
+    background-color: #1b998b;
+    border: 1px solid white;
+    color: white;
+    font-size: 28px;
+  }
 
-        @media (min-width:600px){
-        .casilla {
-          height: 25px;
-          width: 30px;
-        }
-        }
+  table {
+    border: 2px solid black;
+    background-color: #8c93a8;
+    margin: 0 auto;
+  }
 
-        @media (min-width:1200px){
-                  .casilla {
-          height: 40px;
-          width: 40px;
-        }
-        }
+  td {
+    padding: 0;
+  }
 
-      </style>
+  .casilla {
+    color: white;
+    background-color: #2e294e;
+    height: 15px;
+    width: 20px;
+    text-align: center;
+  }
+
+  .casillaDestapada {
+    background-color: #1b998b;
+  }
+
+  .casillaResaltada {
+    background-color: rgba(247, 244, 84, 0.644);
+  }
+
+  .casillaBomba {
+    background-color: #e71d36;
+  }
+
+  .bandera {
+    background-color: #F0C808;
+  }
+
+  #mensaje {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    text-align: center;
+    color: white;
+    display: none;
+  }
+
+  #mensaje span {
+    padding: 20px;
+    background-color: #e71d36;
+    width: auto;
+    font-size: 30px;
+  }
+
+  @media (min-width:600px) {
+    .casilla {
+      height: 25px;
+      width: 30px;
+    }
+  }
+
+  @media (min-width:1200px) {
+    .casilla {
+      height: 40px;
+      width: 40px;
+    }
+  }
+</style>
+
 <body>
-    <h2>Autor: Mario Navarro Madrid</h2>
-        <main>
-            <div id="botonera">
-                <button id="facil">Fácil</button> <button id="normal">Normal</button>
-                <button id="dificil">Difícil</button>
-            </div>
-            <h2 id="info" style="display: none;">Banderas: <span id="numBanderas">10</span> - Bombas: <span id="numBombas"></span></h2>
-            <div id="mensaje"><span></span></div>
-            <div id="info">
-                <div id="crono"></div>
-                <div id="banderas"></div>
-            </div>
-            <div id="tablero"></div>
-        </main>
+  <h2>Autor: Mario Navarro Madrid</h2>
+  <main>
+    <div id="botonera">
+      <button id="facil">Fácil</button> <button id="normal">Normal</button>
+      <button id="dificil">Difícil</button>
+    </div>
+    <h2 id="info" style="display: none;">Banderas: <span id="numBanderas">10</span> - Bombas: <span id="numBombas"></span></h2>
+    <div id="mensaje"><span></span></div>
+    <div id="info">
+      <div id="crono"></div>
+      <div id="banderas"></div>
+    </div>
+    <div id="tablero"></div>
+  </main>
 </body>
 
 </html>
