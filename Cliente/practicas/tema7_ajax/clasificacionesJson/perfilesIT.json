@@ -6,5 +6,4 @@
         {"perfil" : "Desarrollador web en entorno .NET", "descripcion" : "Las empresas buscan perfiles con experiencia demostrada en el lenguaje de programación .NET, así como en C#. Dentro de este perfil, pueden distinguirse tres funciones distintas, de back-end, front-end y Full Stack (que incluye a ambas). Se valora mucho también el carácter multidisciplinar del candidato y los expertos en Full Stack son lo más cotizados. Eso sí, se requiere acreditar al menos 2 ó 3 años de experiencia con los lenguajes mencionados, así como en Javascript, MCV o Angular, sobre todo en el caso de desarrolladores Web."},
         {"perfil" : "Tester QA", "descripcion" : "Lo tester QA se dedican a realizar pruebas de software, principalmente automáticas y funcionales (ALM, Jmeter Selenium, QTP- HP UFT). Su perfil también es de los más solicitados y se sopesa, cada vez más, la experiencia profesional en metodologías ágiles."}
     ]
-
 }
