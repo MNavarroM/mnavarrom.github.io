@@ -1,8 +1,5 @@
 {
 
-
-
-
   function crearTablero() {
     $("#tablero").css("display", "none");
     let tablero = "<table>";
@@ -123,8 +120,6 @@
       });
       $(this).off("mouseleave mouseup");
     });
-
-
     juego.reiniciarCasillasResaltar();
   }
 
@@ -135,7 +130,6 @@
 
     for (let i = 0; i < casillas.length; i++) {
       setTimeout(function () {
-        $("button").prop("disable");
         $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
         if (juego.getDerrota())
           $casilla.addClass("casillaBomba", 1000, "easeOutBounce");
@@ -146,7 +140,6 @@
       }, i * 30 + 100);
     }
     setTimeout(checkVictoria, 1000);
-    $("button").prop("disabled", false);
     juego.reiniciarCasillasPintar();
   }
 
