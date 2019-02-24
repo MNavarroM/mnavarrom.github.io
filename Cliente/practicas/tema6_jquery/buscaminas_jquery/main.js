@@ -1,6 +1,6 @@
 {
 
-  //let mostrando = false;
+
 
 
   function crearTablero() {
@@ -29,8 +29,6 @@
 
     $("button").click(function (e) {
       e.preventDefault();
-      /*if(mostrando)
-        return;*/
       $("#mensajePerdedor,#mensajeGanador").hide();
       switch ($(this).attr("id")) {
         case "facil":
@@ -133,26 +131,49 @@
   function mostrarCasilla() {
     let casillas = juego.getCasillasPintar();
     let $casilla;
-    //mostrando = true;
+
 
     for (let i = 0; i < casillas.length; i++) {
       setTimeout(function () {
         $("button").prop("disable");
         $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
-        if (casillas[i][2] === "X")
+        if (juego.getDerrota())
           $casilla.addClass("casillaBomba", 1000, "easeOutBounce");
-        else {
+        else{
           $casilla.addClass("casillaDestapada", 300, "easeOutBounce");
           $casilla.text(casillas[i][2]);
         }
-        //if (casillas[i][2] != 0 || casillas[i][2] != "X")
       }, i * 30 + 100);
     }
     setTimeout(checkVictoria, 1000);
-    /*setTimeout(function () {
-      mostrando=false;
-    },1000);*/
     $("button").prop("disabled", false);
     juego.reiniciarCasillasPintar();
   }
+
+  /*function mostrarCasilla() {
+    let casillas = juego.getCasillasPintar();
+    let $casilla;
+    for (let i = 0; i < casillas.length; i++) {
+      setTimeout(function () {
+        $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
+        $casilla.fadeIn(i * 30 + 100, function () {
+          if(juego.getDerrota()){
+            $(this).addClass("casillaBomba",2000,"easeOutBounce");
+            if (juego.hasBandera(casillas[i][0], casillas[i][1])) {
+              quitarBandera(casillas[i][0], casillas[i][1]);
+            }
+          }
+          else{
+            $(this).addClass("casillaDestapada",300,"easeOutBounce");
+            $(this).text(casillas[i][2]);
+            $(this).removeClass("bandera",500,"easeInCirc");
+          }
+          //if (casillas[i][2] != 0 || casillas[i][2] != "X")
+          checkVictoria();
+      });
+    }, i * 30 + 100);
+  }
+      juego.reiniciarCasillasPintar();
+  }*/
+  
 }
