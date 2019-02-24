@@ -4,7 +4,7 @@
 {
   juego = (function () {
     return {
-      iniciarJuego: dificultad => buscaminas.iniciarJuego(dificultad),
+      iniciarJuego: (dificultad) => buscaminas.iniciarJuego(dificultad),
       abrir: (x, y) => buscaminas.abrir(x, y),
       ponerBandera: (x, y) => buscaminas.ponerBandera(x, y),
       quitarBandera: (x, y) => buscaminas.quitarBandera(x, y),
@@ -124,6 +124,7 @@
       //console.table(this.tableroVisible);
       console.log("Tablero mapeo");
       console.table(this.mapeoCasillas);
+      console.log("Utilice juego. en consola para ver los métodos disponibles.");
     },
     abrir(x, y) {
       if (this.isFinal()) {
