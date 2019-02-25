@@ -8,8 +8,6 @@
         ],
         email: [/^[^áéíóúÁÉÍÓÚ ()<>@,;:"\[\]\.ç%&]+@[^áéíóúÁÉÍÓÚ ()<>@,;:"\[\]\.ç%&]+\.[^áéíóúÁÉÍÓÚ ()<>@,;:"\[\]\.ç%&]{2,4}$/, "El email no cumple el formato xxxxxx@xxxx.xxx"],
 
-        mensaje: [/^^.{20,}$/, "El mensaje debe contener minimo 20 cárateres."],
-
         validarRegex(valor, expresion) {
             if (!validador[expresion][0].test(valor))
                 return false;
@@ -19,7 +17,7 @@
 
     $.fn.validadorFormularios = function () {
         let inputError = [];
-        $("input[type=text], textarea").blur(function (e) {
+        $("input[type=text]").blur(function (e) {
             e.preventDefault();
             let tipoRegex = $(this).attr("tipo");
             let valor = $(this).val();
@@ -37,7 +35,7 @@
             }
         });
 
-        $("input[type=text], textarea").focus(function (e) {
+        $("input[type=text]").focus(function (e) {
             e.preventDefault();
             $(this).css({
                 color: "black",
@@ -48,11 +46,14 @@
         $(this).submit(function (e) {
             e.preventDefault();
             inputError = [];
-            let $inputs = $("input[type=text], textarea");
+            let $inputs = $("input[type=text]");
             $inputs.blur();
             console.log(inputError);
-            if (inputError.length > 0)
+            if (inputError.length > 0){
                 inputError[0].focus();
+                $("textarea").val("");
+            }
+                
             else {
                 $.ajax({
                     url: "info.txt",

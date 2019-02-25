@@ -1,2 +1,2 @@
-Esto es un texto de prueba. No tiene más. Solo para probar jQuery.
-Palabrita.
+Validación correcta.
+Autor: Mario Navarro Madrid
