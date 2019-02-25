@@ -28,8 +28,8 @@
                 });
             } else {
                 $(this).css({
-                    color: "red",
-                    border: "1px solid red"
+                    color: "#DB222A",
+                    border: "1px solid #DB222A"
                 });
                 inputError.push($(this));
             }
@@ -38,7 +38,6 @@
         $("input[type=text]").focus(function (e) {
             e.preventDefault();
             $(this).css({
-                color: "black",
                 border: "2px solid #ffD3D7"
             });
         });

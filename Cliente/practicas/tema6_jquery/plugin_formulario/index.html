@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="../jquery/jquery-3.3.1.js"></script>
     <script src="jquery.validadorFormularios.js"></script>
     <script src="main.js"></script>
     <title>Plugin formulario</title>
 </head>
 <style>
+    *{
+        font-family: 'Roboto';
+    }
+
+    body{
+        background-color: #BFDBF7;
+        text-align: center;
+    }
+
+    div{
+        text-align: center;
+    }
+
     form{
         padding: 20px;
     }
 
-    input, label{
-        margin-bottom: 10px;
+    ::placeholder,input:focus{
+        color: white;
+    }
+
+    input,textarea{
+        background-color: #1F7A8C;
+        color: white;
+        margin-bottom: 15px;
+        width: 50%;
+        font-size: 25px;
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 10px;
     }
 
 
 
+
 </style>
+
 <body>
-    <h2>Mario Navarro Madrid</h2>
+    <h1>Mario Navarro Madrid</h1>
     <a href="../index.html">Atrás</a>
-    <form action="">
-        <label for="nombre">Nombre: </label> <input type="text" name="" id="" tipo="nombre"></br>
-        <label for="apellidos">Apellidos: </label><input type="text" name="" id="" tipo="apellidos"></br>
-        <label for="email">Email: </label><input type="text" name="" id="" tipo="email"></br>
-        <label for="mensaje">Mensaje: </label></br></br><textarea name="" id="" cols="30" rows="5" tipo="mensaje"></textarea></br>
-        <input type="submit" value="Enviar">
-    </form>
+    <div>
+        <form action="">
+            <input type="text" tipo="nombre" placeholder="Nombre"></br>
+            <input type="text" tipo="apellidos" placeholder="Apellidos"></br>
+            <input type="text" tipo="email" placeholder="Email"></br>
+            <textarea cols="30" rows="5" tipo="mensaje"></textarea></br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
 </body>
+
 </html>
