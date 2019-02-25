@@ -20,7 +20,7 @@ if(isset($_GET['coincidencia'])){
     $arrayCoincidencia = array();
     $nombre = $_GET['coincidencia'];
     foreach ($alumnos as $key=>$alumno) {
-        if(preg_match("/".$nombre."/i"))
+        if(preg_match("/".$nombre."/i",$_GET['coincidencia']))
             array_push($arrayCoincidencia,$alumno);
     }
     if(empty($arrayCoincidencia))
