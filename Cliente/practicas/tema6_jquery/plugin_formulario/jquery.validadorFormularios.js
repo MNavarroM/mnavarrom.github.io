@@ -53,15 +53,12 @@
                 inputError[0].focus();
                 $("textarea").val("");
             }
-                
             else {
-                $.ajax({
-                    url: "info.txt",
-                    dataType: "text",
-                    success: function (response) {
-                        $("textarea").val(response);
-                    }
-                });
+                $.get("info.txt",
+                    function (data) {
+                        $("textarea").val(data);
+                    },
+                );
             }
         });
     }
