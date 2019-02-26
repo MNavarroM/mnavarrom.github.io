@@ -1,6 +1,63 @@
 {
 
-  function crearTablero() {
+  $(function () {
+    iniciarPartida();
+  });
+
+    function iniciarPartida(){
+      $("#tablero").contextmenu(function (e) {
+        e.preventDefault();
+      });
+  
+      $("button").mousedown(function (e) {
+        e.preventDefault();
+        $("#mensajePerdedor,#mensajeGanador").hide();
+        switch ($(this).attr("id")) {
+          case "facil":
+            juego.iniciarJuego(0);
+            break;
+          case "normal":
+            juego.iniciarJuego(1);
+            break;
+          case "dificil":
+            juego.iniciarJuego(2);
+            break;
+        }
+        crearTablero();
+        $("#numBanderas").text(juego.getBanderas());
+        $("td").mousedown(function (e) {
+          e.preventDefault();
+          let x = $(this).attr("x");
+          let y = $(this).attr("y");
+          switch (e.buttons) {
+            case 1:
+              if (!juego.hasBandera(x, y))
+                picar(x, y);
+              break;
+            case 2:
+              if (juego.getDerrota() || juego.getVictoria())
+                return;
+              if (juego.hasBandera(x, y))
+                quitarBandera(x, y);
+              else {
+                ponerBandera(x, y);
+              }
+              $("#numBanderas").text(juego.getBanderas());
+              break;
+            case 3:
+            case 4:
+              juego.despejar(x, y);
+              if (juego.getCasillasResaltadas().length !== 0)
+                resaltarCasillas();
+              else
+                mostrarCasilla();
+              break;
+          }
+        });
+      });
+    }
+
+    function crearTablero() {
     $("#tablero").css("display", "none");
     let tablero = "<table>";
     for (let i = 0; i < juego.getFilas(); i++) {
@@ -17,60 +74,6 @@
     $("#tablero").show("sine");
 
   }
-
-  $(function () {
-
-    $("#tablero").contextmenu(function (e) {
-      e.preventDefault();
-    });
-
-    $("button").click(function (e) {
-      e.preventDefault();
-      $("#mensajePerdedor,#mensajeGanador").hide();
-      switch ($(this).attr("id")) {
-        case "facil":
-          juego.iniciarJuego(0);
-          break;
-        case "normal":
-          juego.iniciarJuego(1);
-          break;
-        case "dificil":
-          juego.iniciarJuego(2);
-          break;
-      }
-      crearTablero();
-      $("#numBanderas").text(juego.getBanderas());
-      $("td").mousedown(function (e) {
-        e.preventDefault();
-        let x = $(this).attr("x");
-        let y = $(this).attr("y");
-        switch (e.buttons) {
-          case 1:
-            if (!juego.hasBandera(x, y))
-              picar(x, y);
-            break;
-          case 2:
-            if (juego.getDerrota() || juego.getVictoria())
-              return;
-            if (juego.hasBandera(x, y))
-              quitarBandera(x, y);
-            else {
-              ponerBandera(x, y);
-            }
-            $("#numBanderas").text(juego.getBanderas());
-            break;
-          case 3:
-          case 4:
-            juego.despejar(x, y);
-            if (juego.getCasillasResaltadas().length !== 0)
-              resaltarCasillas();
-            else
-              mostrarCasilla();
-            break;
-        }
-      });
-    });
-  });
 
   function ponerBandera(x, y) {
     if (juego.ponerBandera(x, y))
@@ -126,8 +129,7 @@
   function mostrarCasilla() {
     let casillas = juego.getCasillasPintar();
     let $casilla;
-
-
+    $("button").off("mousedown");
     for (let i = 0; i < casillas.length; i++) {
       setTimeout(function () {
         $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
@@ -139,8 +141,14 @@
         }
       }, i * 30 + 100);
     }
-    setTimeout(checkVictoria, 1000);
     juego.reiniciarCasillasPintar();
+    setTimeout(function () {
+      checkVictoria();
+      $("button").on("mousedown", function () {
+        iniciarPartida();
+      });
+    },1500);
+
   }
 
   /*function mostrarCasilla() {
