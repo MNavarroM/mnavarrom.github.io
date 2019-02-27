@@ -8,7 +8,6 @@
       $("#tablero").contextmenu(function (e) {
         e.preventDefault();
       });
-  
       $("button").mousedown(function (e) {
         e.preventDefault();
         $("#mensajePerdedor,#mensajeGanador").hide();
@@ -24,6 +23,7 @@
             break;
         }
         crearTablero();
+        $("#botonera").html("<a href=index.html><button>Jugar de nuevo</button></a>");
         $("#numBanderas").text(juego.getBanderas());
         $("td").mousedown(function (e) {
           e.preventDefault();
@@ -142,12 +142,8 @@
       }, i * 30 + 100);
     }
     juego.reiniciarCasillasPintar();
-    setTimeout(function () {
-      checkVictoria();
-      $("button").on("mousedown", function () {
-        iniciarPartida();
-      });
-    },1500);
+    checkVictoria();
+
 
   }
 
