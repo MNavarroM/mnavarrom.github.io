@@ -15,10 +15,16 @@
         },
     }
 
-    $.fn.validadorFormularios = function () {
-        let inputError = [];
+    $.fn.validadorFormularios = function (options) {
+        let inputError = [];    
+        let estilos = {
+            color: "#DB222A",
+            border: "1px solid #DB222A"
+        }
+        $.extend(estilos,options);
         $("input[type=text]").blur(function (e) {
             e.preventDefault();
+            console.log($(this));
             let tipoRegex = $(this).attr("tipo");
             let valor = $(this).val();
             if (validador.validarRegex(valor, tipoRegex)) {
@@ -27,10 +33,7 @@
                     border: "1px solid green"
                 });
             } else {
-                $(this).css({
-                    color: "#DB222A",
-                    border: "1px solid #DB222A"
-                });
+                $(this).css(estilos);
                 inputError.push($(this));
             }
         });
