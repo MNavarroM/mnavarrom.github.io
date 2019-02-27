@@ -24,7 +24,6 @@
         $.extend(estilos,options);
         $("input[type=text]").blur(function (e) {
             e.preventDefault();
-            console.log($(this));
             let tipoRegex = $(this).attr("tipo");
             let valor = $(this).val();
             if (validador.validarRegex(valor, tipoRegex)) {
