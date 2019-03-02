@@ -15,41 +15,48 @@
         },
     }
 
+    let colorInicial = $("input[type=text]").css("color");
+    let borderInicial = $("input[type=text]").css("border");
+    let fondoInicial = $("input[type=text]").css("backgroundColor");
+
     $.fn.validadorFormularios = function (options) {
-        let inputError = [];    
-        let estilos = {
-            color: "#DB222A",
-            border: "1px solid #DB222A"
+        let inputError = [];
+        let estilosError = {
+            color: "#ff0000",
+            border: "border 2px solid #ffD3D7",
+            backgroundColor : "#ffDEDE"
         }
-        $.extend(estilos,options);
-        $("input[type=text]").blur(function (e) {
+        $.extend(estilosError,options);
+        $("input[type=text]",$(this)).blur(function (e) {
             e.preventDefault();
             let tipoRegex = $(this).attr("tipo");
             let valor = $(this).val();
-            if (validador.validarRegex(valor, tipoRegex)) {
-                $(this).css({
-                    color: "green",
-                    border: "1px solid green"
-                });
-            } else {
-                $(this).css(estilos);
+            if (!validador.validarRegex(valor, tipoRegex)) {
+                $(this).css(estilosError);
                 inputError.push($(this));
+            }else{
+                $(this).css({
+                color: "green",
+                border: "border 2px solid black",
+                backgroundColor : "white"
+                });
             }
         });
 
-        $("input[type=text]").focus(function (e) {
+        $("input[type=text]",$(this)).focus(function (e) {
             e.preventDefault();
             $(this).css({
-                border: "2px solid #ffD3D7"
-            });
+                color: colorInicial,
+                border: borderInicial,
+                backgroundColor: fondoInicial
+              });
         });
 
         $(this).submit(function (e) {
             e.preventDefault();
             inputError = [];
-            let $inputs = $("input[type=text]");
+            let $inputs = $("input[type=text]",$(this));
             $inputs.blur();
-            console.log(inputError);
             if (inputError.length > 0){
                 inputError[0].focus();
                 $("textarea").val("");

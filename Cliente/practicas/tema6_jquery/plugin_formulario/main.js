@@ -1,5 +1,5 @@
 {
     $(function () {
-        $("form").validadorFormularios();
+        $("form").validadorFormularios( );
     });
 }
