@@ -2,34 +2,8 @@
  * @author Mario Navarro Madrid
  */
 
-  // juego = (function () {
-  //   return {
-  //     iniciarJuego: (dificultad) => iniciarJuego(dificultad),
-  //     abrir: (x, y) => buscaminas.abrir(x, y),
-  //     ponerBandera: (x, y) => buscaminas.ponerBandera(x, y),
-  //     quitarBandera: (x, y) => buscaminas.quitarBandera(x, y),
-  //     mostrar: () => buscaminas.mostrar(),
-  //     getDificultad: () => buscaminas.getDificultad(),
-  //     getFilas: () => buscaminas.getFilas(),
-  //     getColumnas: () => buscaminas.getColumnas(),
-  //     getValue: (x, y) => buscaminas.getValue(x, y),
-  //     getValueMapeado: (x, y) => buscaminas.getValueMapeado(x, y),
-  //     getCasillasPintar: () => buscaminas.getCasillasPintar(),
-  //     getCasillasResaltadas: () => buscaminas.getCasillasResaltadas(),
-  //     reiniciarCasillasPintar: () => buscaminas.reiniciarCasillasPintar(),
-  //     reiniciarCasillasResaltar: () => buscaminas.reiniciarCasillasResaltar(),
-  //     getDerrota: () => buscaminas.getDerrota(),
-  //     getVictoria: () => buscaminas.getVictoria(),
-  //     hasBandera: (x, y) => buscaminas.hasBandera(x, y),
-  //     getBanderas: () => buscaminas.getBanderas(),
-  //     getMinas: () => buscaminas.getMinas(),
-  //     despejar: (x, y) => buscaminas.despejar(x, y)
-  //   };
-  // })();
-
   let buscaminas = (function(){
-    let dificultad = 0,
-    columnas = 0,
+    let columnas = 0,
     filas = 0,
     minas = 0,
     casillasRestantes = 0,
@@ -41,7 +15,7 @@
     derrota = false,
     contadorBanderas = 10,
     casillasPintar = [],
-    casillasResaltar = []
+    casillasResaltar = [];
     function iniciarJuego(dificultad) {
       partidaIniciada = true;
       derrota = false;
@@ -373,5 +347,5 @@
       getBanderas : getBanderas,
       getMinas : getMinas,
       despejar : despejar
-    }
+    };
   })();
