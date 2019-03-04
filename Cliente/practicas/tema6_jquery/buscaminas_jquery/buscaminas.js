@@ -3,6 +3,7 @@
  */
 
 let buscaminas = (function() {
+  const mina = "X", bandera = "P";
   let columnas = 0,
     filas = 0,
     minas = 0,
@@ -76,8 +77,8 @@ let buscaminas = (function() {
       do {
         fila = Math.floor(Math.random() * (filas - 1));
         columna = Math.floor(Math.random() * (columnas - 1));
-      } while (tablero[fila][columna] == "X");
-      tablero[fila][columna] = "X";
+      } while (tablero[fila][columna] == mina);
+      tablero[fila][columna] = mina;
       for (
         let j = Math.max(fila - 1, 0);
         j <= Math.min(fila + 1, filas - 1);
@@ -88,7 +89,7 @@ let buscaminas = (function() {
           k <= Math.min(columna + 1, columnas - 1);
           k++
         )
-          if (tablero[j][k] !== "X") tablero[j][k] += 1;
+          if (tablero[j][k] !== mina) tablero[j][k] += 1;
     }
   }
   function mostrar() {
@@ -126,7 +127,7 @@ let buscaminas = (function() {
           abrirCero(x, y);
         }
         break;
-      case "X":
+      case mina:
         mostrarMinas();
         derrota = true;
         finalPartida = true;
@@ -182,35 +183,35 @@ let buscaminas = (function() {
   function calcularNumeroBanderas(fila, columna, filas, columnas) {
     let numBanderas = 0;
     if (fila != 0) {
-      if (mapeoCasillas[fila - 1][columna] === "P") numBanderas++;
+      if (mapeoCasillas[fila - 1][columna] === bandera) numBanderas++;
       else casillasResaltar.push([fila - 1, columna]);
     }
     if (fila != filas) {
-      if (mapeoCasillas[fila + 1][columna] === "P") numBanderas++;
+      if (mapeoCasillas[fila + 1][columna] === bandera) numBanderas++;
       else casillasResaltar.push([fila + 1, columna]);
     }
     if (columna != columnas) {
-      if (mapeoCasillas[fila][columna + 1] === "P") numBanderas++;
+      if (mapeoCasillas[fila][columna + 1] === bandera) numBanderas++;
       else casillasResaltar.push([fila, columna + 1]);
     }
     if (columna != 0) {
-      if (mapeoCasillas[fila][columna - 1] === "P") numBanderas++;
+      if (mapeoCasillas[fila][columna - 1] === bandera) numBanderas++;
       else casillasResaltar.push([fila, columna - 1]);
     }
     if (columna !== 0 && fila !== filas) {
-      if (mapeoCasillas[fila + 1][columna - 1] === "P") numBanderas++;
+      if (mapeoCasillas[fila + 1][columna - 1] === bandera) numBanderas++;
       else casillasResaltar.push([fila + 1, columna - 1]);
     }
     if (fila != 0 && columna != 0) {
-      if (mapeoCasillas[fila - 1][columna - 1] === "P") numBanderas++;
+      if (mapeoCasillas[fila - 1][columna - 1] === bandera) numBanderas++;
       else casillasResaltar.push([fila - 1, columna - 1]);
     }
     if (fila != filas && columna != columnas) {
-      if (mapeoCasillas[fila + 1][columna + 1] === "P") numBanderas++;
+      if (mapeoCasillas[fila + 1][columna + 1] === bandera) numBanderas++;
       else casillasResaltar.push([fila + 1, columna + 1]);
     }
     if (fila != 0 && columna != columnas) {
-      if (mapeoCasillas[fila - 1][columna + 1] === "P") numBanderas++;
+      if (mapeoCasillas[fila - 1][columna + 1] === bandera) numBanderas++;
       else casillasResaltar.push([fila - 1, columna + 1]);
     }
     return numBanderas;
@@ -226,7 +227,7 @@ let buscaminas = (function() {
             k <= Math.min(y + 1, columnas - 1);
             k++
           ) {
-            if (tablero[j][k] != "X") {
+            if (tablero[j][k] != mina) {
               abrir(j, k);
             }
           }
@@ -238,9 +239,9 @@ let buscaminas = (function() {
     casillasPintar = [];
     for (let i = 0; i < filas; i++) {
       for (let j = 0; j < columnas; j++) {
-        if (tablero[i][j] == "X") {
-          tablero[i][j] = "X";
-          tableroVisible[i][j] = "X";
+        if (tablero[i][j] == mina) {
+          tablero[i][j] = mina;
+          tableroVisible[i][j] = mina;
           casillasPintar.push([i, j, getValue(i, j)]);
         }
       }
@@ -266,7 +267,7 @@ let buscaminas = (function() {
      */
     if (contadorBanderas > 0) {
       if (mapeoCasillas[x][y] === 0) {
-        mapeoCasillas[x][y] = "P";
+        mapeoCasillas[x][y] = bandera;
         --contadorBanderas;
         return true;
       }
@@ -293,7 +294,7 @@ let buscaminas = (function() {
     /**
      * Si existe una bandera en esa posición, se quita e indicamos con true que se ha quitado.
      */
-    if (mapeoCasillas[x][y] === "P") {
+    if (mapeoCasillas[x][y] === bandera) {
       mapeoCasillas[x][y] = 0;
       ++contadorBanderas;
       return true;
@@ -341,7 +342,7 @@ let buscaminas = (function() {
     return casillasRestantes == 0;
   }
   function hasBandera(x, y) {
-    return mapeoCasillas[x][y] === "P";
+    return mapeoCasillas[x][y] === bandera;
   }
   function getBanderas() {
     //console.log(contadorBanderas);
