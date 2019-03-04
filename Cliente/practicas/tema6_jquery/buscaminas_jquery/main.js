@@ -108,19 +108,31 @@
     if(buscaminas.getDerrota())
       return;
 
-    casillas.forEach(element => {
-      if (buscaminas.getValueMapeado(element[0], element[1]) === 0)
-        objetosCasillas.push($("#" + element[0] + "_" + element[1]))
+    $.each(casillas, function (indexInArray, valueOfElement) { 
+      if (buscaminas.getValueMapeado(valueOfElement[0], valueOfElement[1]) === 0)
+        objetosCasillas.push($("#" + valueOfElement[0] + "_" + valueOfElement[1]))
     });
 
-    objetosCasillas.forEach(element => {
-      element.addClass("casillaResaltada", 500, "easeOutBounce");
+    // casillas.forEach(element => {
+    //   if (buscaminas.getValueMapeado(element[0], element[1]) === 0)
+    //     objetosCasillas.push($("#" + element[0] + "_" + element[1]))
+    // });
+
+    $.each(objetosCasillas, function (indexInArray, valueOfElement) { 
+      valueOfElement.addClass("casillaResaltada", 500, "easeOutBounce");
     });
+
+    // objetosCasillas.forEach(element => {
+    //   element.addClass("casillaResaltada", 500, "easeOutBounce");
+    // });
 
     $("td").on("mouseleave mouseup", function () {
-      objetosCasillas.forEach(element => {
-        element.removeClass("casillaResaltada", 400, "linear");
+      $.each(objetosCasillas, function (indexInArray, valueOfElement) { 
+        valueOfElement.removeClass("casillaResaltada", 400, "linear");
       });
+      // objetosCasillas.forEach(element => {
+      //   element.removeClass("casillaResaltada", 400, "linear");
+      // });
       $(this).off("mouseleave mouseup");
     });
     
