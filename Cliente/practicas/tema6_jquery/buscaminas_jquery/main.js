@@ -13,41 +13,41 @@
         $("#mensajePerdedor,#mensajeGanador").hide();
         switch ($(this).attr("id")) {
           case "facil":
-            juego.iniciarJuego(0);
+            buscaminas.iniciarJuego(0);
             break;
           case "normal":
-            juego.iniciarJuego(1);
+            buscaminas.iniciarJuego(1);
             break;
           case "dificil":
-            juego.iniciarJuego(2);
+            buscaminas.iniciarJuego(2);
             break;
         }
         crearTablero();
         $("#botonera").html("<a href=index.html><button>Jugar de nuevo</button></a>");
-        $("#numBanderas").text(juego.getBanderas());
+        $("#numBanderas").text(buscaminas.getBanderas());
         $("td").mousedown(function (e) {
           e.preventDefault();
           let x = $(this).attr("x");
           let y = $(this).attr("y");
           switch (e.buttons) {
             case 1:
-              if (!juego.hasBandera(x, y))
+              if (!buscaminas.hasBandera(x, y))
                 picar(x, y);
               break;
             case 2:
-              if (juego.getDerrota() || juego.getVictoria())
+              if (buscaminas.getDerrota() || buscaminas.getVictoria())
                 return;
-              if (juego.hasBandera(x, y))
+              if (buscaminas.hasBandera(x, y))
                 quitarBandera(x, y);
               else {
                 ponerBandera(x, y);
               }
-              $("#numBanderas").text(juego.getBanderas());
+              $("#numBanderas").text(buscaminas.getBanderas());
               break;
             case 3:
             case 4:
-              juego.despejar(x, y);
-              if (juego.getCasillasResaltadas().length !== 0)
+              buscaminas.despejar(x, y);
+              if (buscaminas.getCasillasResaltadas().length !== 0)
                 resaltarCasillas();
               else
                 mostrarCasilla();
@@ -60,56 +60,56 @@
     function crearTablero() {
     $("#tablero").css("display", "none");
     let tablero = "<table>";
-    for (let i = 0; i < juego.getFilas(); i++) {
+    for (let i = 0; i < buscaminas.getFilas(); i++) {
       tablero += "<tr>";
-      for (let j = 0; j < juego.getColumnas(); j++) {
+      for (let j = 0; j < buscaminas.getColumnas(); j++) {
         tablero += "<td class=casilla id=" + i + "_" + j + " x=" + i + " y=" + j + "></td>";
       }
       tablero += "</tr>";
     }
     tablero += "</table>";
     $("#tablero").html(tablero);
-    $("#numBombas").text(juego.getMinas());
+    $("#numBombas").text(buscaminas.getMinas());
     $("#info").show("sine");
     $("#tablero").show("sine");
 
   }
 
   function ponerBandera(x, y) {
-    if (juego.ponerBandera(x, y))
+    if (buscaminas.ponerBandera(x, y))
       $("#" + x + "_" + y).addClass("bandera", 300, "linear");
   }
 
   function quitarBandera(x, y) {
-    if (juego.quitarBandera(x, y))
+    if (buscaminas.quitarBandera(x, y))
       $("#" + x + "_" + y).removeClass("bandera", 300, "linear");
 
   }
 
   function picar(x, y) {
-    if (juego.getDerrota() || juego.getVictoria()) return;
-    juego.abrir(x, y);
+    if (buscaminas.getDerrota() || buscaminas.getVictoria()) return;
+    buscaminas.abrir(x, y);
     mostrarCasilla();
   }
 
   function checkVictoria() {
-    if (juego.getDerrota()) {
+    if (buscaminas.getDerrota()) {
       $("#mensajePerdedor").show("pulsate");
-    } else if (juego.getVictoria()) {
+    } else if (buscaminas.getVictoria()) {
       $("#mensajeGanador").show("scale");
     }
   }
 
   function resaltarCasillas() {
     let casilla, value;
-    let casillas = juego.getCasillasResaltadas();
+    let casillas = buscaminas.getCasillasResaltadas();
     let objetosCasillas = [];
 
-    if(juego.getDerrota())
+    if(buscaminas.getDerrota())
       return;
 
     casillas.forEach(element => {
-      if (juego.getValueMapeado(element[0], element[1]) === 0)
+      if (buscaminas.getValueMapeado(element[0], element[1]) === 0)
         objetosCasillas.push($("#" + element[0] + "_" + element[1]))
     });
 
@@ -123,17 +123,16 @@
       });
       $(this).off("mouseleave mouseup");
     });
-    juego.reiniciarCasillasResaltar();
+    buscaminas.reiniciarCasillasResaltar();
   }
 
   function mostrarCasilla() {
-    let casillas = juego.getCasillasPintar();
+    let casillas = buscaminas.getCasillasPintar();
     let $casilla;
-    $("button").off("mousedown");
     for (let i = 0; i < casillas.length; i++) {
       setTimeout(function () {
         $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
-        if (juego.getDerrota())
+        if (buscaminas.getDerrota())
           $casilla.addClass("casillaBomba", 1000, "easeOutBounce");
         else{
           $casilla.addClass("casillaDestapada", 300, "easeOutBounce");
@@ -141,36 +140,7 @@
         }
       }, i * 30 + 100);
     }
-    juego.reiniciarCasillasPintar();
+    buscaminas.reiniciarCasillasPintar();
     checkVictoria();
-
-
   }
-
-  /*function mostrarCasilla() {
-    let casillas = juego.getCasillasPintar();
-    let $casilla;
-    for (let i = 0; i < casillas.length; i++) {
-      setTimeout(function () {
-        $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
-        $casilla.fadeIn(i * 30 + 100, function () {
-          if(juego.getDerrota()){
-            $(this).addClass("casillaBomba",2000,"easeOutBounce");
-            if (juego.hasBandera(casillas[i][0], casillas[i][1])) {
-              quitarBandera(casillas[i][0], casillas[i][1]);
-            }
-          }
-          else{
-            $(this).addClass("casillaDestapada",300,"easeOutBounce");
-            $(this).text(casillas[i][2]);
-            $(this).removeClass("bandera",500,"easeInCirc");
-          }
-          //if (casillas[i][2] != 0 || casillas[i][2] != "X")
-          checkVictoria();
-      });
-    }, i * 30 + 100);
-  }
-      juego.reiniciarCasillasPintar();
-  }*/
-  
 }
