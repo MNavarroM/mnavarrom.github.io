@@ -43,10 +43,6 @@
     casillasPintar = [],
     casillasResaltar = []
     function iniciarJuego(dificultad) {
-      dificultad = dificultad;
-      columnas = 0;
-      filas = 0;
-      minas = 0;
       partidaIniciada = true;
       derrota = false;
       contadorBanderas = 10;
@@ -124,7 +120,7 @@
       //console.table(tableroVisible);
       console.log("Tablero mapeo");
       console.table(mapeoCasillas);
-      console.log("Utilice juego. en consola para ver los métodos disponibles.");
+      console.log("Utilice bucasminas. en consola para ver los métodos disponibles.");
     }
     function abrir(x, y) {
       if (isFinal()) {
@@ -320,9 +316,6 @@
     function isEmpezada() {
       return partidaIniciada;
     }
-    function getDificultad() {
-      return dificultad;
-    }
     function getFilas() {
       return filas;
     }
@@ -338,17 +331,14 @@
       let value = mapeoCasillas[x][y];
       return value;
     }
+    function reiniciarCasillasPintar(){
+      casillasPintar = [];
+    }
     function getCasillasPintar() {
       return casillasPintar;
     }
     function getCasillasResaltadas() {
       return casillasResaltar;
-    }
-    function reiniciarCasillasPintar() {
-      casillasPintar = [];
-    }
-    function reiniciarCasillasResaltar() {
-      casillasResaltar = [];
     }
     function getDerrota() {
       return derrota;
@@ -371,16 +361,12 @@
       abrir: abrir,
       ponerBandera: ponerBandera,
       quitarBandera: quitarBandera,
-      mostrar: mostrar,
-      getDificultad: getDificultad,
       getFilas: getFilas,
       getColumnas: getColumnas,
-      getValue: getValue,
+      reiniciarCasillasPintar : reiniciarCasillasPintar,
       getValueMapeado: getValueMapeado,
       getCasillasPintar: getCasillasPintar,
       getCasillasResaltadas: getCasillasResaltadas,
-      reiniciarCasillasPintar: reiniciarCasillasPintar,
-      reiniciarCasillasResaltar :  reiniciarCasillasResaltar,
       getDerrota: getDerrota,
       getVictoria: getVictoria,
       hasBandera : hasBandera,

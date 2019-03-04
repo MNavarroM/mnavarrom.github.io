@@ -123,7 +123,7 @@
       });
       $(this).off("mouseleave mouseup");
     });
-    buscaminas.reiniciarCasillasResaltar();
+    
   }
 
   function mostrarCasilla() {
