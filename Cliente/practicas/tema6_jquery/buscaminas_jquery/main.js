@@ -137,15 +137,8 @@
         objetosCasillas.push($casilla);
     });
 
-    $(objetosCasillas).addClass("casillaResaltada", 500, "easeOutBounce");
-    $("td").on("mouseleave mouseup", function() {
-      /*console.log($(this));
-      $.each($(objetosCasillas), function(indexInArray, valueOfElement) {
-        console.log(valueOfElement);
-        valueOfElement.removeClass("casillaResaltada", 400, "linear");
-      });*/
-      $(objetosCasillas).removeClass("casillaResaltada", 500, "easeOutBounce");
-      $(this).off("mouseleave mouseup");
+    $(objetosCasillas).addClass("casillaResaltada", 500, "easeOutBounce", function () {
+      $(this).removeClass("casillaResaltada", 400, "linear");
     });
   }
 
