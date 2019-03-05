@@ -12,13 +12,11 @@ let buscaminas = (function() {
     mapeoCasillas = [],
     tableroVisible = [],
     finalPartida = false,
-    partidaIniciada = false,
     derrota = false,
     contadorBanderas = 10,
     casillasPintar = [],
     casillasResaltar = [];
   function iniciarJuego(dificultad) {
-    partidaIniciada = true;
     derrota = false;
     contadorBanderas = 10;
     try {
@@ -104,20 +102,12 @@ let buscaminas = (function() {
     );
   }
   function abrir(x, y) {
-    if (isFinal()) {
-      console.log("Has perdido la partida, no puedes colocar minas");
+    if (isFinal())
       return;
-    }
-    if (!isEmpezada()) {
-      console.log("La partida no está iniciada");
+    if (x > filas - 1 || x < 0 || y > columnas - 1 || y < 0)
+      throw new Error("Fila o columna no válida");      
+    if (mapeoCasillas[x][y] !== 0)
       return;
-    }
-    if (mapeoCasillas[x][y] !== 0) return;
-    if (x > filas - 1 || x < 0 || y > columnas - 1 || y < 0) {
-      console.log("Fila o columna no válida");
-      return;
-    }
-
     let value = tablero[x][y];
     switch (value) {
       case 0:
@@ -142,10 +132,10 @@ let buscaminas = (function() {
     }
     casillasPintar.unshift([x, y, getValue(x, y)]);
     if (casillasRestantes == 0) {
-      partidaFinalizada = true;
-      return "¡Has ganado!";
+      finalPartida = true;
+      return;
     }
-    if (derrota) console.log("Has pulsado una mina, has perdido!");
+    if (derrota)return;
   }
   function despejar(fila, columna) {
     let x = parseInt(fila);
@@ -250,18 +240,10 @@ let buscaminas = (function() {
     derrota = true;
   }
   function ponerBandera(x, y) {
-    if (x >= filas || x < 0 || y >= columnas || y < 0) {
-      console.log("Fila o columna no válida");
-      return;
-    }
-    if (isFinal()) {
-      console.log("Has perdido la partida, no puedes colocar minas");
-      return;
-    }
-    if (!isEmpezada()) {
-      console.log("La partida no está iniciada");
-      return;
-    }
+    if (x >= filas || x < 0 || y >= columnas || y < 0)
+      throw new Error("Fila o columna no válida");
+    if (isFinal())
+      throw new Error();
     /**
      * Si existen banderas por colocar, la colocamos y devolvemos true para indicar que la bander ha sido colocada
      */
@@ -276,21 +258,13 @@ let buscaminas = (function() {
        */
       return false;
     }
-    console.log("Ya has colocado el máximo de banderas");
+    throw new Error("Ya has colocado el máximo de banderas");
   }
   function quitarBandera(x, y) {
-    if (x >= filas || x < 0 || y >= columnas || y < 0) {
-      console.log("Fila o columna no válida");
-      return;
-    }
-    if (isFinal()) {
-      console.log("Has perdido la partida, no puedes quitar banderas");
-      return;
-    }
-    if (!isEmpezada()) {
-      console.log("La partida no está iniciada");
-      return;
-    }
+    if (x >= filas || x < 0 || y >= columnas || y < 0)
+      throw new Error("Fila o columna no válida");
+    if (isFinal())
+      throw new Error("Has perdido la partida, no puedes quitar banderas");
     /**
      * Si existe una bandera en esa posición, se quita e indicamos con true que se ha quitado.
      */
@@ -302,14 +276,11 @@ let buscaminas = (function() {
     /**
      * Si no existe bandera en esa posición indicamos con false que no se ha quitado.
      */
-    console.log("No existe ninguna bandera en esa posición");
+    //console.log("No existe ninguna bandera en esa posición");
     return false;
   }
   function isFinal() {
     return finalPartida;
-  }
-  function isEmpezada() {
-    return partidaIniciada;
   }
   function getFilas() {
     return filas;
@@ -367,6 +338,7 @@ let buscaminas = (function() {
     hasBandera: hasBandera,
     getBanderas: getBanderas,
     getMinas: getMinas,
-    despejar: despejar
+    despejar: despejar,
+    mostrar: mostrar
   };
 })();

@@ -35,6 +35,7 @@
         let y = $(this).attr("y");
         isFinished();
         switch (e.buttons) {
+          
           case 1:
             if (!buscaminas.hasBandera(x, y)) picar(x, y);
             break;
@@ -47,6 +48,7 @@
             break;
           case 3:
           case 4:
+          console.log(e.buttons);
             buscaminas.despejar(x, y);
             if (buscaminas.getCasillasResaltadas().length !== 0)
               resaltarCasillas();
@@ -85,26 +87,41 @@
   }
 
   function ponerBandera(x, y) {
-    if (buscaminas.ponerBandera(x, y))
-      $("#" + x + "_" + y).addClass("bandera", 300, "linear");
+    try {
+      if (buscaminas.ponerBandera(x, y))
+        $("#" + x + "_" + y).addClass("bandera", 300, "linear");
+    } catch (error) {
+      if(error.message !="")
+        console.log(error.message);
+    }
   }
 
   function quitarBandera(x, y) {
-    if (buscaminas.quitarBandera(x, y))
-      $("#" + x + "_" + y).removeClass("bandera", 300, "linear");
+    try {
+      if (buscaminas.quitarBandera(x, y))
+        $("#" + x + "_" + y).removeClass("bandera", 300, "linear");
+    } catch (error) {
+      if(error.message !="")
+        console.log(error.message);
+    }
   }
 
   function picar(x, y) {
     isFinished();
-    buscaminas.abrir(x, y);
-    mostrarCasilla();
+    try {
+      buscaminas.abrir(x, y);  
+      mostrarCasilla();
+    } catch (error) {
+      if(error.message !="")
+        console.log(error.message);
+    }
   }
 
   function checkVictoria() {
     if (buscaminas.getDerrota()) {
       $("#mensajePerdedor").show("pulsate");
     } else if (buscaminas.getVictoria()) {
-      $("#mensajeGanador").show("scale");
+      $("#mensajeGanador").toggle("scale");
     }
   }
 
@@ -116,18 +133,18 @@
 
     $.each(casillas, function(indexInArray, valueOfElement) {
       let $casilla = $("#" + valueOfElement[0] + "_" + valueOfElement[1]);
-      if (
-        buscaminas.getValueMapeado(valueOfElement[0], valueOfElement[1]) === 0
-      ) {
+      if (buscaminas.getValueMapeado(valueOfElement[0], valueOfElement[1]) === 0)
         objetosCasillas.push($casilla);
-        $casilla.addClass("casillaResaltada", 500, "easeOutBounce");
-      }
     });
 
+    $(objetosCasillas).addClass("casillaResaltada", 500, "easeOutBounce");
     $("td").on("mouseleave mouseup", function() {
-      $.each(objetosCasillas, function(indexInArray, valueOfElement) {
+      /*console.log($(this));
+      $.each($(objetosCasillas), function(indexInArray, valueOfElement) {
+        console.log(valueOfElement);
         valueOfElement.removeClass("casillaResaltada", 400, "linear");
-      });
+      });*/
+      $(objetosCasillas).removeClass("casillaResaltada", 500, "easeOutBounce");
       $(this).off("mouseleave mouseup");
     });
   }
