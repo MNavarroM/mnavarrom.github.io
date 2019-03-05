@@ -138,7 +138,7 @@
     });
 
     $(objetosCasillas).addClass("casillaResaltada", 500, "easeOutBounce", function () {
-      $(this).removeClass("casillaResaltada", 400, "linear");
+      $(this).toggleClass("casillaResaltada", 400, "linear");
     });
   }
 
