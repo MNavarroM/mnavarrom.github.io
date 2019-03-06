@@ -50,7 +50,7 @@
           console.log(e.buttons);
             buscaminas.despejar(x, y);
             if (buscaminas.getCasillasResaltadas().length !== 0)
-              resaltarCasillas($("#"+x+"_"+y));
+              resaltarCasillas();
             else mostrarCasilla();
             break;
         }
@@ -124,7 +124,7 @@
     }
   }
 
-  function resaltarCasillas(casillaActual) {
+  function resaltarCasillas() {
     let $casillas = $(buscaminas.getCasillasResaltadas());
 
     if (buscaminas.getDerrota()) return;
