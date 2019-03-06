@@ -145,9 +145,9 @@
       setTimeout(function() {
         $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
         if (buscaminas.getDerrota())
-          $casilla.addClass("casillaBomba", 1000, "easeOutBounce");
+          $casilla.switchClass("casilla","casillaBomba", 1000, "easeOutBounce");
         else {
-          $casilla.addClass("casillaDestapada", 300, "easeOutBounce");
+          $casilla.toggleClass("casillaDestapada", 300, "easeOutBounce");
           $casilla.text(casillas[i][2]);
         }
       }, i * 30 + 100);
