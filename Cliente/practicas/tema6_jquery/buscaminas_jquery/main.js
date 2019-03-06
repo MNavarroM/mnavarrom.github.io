@@ -88,9 +88,7 @@
   function ponerBandera(x, y) {
     try {
       if (buscaminas.ponerBandera(x, y))
-        $("#" + x + "_" + y).animate({
-          backgroundColor : "#F0C808"
-        })
+          $("#" + x + "_" + y).addClass("bandera", 300, "linear");  
     } catch (error) {
       if(error.message !="")
         console.log(error.message);
@@ -100,9 +98,9 @@
   function quitarBandera(x, y) {
     try {
       if (buscaminas.quitarBandera(x, y))
-      $("#" + x + "_" + y).animate({
-        backgroundColor : "#2e294e"
-      })
+      //$("#" + x + "_" + y).fadeIn("slow", function () {
+        $(this).removeClass("bandera", 300, "linear");  
+      //})
     } catch (error) {
       if(error.message !="")
         console.log(error.message);
@@ -124,7 +122,7 @@
     if (buscaminas.getDerrota()) {
       $("#mensajePerdedor").show("pulsate");
     } else if (buscaminas.getVictoria()) {
-      $("#mensajeGanador").toggle("scale");
+      $("#mensajeGanador").show("scale");
     }
   }
 
@@ -135,7 +133,7 @@
 
 
     console.log($casillas);
-    $casillas.show(100,"easeOutBounce", function () {
+    $casillas.fadeIn("slow", function () {
       $(this).addClass("casillaResaltada");
     });
 
@@ -145,7 +143,7 @@
 
     $("td").on("mouseleave mouseup", function () {
          //$(this).removeClass("casillaResaltada", 400, "linear");  
-         $casillas.fadeIn(100,"easeOutBounce", function () {
+         $casillas.fadeIn(1000,"easeOutBounce", function () {
           $(this).removeClass("casillaResaltada");
       });
     });
@@ -159,10 +157,8 @@
     for (let i = 0; i < casillas.length; i++) {
       setTimeout(function() {
         $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
-        if (buscaminas.getDerrota()){
-          $casilla.toggle("bounce",)
-        }
-          //$casilla.toggleClass("casillaBomba", 1000, "easeOutBounce");
+        if (buscaminas.getDerrota())
+          $casilla.addClass("casillaBomba", 1000, "easeOutBounce");
         else {
           $casilla.addClass("casillaDestapada", 300, "easeOutBounce");
           $casilla.text(casillas[i][2]);
