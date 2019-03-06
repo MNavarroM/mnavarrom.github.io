@@ -88,7 +88,7 @@
   function ponerBandera(x, y) {
     try {
       if (buscaminas.ponerBandera(x, y))
-          $("#" + x + "_" + y).addClass("bandera", 300, "linear");  
+        $("#" + x + "_" + y).addClass("bandera", 300, "linear");  
     } catch (error) {
       if(error.message !="")
         console.log(error.message);
@@ -98,9 +98,7 @@
   function quitarBandera(x, y) {
     try {
       if (buscaminas.quitarBandera(x, y))
-      //$("#" + x + "_" + y).fadeIn("slow", function () {
-        $(this).removeClass("bandera", 300, "linear");  
-      //})
+        $("#" + x + "_" + y).removeClass("bandera", 300, "linear");
     } catch (error) {
       if(error.message !="")
         console.log(error.message);
@@ -131,23 +129,12 @@
 
     if (buscaminas.getDerrota()) return;
 
-
-    console.log($casillas);
     $casillas.fadeIn("slow", function () {
-      $(this).addClass("casillaResaltada");
-    });
-
-    //$casillas.addClass("casillaResaltada",1000,"easeOutBounce");
-
-    console.log(casillaActual);
-
-    $("td").on("mouseleave mouseup", function () {
-         //$(this).removeClass("casillaResaltada", 400, "linear");  
-         $casillas.fadeIn(1000,"easeOutBounce", function () {
-          $(this).removeClass("casillaResaltada");
+      $(this).addClass("casillaResaltada",400, function () {
+        $(this).removeClass("casillaResaltada",400);
       });
     });
-    
+
     buscaminas.reiniciarCasillasResaltar();
   }
 
