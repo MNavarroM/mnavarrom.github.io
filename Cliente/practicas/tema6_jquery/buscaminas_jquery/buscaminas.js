@@ -212,11 +212,7 @@ let buscaminas = (function() {
       mapeoCasillas[x][y] = -1;
       if (tablero[x][y] == 0) {
         for (let j = Math.max(x - 1, 0); j <= Math.min(x + 1, filas - 1); j++) {
-          for (
-            let k = Math.max(y - 1, 0);
-            k <= Math.min(y + 1, columnas - 1);
-            k++
-          ) {
+          for ( let k = Math.max(y - 1, 0); k <= Math.min(y + 1, columnas - 1); k++) {
             if (tablero[j][k] != mina) {
               abrir(j, k);
             }
@@ -300,11 +296,19 @@ let buscaminas = (function() {
   function reiniciarCasillasPintar() {
     casillasPintar = [];
   }
+  function reiniciarCasillasResaltar() {
+    casillasResaltar = [];
+  }
   function getCasillasPintar() {
     return casillasPintar;
   }
   function getCasillasResaltadas() {
-    return casillasResaltar;
+    let casillas = [];
+    for (let i = 0; i < casillasResaltar.length; i++) {
+      if (mapeoCasillas[casillasResaltar[i][0]][casillasResaltar[i][1]] === 0)
+        casillas.push($("#" + casillasResaltar[i][0] + "_" + casillasResaltar[i][1]));
+    }
+    return casillas;
   }
   function getDerrota() {
     return derrota;
@@ -330,6 +334,7 @@ let buscaminas = (function() {
     getFilas: getFilas,
     getColumnas: getColumnas,
     reiniciarCasillasPintar: reiniciarCasillasPintar,
+    reiniciarCasillasResaltar : reiniciarCasillasResaltar,
     getValueMapeado: getValueMapeado,
     getCasillasPintar: getCasillasPintar,
     getCasillasResaltadas: getCasillasResaltadas,

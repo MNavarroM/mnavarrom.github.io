@@ -35,7 +35,6 @@
         let y = $(this).attr("y");
         isFinished();
         switch (e.buttons) {
-          
           case 1:
             if (!buscaminas.hasBandera(x, y)) picar(x, y);
             break;
@@ -51,7 +50,7 @@
           console.log(e.buttons);
             buscaminas.despejar(x, y);
             if (buscaminas.getCasillasResaltadas().length !== 0)
-              resaltarCasillas();
+              resaltarCasillas($("#"+x+"_"+y));
             else mostrarCasilla();
             break;
         }
@@ -89,7 +88,9 @@
   function ponerBandera(x, y) {
     try {
       if (buscaminas.ponerBandera(x, y))
-        $("#" + x + "_" + y).addClass("bandera", 300, "linear");
+        $("#" + x + "_" + y).animate({
+          backgroundColor : "#F0C808"
+        })
     } catch (error) {
       if(error.message !="")
         console.log(error.message);
@@ -99,7 +100,9 @@
   function quitarBandera(x, y) {
     try {
       if (buscaminas.quitarBandera(x, y))
-        $("#" + x + "_" + y).removeClass("bandera", 300, "linear");
+      $("#" + x + "_" + y).animate({
+        backgroundColor : "#2e294e"
+      })
     } catch (error) {
       if(error.message !="")
         console.log(error.message);
@@ -125,21 +128,29 @@
     }
   }
 
-  function resaltarCasillas() {
-    let casillas = buscaminas.getCasillasResaltadas();
-    let objetosCasillas = [];
+  function resaltarCasillas(casillaActual) {
+    let $casillas = $(buscaminas.getCasillasResaltadas());
 
     if (buscaminas.getDerrota()) return;
 
-    $.each(casillas, function(indexInArray, valueOfElement) {
-      let $casilla = $("#" + valueOfElement[0] + "_" + valueOfElement[1]);
-      if (buscaminas.getValueMapeado(valueOfElement[0], valueOfElement[1]) === 0)
-        objetosCasillas.push($casilla);
+
+    console.log($casillas);
+    $casillas.show(100,"easeOutBounce", function () {
+      $(this).addClass("casillaResaltada");
     });
 
-    $(objetosCasillas).addClass("casillaResaltada", 500, "easeOutBounce", function () {
-      $(this).toggleClass("casillaResaltada", 400, "linear");
+    //$casillas.addClass("casillaResaltada",1000,"easeOutBounce");
+
+    console.log(casillaActual);
+
+    $("td").on("mouseleave mouseup", function () {
+         //$(this).removeClass("casillaResaltada", 400, "linear");  
+         $casillas.fadeIn(100,"easeOutBounce", function () {
+          $(this).removeClass("casillaResaltada");
+      });
     });
+    
+    buscaminas.reiniciarCasillasResaltar();
   }
 
   function mostrarCasilla() {
@@ -148,8 +159,10 @@
     for (let i = 0; i < casillas.length; i++) {
       setTimeout(function() {
         $casilla = $("#" + casillas[i][0] + "_" + casillas[i][1]);
-        if (buscaminas.getDerrota())
-          $casilla.addClass("casillaBomba", 1000, "easeOutBounce");
+        if (buscaminas.getDerrota()){
+          $casilla.toggle("bounce",)
+        }
+          //$casilla.toggleClass("casillaBomba", 1000, "easeOutBounce");
         else {
           $casilla.addClass("casillaDestapada", 300, "easeOutBounce");
           $casilla.text(casillas[i][2]);
