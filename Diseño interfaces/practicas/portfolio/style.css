@@ -73,17 +73,17 @@ h3{
 
 #css{
   background-color: #3F51B5;
-  width: 90%;
+  width: 60%;
 
 }
 
 #js{
-  width: 70%;
+  width: 50%;
   background-color: #FFEB3B;
 }
 
 #jquery{
-  width: 60%;
+  width: 50%;
   background-color: #303f9f;
 
 }
@@ -100,7 +100,7 @@ h3{
 
 #java{
   background-color: #f44336;
-  width: 70%;
+  width: 50%;
 }
 
 #android{
@@ -110,7 +110,7 @@ h3{
 
 #sql{
   background-color: #1565c0;
-  width: 60%;
+  width: 40%;
 
 }
 
